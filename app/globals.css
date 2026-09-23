@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  /* Paleta oficial del brand book de Veragua:
+     Verde Veragua #1F2F1F · Amarillo Tierra #D4A017 ·
+     Beige Claro #F2EFE6 · Beige Tierra #DCCDBA · Blanco Roto #FFFFFF.
+     Las demás variantes son tintes/sombras derivados matemáticamente de esas
+     cinco, ajustados donde hacía falta para mantener buen contraste de texto. */
+  --color-verde-950: #1f2f1f; /* Verde Veragua — color de marca exacto */
+  --color-verde-900: #354435;
+  --color-verde-800: #505d50;
+  --color-verde-700: #626d62;
+  --color-verde-600: #8b938b;
+
+  --color-tierra-600: #7f600e;
+  --color-tierra-500: #d4a017; /* Amarillo Tierra — color de marca exacto */
+  --color-tierra-400: #ddb54a;
+  --color-tierra-300: #e7cb7f;
+
+  --color-beige-100: #f2efe6; /* Beige Claro — color de marca exacto */
+  --color-beige-200: #e7ded0;
+  --color-beige-300: #dccdba; /* Beige Tierra — color de marca exacto */
+  --color-beige-400: #c2b4a4;
+
+  --color-blanco-roto: #ffffff;
+}
+
+@theme inline {
+  --color-verde-950: var(--color-verde-950);
+  --color-verde-900: var(--color-verde-900);
+  --color-verde-800: var(--color-verde-800);
+  --color-verde-700: var(--color-verde-700);
+  --color-verde-600: var(--color-verde-600);
+
+  --color-tierra-600: var(--color-tierra-600);
+  --color-tierra-500: var(--color-tierra-500);
+  --color-tierra-400: var(--color-tierra-400);
+  --color-tierra-300: var(--color-tierra-300);
+
+  --color-beige-100: var(--color-beige-100);
+  --color-beige-200: var(--color-beige-200);
+  --color-beige-300: var(--color-beige-300);
+  --color-beige-400: var(--color-beige-400);
+
+  --color-blanco-roto: var(--color-blanco-roto);
+
+  --font-heading: var(--font-montserrat);
+  --font-sans: var(--font-montserrat);
+  --font-logo: var(--font-logo);
+}
+
+body {
+  background: var(--color-beige-100);
+  color: var(--color-verde-950);
+  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  /* Brand book: "Montserrat / Medium" es la tipografía secundaria. */
+  font-weight: 500;
+}
+
+/* Una sola familia (Montserrat) para todo el sitio: la jerarquía entre
+   títulos y el resto del texto se construye con peso, no con tipografías
+   distintas. 600 (semibold) para títulos vs. 500 (medium) para cuerpo. */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+::selection {
+  background: var(--color-tierra-400);
+  color: var(--color-verde-950);
+}
