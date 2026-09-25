@@ -12,6 +12,34 @@ export const nosotros = {
     ],
   },
 
+  historiaLogo: {
+    kicker: "La historia detrás del logo",
+    introduccion:
+      "Nacimos como Alma de Campo. No pudimos registrar ese nombre, así que buscamos uno nuevo — y quise honrar a mi abuelo. Veragua fue el nombre de la primera finca que él logró comprar con el fruto de su trabajo.",
+    titulo: "Cada símbolo tiene su historia. Tócalos.",
+    subtitulo: "Toca el guayacán, la vaca o la gallina para conocerla.",
+    elementos: [
+      {
+        id: "vaca",
+        nombre: "La vaca",
+        texto:
+          "Vengo de una familia ganadera. Crecí soñando con seguir ese legado, construir un futuro en el campo y sentirme orgullosa de lo que hacía mi familia. Ese amor por las vacas fue la base de todo lo que vino después.",
+      },
+      {
+        id: "gallina",
+        nombre: "La gallina",
+        texto:
+          "Gracias al negocio familiar de las vacas pude empezar mi propio proyecto: gallinas en pastoreo. Quería sistemas que respetaran a los animales y generaran un impacto ambiental positivo. Así nació Veragua.",
+      },
+      {
+        id: "guayacan",
+        nombre: "El guayacán",
+        texto:
+          "Este árbol me recuerda a mi abuelo. Un día me propuso sembrar guayacanes juntos, en la finca de la montaña que se veía desde el balcón de la casa. Quería que cada vez que me sentara ahí y los viera, recordara todo lo que me enseñó sobre la pasión por el campo y lo que construimos juntos en familia.",
+      },
+    ],
+  },
+
   filosofia: {
     kicker: "Cómo pensamos",
     texto:
@@ -60,7 +88,7 @@ export const nosotros = {
         "La calidad no empieza en el punto de venta: cuidamos cada etapa, desde el campo hasta que el producto llega a ti.",
     },
     {
-      titulo: "Honestidad transparente",
+      titulo: "Honestidad",
       descripcion:
         "Cada producto es exactamente lo que decimos que es. Contamos su origen y sus características con toda claridad.",
     },

@@ -6,15 +6,17 @@ import { cubetasPorSemana, huevosPorSemanaHogar } from "@/lib/configurador/calcu
 import { bolsasCafePorMes, librasCafePorMes } from "@/lib/configurador/calculoCafe";
 
 const PRODUCTO_LACTEO: Record<TipoLacteo, { slug: string; nombreVisible: string }> = {
-  leche: { slug: "leche-a2", nombreVisible: "Leche A2" },
-  yogur: { slug: "yogur-artesanal", nombreVisible: "Yogur Artesanal" },
-  queso: { slug: "queso-campesino", nombreVisible: "Queso Campesino" },
+  leche: { slug: "leche-a2", nombreVisible: "Leche A2 Sanorigen" },
+  yogur: { slug: "yogur-artesanal", nombreVisible: "Yogur Líquido A2 Sanorigen" },
+  queso: { slug: "queso-campesino", nombreVisible: "Queso Fresco A2 Sanorigen" },
 };
 
+// Usa la primera variante (la variante por defecto) de cada producto: el
+// configurador calcula cantidades genéricas, no distingue tamaño/color/molienda.
 function precioProducto(slug: string): number {
   const producto = products.find((p) => p.slug === slug);
   if (!producto) throw new Error(`Producto no encontrado en el catálogo: ${slug}`);
-  return producto.precioCOP;
+  return producto.variantes[0].precioCOP;
 }
 
 export type DetallePlanPersonalizado = {

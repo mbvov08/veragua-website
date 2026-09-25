@@ -2,5 +2,5 @@
   <rect width="800" height="600" fill="#f5f0e4"/>
   <circle cx="400" cy="230" r="90" fill="none" stroke="#c69a2e" stroke-width="3" opacity="0.5"/>
   <text x="400" y="240" font-family="Georgia, serif" font-size="28" fill="#16281a" text-anchor="middle" opacity="0.7">veragua</text>
-  <text x="400" y="340" font-family="Arial, sans-serif" font-size="24" fill="#16281a" text-anchor="middle" font-weight="600">Queso Fresco</text>
+  <text x="400" y="340" font-family="Arial, sans-serif" font-size="24" fill="#16281a" text-anchor="middle" font-weight="600">Agua sin Gas</text>
 </svg>

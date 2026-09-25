@@ -33,7 +33,7 @@ export function HeroVideo() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="font-heading text-2xl leading-snug text-beige-100 sm:text-3xl md:text-4xl"
+          className="font-logo text-3xl font-semibold leading-snug text-beige-100 sm:text-4xl md:text-5xl"
         >
           Creemos que los alimentos deben tener
           <br /> un origen responsable, y queremos que tú lo conozcas.

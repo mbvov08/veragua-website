@@ -39,10 +39,10 @@ export const subscriptionPlans: SubscriptionPlan[] = [
     destacado: true,
     componentes: [
       { nombre: "Cubeta de huevos x 30 (2 por semana)", cantidadPorMes: 8, precioUnitarioCOP: 27000 },
-      { nombre: "Leche A2 x 1 L", cantidadPorMes: 1, precioUnitarioCOP: 15000 },
-      { nombre: "Yogur artesanal x 500 g", cantidadPorMes: 1, precioUnitarioCOP: 31000 },
-      { nombre: "Queso campesino x libra", cantidadPorMes: 1, precioUnitarioCOP: 17000 },
-      { nombre: "Leche A2 x 1 L", cantidadPorMes: 1, precioUnitarioCOP: 15000 },
+      { nombre: "Leche A2 Sanorigen x 1 L", cantidadPorMes: 1, precioUnitarioCOP: 15000 },
+      { nombre: "Yogur Líquido A2 Sanorigen x 500 g", cantidadPorMes: 1, precioUnitarioCOP: 31000 },
+      { nombre: "Queso Fresco A2 Sanorigen x libra", cantidadPorMes: 1, precioUnitarioCOP: 17000 },
+      { nombre: "Leche A2 Sanorigen x 1 L", cantidadPorMes: 1, precioUnitarioCOP: 15000 },
     ],
   },
   {

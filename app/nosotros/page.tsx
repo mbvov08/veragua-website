@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
+import { LogoStory } from "@/components/nosotros/LogoStory";
 import { nosotros } from "@/content/nosotros";
 
 export const metadata: Metadata = {
@@ -50,6 +51,24 @@ export default function NosotrosPage() {
       </section>
 
       <section className="bg-beige-200 px-6 py-24 md:py-32">
+        <Reveal>
+          <p className="mb-4 text-center text-sm font-medium uppercase tracking-[0.3em] text-tierra-600">
+            {nosotros.historiaLogo.kicker}
+          </p>
+          <p className="mx-auto max-w-2xl text-center text-lg leading-relaxed text-verde-900">
+            {nosotros.historiaLogo.introduccion}
+          </p>
+          <div className="mt-16">
+            <LogoStory
+              titulo={nosotros.historiaLogo.titulo}
+              subtitulo={nosotros.historiaLogo.subtitulo}
+              elementos={[...nosotros.historiaLogo.elementos]}
+            />
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="bg-beige-100 px-6 py-24 md:py-32">
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
             <p className="text-sm font-medium uppercase tracking-[0.3em] text-tierra-600">
@@ -63,21 +82,13 @@ export default function NosotrosPage() {
       </section>
 
       <section className="bg-beige-100 px-6 py-24 md:py-32">
-        <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-2">
+        <div className="mx-auto max-w-2xl text-center">
           <Reveal>
             <p className="text-sm font-medium uppercase tracking-[0.3em] text-tierra-600">
               {nosotros.mision.kicker}
             </p>
-            <p className="mt-4 font-heading text-xl leading-snug text-verde-950 sm:text-2xl">
+            <p className="mt-4 text-base leading-relaxed text-verde-900 sm:text-lg">
               {nosotros.mision.texto}
-            </p>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <p className="text-sm font-medium uppercase tracking-[0.3em] text-tierra-600">
-              {nosotros.vision.kicker}
-            </p>
-            <p className="mt-4 font-heading text-xl leading-snug text-verde-950 sm:text-2xl">
-              {nosotros.vision.texto}
             </p>
           </Reveal>
         </div>

@@ -35,7 +35,6 @@ export default function CafePage() {
           </span>
           <h1 className="mt-6 font-heading text-3xl text-verde-950">{cafe.nombre}</h1>
           <p className="mt-4 text-base leading-relaxed text-verde-800">{cafe.descripcion}</p>
-          <p className="mt-2 text-sm text-verde-700">Presentación: {cafe.unidad}</p>
 
           <div className="mt-8">
             <CafePurchase product={cafe} />

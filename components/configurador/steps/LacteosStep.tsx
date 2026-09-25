@@ -10,9 +10,9 @@ type LacteosStepProps = {
 };
 
 const TIPOS: { tipo: TipoLacteo; label: string; unidad: string; defaultCantidad: number }[] = [
-  { tipo: "leche", label: "Leche A2", unidad: "botellas x 1 L / semana", defaultCantidad: 1 },
-  { tipo: "yogur", label: "Yogur Artesanal", unidad: "envases x 500 g / semana", defaultCantidad: 1 },
-  { tipo: "queso", label: "Queso Campesino", unidad: "libras / semana", defaultCantidad: 1 },
+  { tipo: "leche", label: "Leche A2 Sanorigen", unidad: "botellas x 1 L / semana", defaultCantidad: 1 },
+  { tipo: "yogur", label: "Yogur Líquido A2 Sanorigen", unidad: "envases x 500 g / semana", defaultCantidad: 1 },
+  { tipo: "queso", label: "Queso Fresco A2 Sanorigen", unidad: "libras / semana", defaultCantidad: 1 },
 ];
 
 export function LacteosStep({

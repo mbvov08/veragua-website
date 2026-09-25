@@ -23,9 +23,18 @@ const items = [
   ["images/productos/huevos.svg", "Huevos de Pastoreo"],
   ["images/productos/leche.svg", "Leche A2"],
   ["images/productos/yogur.svg", "Yogur Artesanal"],
-  ["images/productos/queso.svg", "Queso Campesino"],
-  ["images/productos/brownies.svg", "Brownies"],
+  ["images/productos/queso.svg", "Queso Fresco"],
+  ["images/productos/queso-parrillero.svg", "Queso Parrillero"],
+  ["images/productos/yogur-griego.svg", "Yogur Griego"],
+  ["images/productos/kefir.svg", "Kéfir"],
   ["images/productos/arepas.svg", "Arepas"],
+  ["images/productos/gallina.svg", "Gallina Entera"],
+  ["images/productos/pollo.svg", "Pollo Criollo"],
+  ["images/productos/agua-con-gas.svg", "Agua con Gas"],
+  ["images/productos/agua-sin-gas.svg", "Agua sin Gas"],
+  ["images/productos/soda-jengibre.svg", "Soda de Jengibre"],
+  ["images/productos/soda-limon.svg", "Soda de Limón"],
+  ["images/productos/carnes-de-res.svg", "Carnes de Res"],
 ];
 
 for (const [path, label] of items) {

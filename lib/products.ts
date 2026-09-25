@@ -1,18 +1,28 @@
+export type ProductVariant = {
+  id: string;
+  nombre: string;
+  precioCOP: number;
+  unidad: string;
+};
+
 export type Product = {
   slug: string;
   nombre: string;
-  categoria: "cafe" | "huevos" | "lacteos" | "artesanales";
+  categoria: "cafe" | "huevos" | "lacteos" | "artesanales" | "carnes" | "bebidas";
   descripcion: string;
-  precioCOP: number;
-  unidad: string;
   imagen: string;
   comprableEnLinea: boolean;
+  // Se muestra en el catálogo como anuncio ("Próximamente"), sin precio,
+  // variantes ni botón de pedido — todavía no está disponible para la venta.
+  proximamente?: boolean;
+  variantes: ProductVariant[];
 };
 
 // Precios sincronizados manualmente con el catálogo de Treinta
 // (https://catalogo.treinta.co/Veragua-2026, categoría "Alma de Campo" — nombre
-// operativo anterior de Veragua). Revisar `npm run check-treinta` para comparar
-// contra los precios actuales de Treinta antes de actualizar a mano.
+// operativo anterior de Veragua). No hay API pública para automatizar esta
+// sincronización: al pedir una revisión de precios, hay que abrir esa URL y
+// comparar a mano contra los valores de aquí.
 export const products: Product[] = [
   {
     slug: "cafe-de-origen",
@@ -20,10 +30,17 @@ export const products: Product[] = [
     categoria: "cafe",
     descripcion:
       "Café seleccionado de origen colombiano, tostado para resaltar su mejor perfil de sabor.",
-    precioCOP: 38000,
-    unidad: "bolsa x 340 g",
     imagen: "/images/productos/cafe.svg",
     comprableEnLinea: true,
+    variantes: [
+      { id: "340g-molido", nombre: "340 g · Molido", precioCOP: 38000, unidad: "bolsa x 340 g" },
+      { id: "340g-grano", nombre: "340 g · Grano", precioCOP: 38000, unidad: "bolsa x 340 g" },
+      { id: "250g-grano", nombre: "250 g · Grano", precioCOP: 21000, unidad: "bolsa x 250 g" },
+      { id: "500g-grano", nombre: "500 g · Grano", precioCOP: 45000, unidad: "bolsa x 500 g" },
+      { id: "500g-molido", nombre: "500 g · Molido", precioCOP: 45000, unidad: "bolsa x 500 g" },
+      { id: "5lb-grano", nombre: "Paquetón 5 lb · Grano", precioCOP: 165000, unidad: "paquetón x 5 lb" },
+      { id: "5lb-molido", nombre: "Paquetón 5 lb · Molido", precioCOP: 165000, unidad: "paquetón x 5 lb" },
+    ],
   },
   {
     slug: "huevos-de-pastoreo",
@@ -31,50 +48,144 @@ export const products: Product[] = [
     categoria: "huevos",
     descripcion:
       "Huevos frescos de gallinas en pastoreo regenerativo, que caminan libres y se alimentan naturalmente en el campo.",
-    precioCOP: 27000,
-    unidad: "cubeta x 30 unidades",
     imagen: "/images/productos/huevos.svg",
     comprableEnLinea: false,
+    variantes: [
+      { id: "marrones-x30", nombre: "Marrones x 30", precioCOP: 27000, unidad: "cubeta x 30 unidades" },
+      { id: "marrones-x15", nombre: "Marrones x 15", precioCOP: 14000, unidad: "cubeta x 15 unidades" },
+      { id: "azules-x30", nombre: "Azules x 30", precioCOP: 29000, unidad: "cubeta x 30 unidades" },
+      { id: "azules-x15", nombre: "Azules x 15", precioCOP: 15000, unidad: "cubeta x 15 unidades" },
+      { id: "mixtos-x30", nombre: "Mixtos x 30", precioCOP: 28000, unidad: "cubeta x 30 unidades" },
+    ],
   },
   {
     slug: "leche-a2",
-    nombre: "Leche A2",
+    nombre: "Leche A2 Sanorigen",
     categoria: "lacteos",
-    descripcion: "Leche fresca A2, de alianzas con productores regionales de confianza.",
-    precioCOP: 15000,
-    unidad: "botella x 1 L",
+    descripcion: "Leche fresca A2, elaborada por Sanorigen, nuestro aliado en lácteos de calidad.",
     imagen: "/images/productos/leche.svg",
     comprableEnLinea: false,
+    variantes: [{ id: "unico", nombre: "Botella x 1 L", precioCOP: 15000, unidad: "botella x 1 L" }],
   },
   {
     slug: "yogur-artesanal",
-    nombre: "Yogur Artesanal",
+    nombre: "Yogur Líquido A2 Sanorigen",
     categoria: "lacteos",
-    descripcion: "Yogur líquido natural elaborado de forma artesanal con leche A2.",
-    precioCOP: 31000,
-    unidad: "envase x 500 g",
+    descripcion: "Yogur líquido natural, elaborado por Sanorigen con leche A2.",
     imagen: "/images/productos/yogur.svg",
     comprableEnLinea: false,
+    variantes: [{ id: "unico", nombre: "Envase x 500 g", precioCOP: 31000, unidad: "envase x 500 g" }],
+  },
+  {
+    slug: "yogur-griego",
+    nombre: "Yogur Griego A2 Sanorigen",
+    categoria: "lacteos",
+    descripcion: "Yogur griego cremoso, elaborado por Sanorigen con leche A2.",
+    imagen: "/images/productos/yogur-griego.svg",
+    comprableEnLinea: false,
+    variantes: [{ id: "unico", nombre: "Envase x 500 g", precioCOP: 32000, unidad: "envase x 500 g" }],
   },
   {
     slug: "queso-campesino",
-    nombre: "Queso Campesino",
+    nombre: "Queso Fresco A2 Sanorigen",
     categoria: "lacteos",
-    descripcion: "Queso fresco artesanal, elaborado con leche de nuestras alianzas regionales.",
-    precioCOP: 17000,
-    unidad: "libra",
+    descripcion: "Queso fresco, elaborado por Sanorigen con leche A2.",
     imagen: "/images/productos/queso.svg",
     comprableEnLinea: false,
+    variantes: [{ id: "unico", nombre: "Libra", precioCOP: 17000, unidad: "libra" }],
+  },
+  {
+    slug: "queso-parrillero",
+    nombre: "Queso Parrillero A2 Sanorigen",
+    categoria: "lacteos",
+    descripcion: "Queso parrillero ideal para asar, elaborado por Sanorigen con leche A2.",
+    imagen: "/images/productos/queso-parrillero.svg",
+    comprableEnLinea: false,
+    variantes: [{ id: "unico", nombre: "Libra", precioCOP: 19000, unidad: "libra" }],
+  },
+  {
+    slug: "kefir-a2",
+    nombre: "Kéfir A2 Sanorigen",
+    categoria: "lacteos",
+    descripcion: "Kéfir natural, elaborado por Sanorigen con leche A2.",
+    imagen: "/images/productos/kefir.svg",
+    comprableEnLinea: false,
+    variantes: [{ id: "unico", nombre: "Envase", precioCOP: 33000, unidad: "envase" }],
   },
   {
     slug: "arepas",
     nombre: "Arepas Artesanales",
     categoria: "artesanales",
     descripcion: "Arepas frescas elaboradas artesanalmente, ideales para el desayuno.",
-    precioCOP: 6000,
-    unidad: "paquete", // TODO: confirmar cuántas arepas trae "Arepas Finas de Fátima" en Treinta.
     imagen: "/images/productos/arepas.svg",
     comprableEnLinea: false,
+    // TODO: confirmar cuántas arepas trae "Arepas Finas de Fátima" en Treinta.
+    variantes: [{ id: "unico", nombre: "Paquete", precioCOP: 6000, unidad: "paquete" }],
+  },
+  {
+    slug: "gallina-entera",
+    nombre: "Gallina Entera",
+    categoria: "carnes",
+    descripcion: "Gallina campesina entera, congelada para que la prepares cuando quieras.",
+    imagen: "/images/productos/gallina.svg",
+    comprableEnLinea: false,
+    variantes: [{ id: "unico", nombre: "Entera congelada", precioCOP: 27000, unidad: "unidad" }],
+  },
+  {
+    slug: "pollo-criollo",
+    nombre: "Pollo Criollo",
+    categoria: "carnes",
+    descripcion: "Pollo criollo entero, criado en el campo y congelado para conservar su frescura.",
+    imagen: "/images/productos/pollo.svg",
+    comprableEnLinea: false,
+    variantes: [{ id: "unico", nombre: "Entero congelado", precioCOP: 9500, unidad: "libra" }],
+  },
+  {
+    slug: "carnes-de-res",
+    nombre: "Carnes de Res",
+    categoria: "carnes",
+    descripcion:
+      "Una línea de cortes de res está en camino, con el mismo cuidado de origen que ya conoces.",
+    imagen: "/images/productos/carnes-de-res.svg",
+    comprableEnLinea: false,
+    proximamente: true,
+    variantes: [{ id: "unico", nombre: "Próximamente", precioCOP: 0, unidad: "" }],
+  },
+  {
+    slug: "agua-con-gas-guali",
+    nombre: "Agua con Gas Guali",
+    categoria: "bebidas",
+    descripcion: "Agua con gas Veragua, ideal para acompañar cualquier comida.",
+    imagen: "/images/productos/agua-con-gas.svg",
+    comprableEnLinea: false,
+    variantes: [{ id: "unico", nombre: "Lata", precioCOP: 7000, unidad: "lata" }],
+  },
+  {
+    slug: "agua-sin-gas-guali",
+    nombre: "Agua sin Gas Guali",
+    categoria: "bebidas",
+    descripcion: "Agua natural Veragua, fresca y sencilla.",
+    imagen: "/images/productos/agua-sin-gas.svg",
+    comprableEnLinea: false,
+    variantes: [{ id: "unico", nombre: "Lata", precioCOP: 7000, unidad: "lata" }],
+  },
+  {
+    slug: "soda-jengibre-guali",
+    nombre: "Soda de Jengibre Guali",
+    categoria: "bebidas",
+    descripcion: "Soda artesanal de jengibre, con un toque natural y refrescante.",
+    imagen: "/images/productos/soda-jengibre.svg",
+    comprableEnLinea: false,
+    variantes: [{ id: "unico", nombre: "Lata", precioCOP: 8000, unidad: "lata" }],
+  },
+  {
+    slug: "soda-limon-guali",
+    nombre: "Soda de Limón Guali",
+    categoria: "bebidas",
+    descripcion: "Soda artesanal de limón, ligera y refrescante.",
+    imagen: "/images/productos/soda-limon.svg",
+    comprableEnLinea: false,
+    variantes: [{ id: "unico", nombre: "Lata", precioCOP: 8000, unidad: "lata" }],
   },
 ];
 

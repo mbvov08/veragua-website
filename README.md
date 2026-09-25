@@ -73,12 +73,25 @@ imagen real también en esos casos.
 
 - **Video del hero**: agregar el video real del campo en
   `public/videos/hero.mp4` (y un poster de respaldo en `public/images/hero/`).
+  Hoy el poster es solo un degradado sin texto.
 - **Fotos de producto**: reemplazar los placeholders SVG en
-  `public/images/productos/` por fotos reales, y actualizar las rutas en
-  [`lib/products.ts`](lib/products.ts).
-- **Precios reales**: los precios en [`lib/products.ts`](lib/products.ts) y
-  [`lib/subscriptions.ts`](lib/subscriptions.ts) son de referencia.
-- **Llave pública de Wompi**: ver sección de variables de entorno arriba.
-- **Enlace de TikTok**: agregar en [`content/faq.ts`](content/faq.ts) (`socialEmbeds.tiktok.url`).
-- **Dirección exacta**: la página de Contacto usa "Armenia, Quindío, Colombia"
-  como ubicación general; agregar la dirección exacta si se quiere un pin más preciso.
+  `public/images/productos/` por fotos reales (16 productos en total), y
+  actualizar las rutas `imagen` en [`lib/products.ts`](lib/products.ts).
+- **Cantidad de "Arepas Artesanales"**: no está confirmado cuántas arepas trae
+  el paquete (ver el TODO en `lib/products.ts`).
+- **Llave pública de Wompi**: ver sección de variables de entorno arriba —
+  sin ella, el checkout de café muestra un aviso en vez del botón de pago real.
+- **Enlace de TikTok**: agregar en [`content/faq.ts`](content/faq.ts) (`socialEmbeds.tiktok.url`)
+  — falta el @usuario de TikTok.
+- **Embeds reales de Instagram/TikTok**: la sección de FAQ hoy enlaza al
+  perfil general; falta reemplazar por el embed de un Reel/video puntual que
+  muestre el proceso (ver `components/faq/SocialEmbed.tsx`).
+- **Horario completo**: la página de Contacto no muestra horario — solo se
+  confirmó el de miércoles (11:30 a.m.-7:00 p.m.) vía Treinta; falta la
+  semana completa si se quiere mostrar.
+- **Precios**: ya están sincronizados con los reales de Treinta (ver la nota
+  en [`lib/products.ts`](lib/products.ts)) — no hay forma automática de
+  mantenerlos al día, hay que revisarlos a mano cuando cambien.
+- **Deploy**: el proyecto no está desplegado todavía. Recomendado: Vercel
+  (gratis, cero configuración para Next.js) + apuntar el dominio de Hostinger
+  ahí vía DNS. El repo tiene git local pero no está conectado a GitHub.

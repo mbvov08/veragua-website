@@ -5,10 +5,13 @@ import { ProductCard } from "@/components/catalogo/ProductCard";
 import { products, type Product } from "@/lib/products";
 
 // Íconos de línea del brand book, recortados del logo completo de Veragua.
+// "Bebidas" no tiene ícono propio en el brand book (solo huevos/lácteos/
+// café/carnes), así que se muestra sin ícono, igual que "Artesanales".
 const CATEGORY_ICONS: Record<string, string> = {
   Huevos: "/logo/icono-huevos.png",
   Lácteos: "/logo/icono-lacteos.png",
   Café: "/logo/icono-cafe-cereales.png",
+  Carnes: "/logo/icono-carnes.png",
 };
 
 export const metadata: Metadata = {
@@ -21,6 +24,8 @@ export default function CatalogoPage() {
   const cafe = products.filter((p) => p.categoria === "cafe");
   const huevos = products.filter((p) => p.categoria === "huevos");
   const lacteos = products.filter((p) => p.categoria === "lacteos");
+  const carnes = products.filter((p) => p.categoria === "carnes");
+  const bebidas = products.filter((p) => p.categoria === "bebidas");
   const artesanales = products.filter((p) => p.categoria === "artesanales");
 
   return (
@@ -48,6 +53,8 @@ export default function CatalogoPage() {
           <CategoryGrid title="Café" products={cafe} />
           <CategoryGrid title="Huevos" products={huevos} />
           <CategoryGrid title="Lácteos" products={lacteos} />
+          <CategoryGrid title="Carnes" products={carnes} />
+          <CategoryGrid title="Bebidas" products={bebidas} />
           <CategoryGrid title="Artesanales" products={artesanales} />
         </div>
       </section>
