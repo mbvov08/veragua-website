@@ -17,7 +17,7 @@ export default function PlanPersonalizadoPage() {
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-300">
               Plan Personalizado
             </p>
-            <h1 className="font-heading text-3xl leading-snug sm:text-4xl">
+            <h1 className="font-logo text-3xl italic leading-snug sm:text-4xl">
               Tu suscripción, calculada a tu medida.
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-base text-beige-300">

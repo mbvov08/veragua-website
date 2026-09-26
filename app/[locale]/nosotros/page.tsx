@@ -26,7 +26,7 @@ export default function NosotrosPage() {
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-300">
               {nosotros.heroKicker}
             </p>
-            <h1 className="font-heading text-3xl leading-snug sm:text-4xl">
+            <h1 className="font-logo text-4xl italic leading-snug sm:text-5xl">
               {nosotros.heroTitle}
               <br />
               <span className="text-tierra-300">{nosotros.heroHighlight}</span>
@@ -100,7 +100,7 @@ export default function NosotrosPage() {
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-300">
               {nosotros.promesa.kicker}
             </p>
-            <p className="font-heading text-2xl leading-snug sm:text-3xl">
+            <p className="font-logo italic text-2xl leading-snug sm:text-3xl">
               &ldquo;{nosotros.promesa.texto}&rdquo;
             </p>
           </Reveal>
@@ -110,7 +110,7 @@ export default function NosotrosPage() {
       <section className="bg-beige-100 px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="font-heading text-2xl text-verde-950 sm:text-3xl">
+            <h2 className="font-logo italic text-2xl text-verde-950 sm:text-3xl">
               Los principios que guían cada decisión
             </h2>
           </Reveal>
@@ -136,7 +136,7 @@ export default function NosotrosPage() {
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-600">
               {nosotros.valores.kicker}
             </p>
-            <h2 className="font-heading text-2xl text-verde-950 sm:text-3xl">
+            <h2 className="font-logo italic text-2xl text-verde-950 sm:text-3xl">
               {nosotros.valores.titulo}
             </h2>
           </Reveal>

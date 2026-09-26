@@ -1,30 +1,31 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { buildGeneralContactLink } from "@/lib/whatsapp";
 import { socialEmbeds } from "@/content/faq";
 
-const NAV_LINKS = [
-  { href: "/nosotros", label: "Nosotros" },
-  { href: "/catalogo", label: "Catálogo" },
-  { href: "/suscripciones", label: "Suscripciones" },
-  { href: "/preguntas-frecuentes", label: "Preguntas Frecuentes" },
-  { href: "/contacto", label: "Contacto" },
-];
-
 export function Footer() {
+  const t = useTranslations("footer");
+  const tNav = useTranslations("nav");
+
+  const NAV_LINKS = [
+    { href: "/nosotros", label: tNav("nosotros") },
+    { href: "/catalogo", label: tNav("catalogo") },
+    { href: "/suscripciones", label: tNav("suscripciones") },
+    { href: "/preguntas-frecuentes", label: t("preguntasFrecuentes") },
+    { href: "/contacto", label: tNav("contacto") },
+  ] as const;
+
   return (
     <footer className="bg-verde-950 text-beige-200">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-3 md:px-10">
         <div>
           <Logo variant="light" />
-          <p className="mt-4 max-w-xs text-sm text-beige-300">
-            Alimentos de origen, producidos con responsabilidad y seleccionados con el
-            mismo cuidado con que alimentaríamos a los nuestros.
-          </p>
+          <p className="mt-4 max-w-xs text-sm text-beige-300">{t("descripcion")}</p>
         </div>
 
         <div>
-          <h3 className="font-heading text-lg text-tierra-300">Navegación</h3>
+          <h3 className="font-heading text-lg text-tierra-300">{t("navegacion")}</h3>
           <ul className="mt-4 space-y-2 text-sm">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
@@ -37,11 +38,11 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-heading text-lg text-tierra-300">Contacto</h3>
+          <h3 className="font-heading text-lg text-tierra-300">{t("contacto")}</h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
               <a href={buildGeneralContactLink()} target="_blank" rel="noopener noreferrer" className="hover:text-tierra-300">
-                WhatsApp
+                {t("whatsapp")}
               </a>
             </li>
             <li>
@@ -51,16 +52,16 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-tierra-300"
               >
-                Instagram
+                {t("instagram")}
               </a>
             </li>
-            <li className="text-beige-300">Carrera 14 # 27 Norte - 80, Armenia</li>
+            <li className="text-beige-300">{t("direccion")}</li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-verde-800 px-6 py-6 text-center text-xs text-beige-400 md:px-10">
-        © {new Date().getFullYear()} Veragua — Alimentos de Origen. Todos los derechos reservados.
+        © {new Date().getFullYear()} Veragua — Alimentos de Origen. {t("derechos")}
       </div>
     </footer>
   );

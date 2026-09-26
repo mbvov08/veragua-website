@@ -1,8 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { LogoWordmark } from "@/components/ui/Logo";
 
 export function HeroVideo() {
+  const t = useTranslations("home.hero");
+
   return (
     <section className="relative flex h-screen min-h-[640px] w-full items-center justify-center overflow-hidden bg-verde-950">
       {/* Reemplazar con el video real del campo, los animales y el proceso en /public/videos/hero.mp4 */}
@@ -24,28 +28,29 @@ export function HeroVideo() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-4 text-sm font-medium uppercase tracking-[0.4em] text-tierra-300"
+          className="mb-6 text-sm font-medium uppercase tracking-[0.4em] text-tierra-300"
         >
-          Alimentos de Origen
+          {t("kicker")}
         </motion.p>
 
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="font-logo text-3xl font-semibold leading-snug text-beige-100 sm:text-4xl md:text-5xl"
         >
-          Creemos que los alimentos deben tener
-          <br /> un origen responsable, y queremos que tú lo conozcas.
-        </motion.h1>
+          <LogoWordmark
+            variant="light"
+            className="mx-auto [&_span:first-child]:text-5xl [&_span:first-child]:sm:text-6xl [&_span:first-child]:md:text-7xl [&_span:first-child]:lg:text-8xl [&_span:last-child]:mt-2 [&_span:last-child]:text-xs [&_span:last-child]:sm:text-sm"
+          />
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="mx-auto mt-6 max-w-xl text-base text-beige-200 sm:text-lg"
+          className="mx-auto mt-8 max-w-md font-logo text-lg italic text-beige-200 sm:text-xl"
         >
-          Con el orgullo del campo colombiano, directo a tu mesa.
+          {t("subtitulo")}
         </motion.p>
       </div>
 

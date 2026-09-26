@@ -1,0 +1,113 @@
+{
+  "nav": {
+    "inicio": "Inicio",
+    "nosotros": "Nosotros",
+    "catalogo": "Catálogo",
+    "suscripciones": "Suscripciones",
+    "preguntas": "Preguntas",
+    "contacto": "Contacto",
+    "abrirMenu": "Abrir menú",
+    "idioma": "English"
+  },
+  "footer": {
+    "descripcion": "Alimentos de origen, producidos con responsabilidad y seleccionados con el mismo cuidado con que alimentaríamos a los nuestros.",
+    "navegacion": "Navegación",
+    "contacto": "Contacto",
+    "preguntasFrecuentes": "Preguntas Frecuentes",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "direccion": "Carrera 14 # 27 Norte - 80, Armenia",
+    "derechos": "Todos los derechos reservados."
+  },
+  "home": {
+    "hero": {
+      "kicker": "Quindío, Colombia",
+      "titulo": "Creemos que los alimentos deben tener<br></br> un origen responsable, y queremos que tú lo conozcas.",
+      "subtitulo": "Con el orgullo del campo colombiano, directo a tu mesa."
+    }
+  },
+  "cafe": {
+    "badge": "Compra en línea · Envíos a Colombia y al mundo",
+    "presentacion": "Presentación",
+    "cantidad": "Cantidad",
+    "restar": "Restar unidad",
+    "sumar": "Sumar unidad",
+    "datosEnvio": "Datos de envío",
+    "avisoCiudades": "Por ahora entregamos solo en Armenia, Pereira y Manizales.",
+    "nombreCompleto": "Nombre completo",
+    "telefono": "Teléfono",
+    "direccion": "Dirección",
+    "direccionPlaceholder": "Calle / Carrera, número, barrio",
+    "ciudad": "Ciudad",
+    "completarEnvio": "Completa tus datos de envío para habilitar el pago.",
+    "checkoutNoDisponible": "El checkout de Wompi se activará al configurar la llave pública en la variable de entorno NEXT_PUBLIC_WOMPI_PUBLIC_KEY.",
+    "checkoutError": "No pudimos preparar el pago en este momento. Intenta de nuevo en unos segundos o escríbenos por WhatsApp.",
+    "historia": {
+      "01": { "kicker": "Origen", "titulo": "Quindío, Colombia", "texto": "Cultivado en el corazón del eje cafetero, donde la niebla se queda hasta el mediodía y la tierra ha sostenido a nuestra familia por generaciones." },
+      "02": { "kicker": "Cultivo", "titulo": "Finca familiar", "texto": "El mismo cuidado con el que cultivamos huevos y lácteos de pastoreo, aplicado al café: procesos pequeños, sin apurar nada." },
+      "03": { "kicker": "Cosecha", "titulo": "Selectiva, a mano", "texto": "Solo se recogen los granos en su punto justo de maduración, uno a uno, por manos que conocen el oficio." },
+      "04": { "kicker": "Tueste", "titulo": "Perfil equilibrado", "texto": "Un tueste pensado para resaltar dulzura y cuerpo sin sacrificar la acidez natural del grano." },
+      "05": { "kicker": "En tu taza", "titulo": "Café de Origen Veragua", "texto": "De la tierra, para quienes valoran un buen café: eso es lo que llega a tu mesa en cada bolsa." }
+    },
+    "combo": {
+      "kicker": "Paquetón · 5 libras",
+      "titulo": "Para que no se te acabe el café del mes.",
+      "texto": "El mismo café de origen, en el formato que más rinde: {unidad}.",
+      "cta": "Ir a la compra"
+    },
+    "negocio": {
+      "kicker": "Para tu negocio",
+      "titulo": "Nuestro café en tu cafetería, restaurante u oficina.",
+      "texto": "Si quieres llevar el Café de Origen Veragua a tu negocio en volumen, escríbenos y coordinamos precios y entregas a la medida.",
+      "cta": "Contactar por WhatsApp",
+      "mensajeWhatsApp": "¡Hola Veragua! Tengo un negocio y quiero conocer precios de café en volumen."
+    },
+    "gracias": {
+      "badge": "Pedido recibido",
+      "titulo": "¡Gracias por tu compra!",
+      "texto": "Estamos confirmando tu pago. En cuanto Wompi lo apruebe, nuestro equipo recibe el aviso y comenzamos a preparar tu envío. Si tienes alguna pregunta sobre tu pedido, escríbenos por WhatsApp y con gusto te ayudamos.",
+      "volverCatalogo": "Volver al catálogo",
+      "escribirWhatsapp": "Escribir por WhatsApp",
+      "mensajeWhatsApp": "¡Hola Veragua! Acabo de hacer un pedido de café en la página y quiero confirmar los detalles."
+    }
+  },
+  "contacto": {
+    "kicker": "Contacto",
+    "titulo": "Hablemos.",
+    "subtitulo": "Escríbenos y con gusto te contamos más sobre nuestros productos y suscripciones.",
+    "correosKicker": "Escríbenos por correo",
+    "correos": {
+      "admin": {
+        "titulo": "Comunicaciones generales",
+        "texto": "Preguntas generales sobre Veragua.",
+        "email": "admin@veraguaalimentos.com"
+      },
+      "compras": {
+        "titulo": "Compras y pedidos",
+        "texto": "Para pedidos, disponibilidad y entregas.",
+        "email": "compras@veraguaalimentos.com"
+      },
+      "gerencia": {
+        "titulo": "Propuestas comerciales",
+        "texto": "Alianzas, proveedores y negocios.",
+        "email": "gerencia@veraguaalimentos.com"
+      }
+    },
+    "escribir": "Escribir →",
+    "whatsapp": {
+      "titulo": "WhatsApp",
+      "texto": "La forma más rápida de resolver tus dudas y hacer tu pedido.",
+      "cta": "Escribir ahora →"
+    },
+    "instagram": {
+      "titulo": "Instagram",
+      "texto": "Síguenos para ver el campo, los animales y el proceso real.",
+      "cta": "Ir al perfil →"
+    },
+    "ubicacion": {
+      "titulo": "Ubicación",
+      "direccion": "Carrera 14 # 27 Norte - 80, Armenia, Quindío",
+      "entregas": "Entregas bajo pedido en Armenia, Pereira y Manizales."
+    }
+  }
+}

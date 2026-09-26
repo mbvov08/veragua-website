@@ -1,25 +1,27 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { MobileMenu } from "@/components/layout/MobileMenu";
-
-const NAV_LINKS = [
-  { href: "/", label: "Inicio" },
-  { href: "/nosotros", label: "Nosotros" },
-  { href: "/catalogo", label: "Catálogo" },
-  { href: "/suscripciones", label: "Suscripciones" },
-  { href: "/preguntas-frecuentes", label: "Preguntas" },
-  { href: "/contacto", label: "Contacto" },
-];
+import { LanguageToggle } from "@/components/layout/LanguageToggle";
 
 export function Navbar() {
+  const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+
+  const NAV_LINKS = [
+    { href: "/", label: t("inicio") },
+    { href: "/nosotros", label: t("nosotros") },
+    { href: "/catalogo", label: t("catalogo") },
+    { href: "/suscripciones", label: t("suscripciones") },
+    { href: "/preguntas-frecuentes", label: t("preguntas") },
+    { href: "/contacto", label: t("contacto") },
+  ] as const;
 
   useEffect(() => {
     function onScroll() {
@@ -58,19 +60,33 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <LanguageToggle
+              className={`rounded-full border px-3 py-1 text-xs font-semibold tracking-wide transition-colors ${
+                transparent
+                  ? "border-beige-100 text-beige-100 hover:bg-beige-100 hover:text-verde-950"
+                  : "border-verde-950 text-verde-950 hover:bg-verde-950 hover:text-beige-100"
+              }`}
+            />
           </nav>
 
-          <button
-            type="button"
-            aria-label="Abrir menú"
-            onClick={() => setMenuOpen(true)}
-            className={`flex shrink-0 flex-col gap-1.5 md:hidden ${
-              transparent ? "text-beige-100" : "text-verde-950"
-            }`}
-          >
-            <span className="block h-0.5 w-7 bg-current" />
-            <span className="block h-0.5 w-7 bg-current" />
-          </button>
+          <div className="flex items-center gap-4 md:hidden">
+            <LanguageToggle
+              className={`rounded-full border px-2.5 py-1 text-xs font-semibold tracking-wide ${
+                transparent ? "border-beige-100 text-beige-100" : "border-verde-950 text-verde-950"
+              }`}
+            />
+            <button
+              type="button"
+              aria-label={t("abrirMenu")}
+              onClick={() => setMenuOpen(true)}
+              className={`flex shrink-0 flex-col gap-1.5 ${
+                transparent ? "text-beige-100" : "text-verde-950"
+              }`}
+            >
+              <span className="block h-0.5 w-7 bg-current" />
+              <span className="block h-0.5 w-7 bg-current" />
+            </button>
+          </div>
         </div>
       </header>
 

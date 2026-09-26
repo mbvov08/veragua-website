@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 type NavLink = { href: string; label: string };
@@ -8,7 +8,7 @@ type NavLink = { href: string; label: string };
 type MobileMenuProps = {
   open: boolean;
   onClose: () => void;
-  links: NavLink[];
+  links: readonly NavLink[];
 };
 
 export function MobileMenu({ open, onClose, links }: MobileMenuProps) {

@@ -66,7 +66,7 @@ export const nosotros = {
 
   diferenciacion: {
     kicker: "Lo que nos hace distintos",
-    titulo: "Competimos por calidad, no por precio.",
+    titulo: "La calidad va primero.",
     texto:
       "Cada decisión —desde cómo viven nuestras gallinas hasta con quién nos aliamos— se toma pensando primero en la calidad. Preferimos mostrarte el proceso real, en fotos y video, antes que solo contártelo.",
   },

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/ui/Reveal";
 import { PlanCard } from "@/components/suscripciones/PlanCard";
 import { subscriptionPlans } from "@/lib/subscriptions";
@@ -19,7 +19,7 @@ export default function SuscripcionesPage() {
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-300">
               Suscripciones
             </p>
-            <h1 className="font-heading text-3xl leading-snug sm:text-4xl">
+            <h1 className="font-logo text-3xl italic leading-snug sm:text-4xl">
               Tu pedido de la semana, listo cada vez.
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-base text-beige-300">

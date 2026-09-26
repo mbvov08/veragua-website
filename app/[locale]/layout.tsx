@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Montserrat, Cormorant_Garamond } from "next/font/google";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import "./globals.css";
+import "../globals.css";
 
 // Una sola familia (Montserrat) para todo el sitio, a pedido del cliente
 // (prefiere no usar Quicksand). La jerarquía título/subtítulo se construye
@@ -25,19 +29,34 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "Veragua — Alimentos de Origen",
   description:
-    "Alimentos de origen producidos con responsabilidad: huevos de pastoreo, café de origen, lácteos y más. Veragua compite por calidad, no por precio.",
+    "Alimentos de origen producidos con responsabilidad: huevos de pastoreo, café de origen, lácteos y más.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: LayoutProps<"/[locale]">) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+
+  // Habilita el renderizado estático de las páginas de este locale.
+  setRequestLocale(locale);
+
   return (
     <html
-      lang="es"
+      lang={locale}
       className={`${montserrat.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-beige-100 text-verde-950">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <NextIntlClientProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

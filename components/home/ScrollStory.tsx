@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/ui/Reveal";
 import { nosotros } from "@/content/nosotros";
 
@@ -11,7 +11,7 @@ export function ScrollStory() {
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-600">
               {nosotros.mision.kicker}
             </p>
-            <p className="font-heading text-lg leading-snug text-verde-950 sm:text-xl md:text-2xl">
+            <p className="font-logo italic text-lg leading-snug text-verde-950 sm:text-xl md:text-2xl">
               {nosotros.mision.texto}
             </p>
           </Reveal>
@@ -24,7 +24,7 @@ export function ScrollStory() {
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-300">
               {nosotros.diferenciacion.kicker}
             </p>
-            <h2 className="font-heading text-3xl leading-snug sm:text-4xl md:text-5xl">
+            <h2 className="font-logo text-3xl italic leading-snug sm:text-4xl md:text-5xl">
               {nosotros.diferenciacion.titulo}
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-base text-beige-300 sm:text-lg">
@@ -40,7 +40,7 @@ export function ScrollStory() {
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-600">
               Nuestro catálogo
             </p>
-            <h2 className="font-heading text-2xl leading-snug text-verde-950 sm:text-3xl">
+            <h2 className="font-logo text-2xl italic leading-snug text-verde-950 sm:text-3xl">
               Café con compra en línea. Todo lo demás, a un mensaje de distancia.
             </h2>
           </Reveal>
@@ -99,7 +99,7 @@ export function ScrollStory() {
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-verde-950">
               Suscripciones
             </p>
-            <h2 className="font-heading text-2xl leading-snug text-verde-950 sm:text-3xl">
+            <h2 className="font-logo text-2xl italic leading-snug text-verde-950 sm:text-3xl">
               Tu pedido de la semana, sin tener que pensarlo.
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-base text-verde-950">

@@ -18,7 +18,7 @@ export default function FaqPage() {
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-300">
               Preguntas Frecuentes
             </p>
-            <h1 className="font-heading text-3xl leading-snug sm:text-4xl">
+            <h1 className="font-logo text-2xl italic leading-snug sm:text-3xl">
               Todo lo que quieres saber antes de pedir.
             </h1>
           </Reveal>

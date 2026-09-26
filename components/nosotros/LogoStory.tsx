@@ -42,7 +42,7 @@ export function LogoStory({
 
   return (
     <div className="mx-auto max-w-3xl text-center">
-      <h2 className="font-heading text-2xl text-verde-950 sm:text-3xl">{titulo}</h2>
+      <h2 className="font-logo italic text-2xl text-verde-950 sm:text-3xl">{titulo}</h2>
       <p className="mt-3 text-sm text-verde-700">{subtitulo}</p>
 
       <div className="relative mx-auto mt-10 aspect-[587/450] w-full max-w-md">
@@ -90,7 +90,7 @@ export function LogoStory({
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.3 }}
             >
-              <h3 className="font-heading text-xl text-verde-950">{seleccionado.nombre}</h3>
+              <h3 className="font-logo italic text-xl text-verde-950">{seleccionado.nombre}</h3>
               <p className="mt-3 text-base leading-relaxed text-verde-800">{seleccionado.texto}</p>
             </motion.div>
           ) : (

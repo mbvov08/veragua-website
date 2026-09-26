@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import type { Product } from "@/lib/products";
 import { formatCOP } from "@/lib/exchangeRate";
 import { WhatsAppOrderButton } from "@/components/catalogo/WhatsAppOrderButton";

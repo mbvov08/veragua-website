@@ -1,0 +1,113 @@
+{
+  "nav": {
+    "inicio": "Home",
+    "nosotros": "About",
+    "catalogo": "Catalog",
+    "suscripciones": "Subscriptions",
+    "preguntas": "FAQ",
+    "contacto": "Contact",
+    "abrirMenu": "Open menu",
+    "idioma": "Español"
+  },
+  "footer": {
+    "descripcion": "Food with a responsible origin, produced with care and chosen the same way we'd choose food for our own family.",
+    "navegacion": "Navigation",
+    "contacto": "Contact",
+    "preguntasFrecuentes": "FAQ",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "direccion": "Carrera 14 # 27 Norte - 80, Armenia, Colombia",
+    "derechos": "All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "kicker": "Quindío, Colombia",
+      "titulo": "We believe food should have<br></br> a responsible origin, and we want you to know it.",
+      "subtitulo": "With the pride of the Colombian countryside, straight to your table."
+    }
+  },
+  "cafe": {
+    "badge": "Buy online · Shipping to Colombia and worldwide",
+    "presentacion": "Format",
+    "cantidad": "Quantity",
+    "restar": "Decrease quantity",
+    "sumar": "Increase quantity",
+    "datosEnvio": "Shipping details",
+    "avisoCiudades": "For now we only deliver in Armenia, Pereira and Manizales, Colombia.",
+    "nombreCompleto": "Full name",
+    "telefono": "Phone",
+    "direccion": "Address",
+    "direccionPlaceholder": "Street, number, neighborhood",
+    "ciudad": "City",
+    "completarEnvio": "Complete your shipping details to enable payment.",
+    "checkoutNoDisponible": "The Wompi checkout will activate once the public key is configured in the NEXT_PUBLIC_WOMPI_PUBLIC_KEY environment variable.",
+    "checkoutError": "We couldn't set up the payment right now. Try again in a few seconds or write to us on WhatsApp.",
+    "historia": {
+      "01": { "kicker": "Origin", "titulo": "Quindío, Colombia", "texto": "Grown in the heart of Colombia's coffee region, where the fog lingers until midday and the land has sustained our family for generations." },
+      "02": { "kicker": "Growing", "titulo": "Family farm", "texto": "The same care we put into our pastured eggs and dairy, applied to coffee: small batches, nothing rushed." },
+      "03": { "kicker": "Harvest", "titulo": "Selective, by hand", "texto": "Only the cherries at their exact point of ripeness are picked, one by one, by hands that know the craft." },
+      "04": { "kicker": "Roast", "titulo": "Balanced profile", "texto": "A roast designed to bring out sweetness and body without sacrificing the bean's natural acidity." },
+      "05": { "kicker": "In your cup", "titulo": "Veragua Origin Coffee", "texto": "From the land, for those who value good coffee: that's what arrives at your table in every bag." }
+    },
+    "combo": {
+      "kicker": "Bulk pack · 5 lb",
+      "titulo": "So you never run out of coffee for the month.",
+      "texto": "The same origin coffee, in the format that goes furthest: {unidad}.",
+      "cta": "Go to purchase"
+    },
+    "negocio": {
+      "kicker": "For your business",
+      "titulo": "Our coffee in your café, restaurant or office.",
+      "texto": "If you'd like to bring Veragua Origin Coffee to your business in volume, write to us and we'll coordinate pricing and deliveries tailored to you.",
+      "cta": "Contact us on WhatsApp",
+      "mensajeWhatsApp": "Hello Veragua! I have a business and I'd like to know about bulk coffee pricing."
+    },
+    "gracias": {
+      "badge": "Order received",
+      "titulo": "Thank you for your purchase!",
+      "texto": "We're confirming your payment. As soon as Wompi approves it, our team gets notified and we start preparing your shipment. If you have any questions about your order, write to us on WhatsApp and we'll gladly help.",
+      "volverCatalogo": "Back to catalog",
+      "escribirWhatsapp": "Message us on WhatsApp",
+      "mensajeWhatsApp": "Hello Veragua! I just placed a coffee order on the website and I'd like to confirm the details."
+    }
+  },
+  "contacto": {
+    "kicker": "Contact",
+    "titulo": "Let's talk.",
+    "subtitulo": "Write to us and we'll gladly tell you more about our products and subscriptions.",
+    "correosKicker": "Email us",
+    "correos": {
+      "admin": {
+        "titulo": "General inquiries",
+        "texto": "General questions about Veragua.",
+        "email": "admin@veraguaalimentos.com"
+      },
+      "compras": {
+        "titulo": "Orders and purchases",
+        "texto": "For orders, availability and deliveries.",
+        "email": "compras@veraguaalimentos.com"
+      },
+      "gerencia": {
+        "titulo": "Business proposals",
+        "texto": "Partnerships, suppliers and business.",
+        "email": "gerencia@veraguaalimentos.com"
+      }
+    },
+    "escribir": "Email →",
+    "whatsapp": {
+      "titulo": "WhatsApp",
+      "texto": "The fastest way to get your questions answered and place your order.",
+      "cta": "Message now →"
+    },
+    "instagram": {
+      "titulo": "Instagram",
+      "texto": "Follow us to see the farm, the animals and the real process.",
+      "cta": "Go to profile →"
+    },
+    "ubicacion": {
+      "titulo": "Location",
+      "direccion": "Carrera 14 # 27 Norte - 80, Armenia, Quindío, Colombia",
+      "entregas": "Deliveries by order in Armenia, Pereira and Manizales."
+    }
+  }
+}
