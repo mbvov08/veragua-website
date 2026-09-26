@@ -5,29 +5,29 @@ import { nosotros } from "@/content/nosotros";
 export function ScrollStory() {
   return (
     <>
-      <section className="bg-beige-100 px-6 py-28 md:py-36">
+      <section className="bg-verde-950 px-6 py-28 text-beige-100 md:py-36">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-600">
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-300">
               {nosotros.mision.kicker}
             </p>
-            <p className="font-logo italic text-lg leading-snug text-verde-950 sm:text-xl md:text-2xl">
+            <p className="font-logo italic text-lg leading-snug sm:text-xl md:text-2xl">
               {nosotros.mision.texto}
             </p>
           </Reveal>
         </div>
       </section>
 
-      <section className="bg-verde-950 px-6 py-28 text-beige-100 md:py-36">
+      <section className="bg-beige-200 px-6 py-28 md:py-36">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-300">
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-600">
               {nosotros.diferenciacion.kicker}
             </p>
-            <h2 className="font-logo text-3xl italic leading-snug sm:text-4xl md:text-5xl">
+            <h2 className="font-logo text-3xl italic leading-snug text-verde-950 sm:text-4xl md:text-5xl">
               {nosotros.diferenciacion.titulo}
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-base text-beige-300 sm:text-lg">
+            <p className="mx-auto mt-6 max-w-xl text-base text-verde-800 sm:text-lg">
               {nosotros.diferenciacion.texto}
             </p>
           </Reveal>
@@ -58,7 +58,7 @@ export function ScrollStory() {
                   </p>
                 </div>
                 <Link
-                  href="/catalogo/cafe"
+                  href="/catalogo/cafe#comprar"
                   className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-tierra-500 px-6 py-3 text-sm font-semibold text-verde-950 transition hover:bg-tierra-400"
                 >
                   Comprar café
@@ -80,7 +80,7 @@ export function ScrollStory() {
                   </p>
                 </div>
                 <Link
-                  href="/catalogo"
+                  href="/catalogo/cafe"
                   className="mt-8 inline-flex w-fit items-center gap-2 rounded-full border-2 border-verde-950 px-6 py-3 text-sm font-semibold text-verde-950 transition hover:bg-verde-950 hover:text-beige-100"
                 >
                   Ver catálogo completo

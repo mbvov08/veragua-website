@@ -33,18 +33,23 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const transparent = isHome && !scrolled && !menuOpen;
+  // El hero de Inicio ahora es de fondo claro (beige), igual que el resto
+  // del sitio, así que ya no hace falta una variante "transparente con texto
+  // claro" flotando encima — el navbar oscuro de siempre ya combina bien
+  // desde el principio. Solo se mantiene el fondo transparente hasta hacer
+  // scroll, para un efecto sutil de aparición del fondo/blur.
+  const sinFondo = isHome && !scrolled && !menuOpen;
 
   return (
     <>
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-          transparent ? "bg-transparent" : "bg-beige-100/95 backdrop-blur-sm shadow-sm"
+          sinFondo ? "bg-transparent" : "bg-beige-100/95 backdrop-blur-sm shadow-sm"
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
           <Link href="/" aria-label="Veragua — Inicio" className="shrink-0">
-            <Logo variant={transparent ? "light" : "dark"} />
+            <Logo variant="dark" />
           </Link>
 
           <nav className="hidden items-center gap-4 md:flex lg:gap-6 xl:gap-8">
@@ -52,39 +57,25 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`whitespace-nowrap text-sm font-medium tracking-wide transition-colors ${
-                  transparent
-                    ? "text-beige-100 hover:text-tierra-300"
-                    : "text-verde-950 hover:text-tierra-600"
-                } ${pathname === link.href ? "underline underline-offset-8" : ""}`}
+                className={`whitespace-nowrap text-sm font-medium tracking-wide text-verde-950 transition-colors hover:text-tierra-600 ${
+                  pathname === link.href ? "underline underline-offset-8" : ""
+                }`}
               >
                 {link.label}
               </Link>
             ))}
-            <CartIcon oscuro={transparent} />
-            <LanguageToggle
-              className={`rounded-full border px-3 py-1 text-xs font-semibold tracking-wide transition-colors ${
-                transparent
-                  ? "border-beige-100 text-beige-100 hover:bg-beige-100 hover:text-verde-950"
-                  : "border-verde-950 text-verde-950 hover:bg-verde-950 hover:text-beige-100"
-              }`}
-            />
+            <CartIcon oscuro={false} />
+            <LanguageToggle className="rounded-full border border-verde-950 px-3 py-1 text-xs font-semibold tracking-wide text-verde-950 transition-colors hover:bg-verde-950 hover:text-beige-100" />
           </nav>
 
           <div className="flex items-center gap-3 md:hidden">
-            <CartIcon oscuro={transparent} />
-            <LanguageToggle
-              className={`rounded-full border px-2.5 py-1 text-xs font-semibold tracking-wide ${
-                transparent ? "border-beige-100 text-beige-100" : "border-verde-950 text-verde-950"
-              }`}
-            />
+            <CartIcon oscuro={false} />
+            <LanguageToggle className="rounded-full border border-verde-950 px-2.5 py-1 text-xs font-semibold tracking-wide text-verde-950" />
             <button
               type="button"
               aria-label={t("abrirMenu")}
               onClick={() => setMenuOpen(true)}
-              className={`flex shrink-0 flex-col gap-1.5 ${
-                transparent ? "text-beige-100" : "text-verde-950"
-              }`}
+              className="flex shrink-0 flex-col gap-1.5 text-verde-950"
             >
               <span className="block h-0.5 w-7 bg-current" />
               <span className="block h-0.5 w-7 bg-current" />

@@ -23,6 +23,11 @@
   --color-beige-400: #c2b4a4;
 
   --color-blanco-roto: #ffffff;
+
+  /* Ábano: café oscuro cálido — se probó para el hero de Inicio pero el
+     cliente terminó prefiriendo un fondo claro (beige) ahí, así que este
+     tono queda disponible para otros usos si hace falta más adelante. */
+  --color-abano: #6b4423;
 }
 
 @theme inline {
@@ -43,6 +48,8 @@
   --color-beige-400: var(--color-beige-400);
 
   --color-blanco-roto: var(--color-blanco-roto);
+
+  --color-abano: var(--color-abano);
 
   --font-heading: var(--font-montserrat);
   --font-sans: var(--font-montserrat);
@@ -72,7 +79,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
    en las esquinas, para que no se sientan planos — inspirado en el sitio de
    referencia que compartió el cliente. Se aplica automáticamente a estas
    clases de Tailwind en todo el sitio (no hay que agregar nada por sección). */
-.bg-verde-950, .bg-verde-900 {
+.bg-verde-950, .bg-verde-900, .bg-abano {
   background-image:
     radial-gradient(circle at 14% 20%, rgba(212, 160, 23, 0.09), transparent 42%),
     radial-gradient(circle at 88% 84%, rgba(242, 239, 230, 0.05), transparent 45%),
