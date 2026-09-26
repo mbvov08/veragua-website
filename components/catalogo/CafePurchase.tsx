@@ -6,7 +6,8 @@ import type { Product } from "@/lib/products";
 import { formatCOP } from "@/lib/exchangeRate";
 import { getPathname } from "@/i18n/navigation";
 import { countries } from "@/lib/countries";
-import { codificarReferencia, totalCarrito, type CartItem } from "@/lib/cart";
+import { codificarReferencia, totalCarrito } from "@/lib/cart";
+import { useCart } from "@/components/cart/CartContext";
 import { PriceCOPUSD } from "@/components/catalogo/PriceCOPUSD";
 import { WompiCheckout, type ShippingAddress } from "@/components/catalogo/WompiCheckout";
 
@@ -24,7 +25,7 @@ export function CafePurchase({ product }: { product: Product }) {
   const locale = useLocale();
   const [varianteId, setVarianteId] = useState(product.variantes[0].id);
   const [cantidad, setCantidad] = useState(1);
-  const [carrito, setCarrito] = useState<CartItem[]>([]);
+  const { carrito, agregar, quitar, cambiarCantidad } = useCart();
   const [envio, setEnvio] = useState<ShippingAddress>(direccionInicial);
   const sessionId = useId();
 
@@ -43,30 +44,8 @@ export function CafePurchase({ product }: { product: Product }) {
   }
 
   function agregarAlCarrito() {
-    setCarrito((actual) => {
-      const existente = actual.find((item) => item.varianteId === varianteId);
-      if (existente) {
-        return actual.map((item) =>
-          item.varianteId === varianteId ? { ...item, cantidad: item.cantidad + cantidad } : item
-        );
-      }
-      return [...actual, { varianteId, cantidad }];
-    });
+    agregar(varianteId, cantidad);
     setCantidad(1);
-  }
-
-  function quitarDelCarrito(id: string) {
-    setCarrito((actual) => actual.filter((item) => item.varianteId !== id));
-  }
-
-  function cambiarCantidadCarrito(id: string, delta: number) {
-    setCarrito((actual) =>
-      actual
-        .map((item) =>
-          item.varianteId === id ? { ...item, cantidad: item.cantidad + delta } : item
-        )
-        .filter((item) => item.cantidad > 0)
-    );
   }
 
   return (
@@ -143,7 +122,7 @@ export function CafePurchase({ product }: { product: Product }) {
                   <div className="flex shrink-0 items-center gap-2">
                     <button
                       type="button"
-                      onClick={() => cambiarCantidadCarrito(item.varianteId, -1)}
+                      onClick={() => cambiarCantidad(item.varianteId, -1)}
                       className="flex h-7 w-7 items-center justify-center rounded-full border border-verde-950 text-verde-950 transition hover:bg-verde-950 hover:text-beige-100"
                       aria-label={t("restar")}
                     >
@@ -154,7 +133,7 @@ export function CafePurchase({ product }: { product: Product }) {
                     </span>
                     <button
                       type="button"
-                      onClick={() => cambiarCantidadCarrito(item.varianteId, 1)}
+                      onClick={() => cambiarCantidad(item.varianteId, 1)}
                       className="flex h-7 w-7 items-center justify-center rounded-full border border-verde-950 text-verde-950 transition hover:bg-verde-950 hover:text-beige-100"
                       aria-label={t("sumar")}
                     >
@@ -162,7 +141,7 @@ export function CafePurchase({ product }: { product: Product }) {
                     </button>
                     <button
                       type="button"
-                      onClick={() => quitarDelCarrito(item.varianteId)}
+                      onClick={() => quitar(item.varianteId)}
                       className="ml-1 text-xs font-medium text-tierra-600 underline-offset-2 hover:underline"
                     >
                       {t("quitar")}

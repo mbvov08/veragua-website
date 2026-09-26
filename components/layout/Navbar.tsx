@@ -6,6 +6,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import { LanguageToggle } from "@/components/layout/LanguageToggle";
+import { CartIcon } from "@/components/cart/CartIcon";
 
 export function Navbar() {
   const t = useTranslations("nav");
@@ -60,6 +61,7 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <CartIcon oscuro={transparent} />
             <LanguageToggle
               className={`rounded-full border px-3 py-1 text-xs font-semibold tracking-wide transition-colors ${
                 transparent
@@ -69,7 +71,8 @@ export function Navbar() {
             />
           </nav>
 
-          <div className="flex items-center gap-4 md:hidden">
+          <div className="flex items-center gap-3 md:hidden">
+            <CartIcon oscuro={transparent} />
             <LanguageToggle
               className={`rounded-full border px-2.5 py-1 text-xs font-semibold tracking-wide ${
                 transparent ? "border-beige-100 text-beige-100" : "border-verde-950 text-verde-950"
