@@ -18,11 +18,18 @@ export type Product = {
   variantes: ProductVariant[];
 };
 
-// Precios sincronizados manualmente con el catálogo de Treinta
-// (https://catalogo.treinta.co/Veragua-2026, categoría "Alma de Campo" — nombre
-// operativo anterior de Veragua). No hay API pública para automatizar esta
-// sincronización: al pedir una revisión de precios, hay que abrir esa URL y
-// comparar a mano contra los valores de aquí.
+// Catálogo público de Treinta (fotos reales + precios), categoría "Alma de
+// Campo" — nombre operativo anterior de Veragua. Es la fuente que se enlaza
+// desde /catalogo para todo lo que no sea café (ver esa página).
+export const TREINTA_CATALOG_URL = "https://catalogo.treinta.co/Veragua-2026";
+
+// Precios sincronizados manualmente con el catálogo de Treinta (mismo enlace
+// de arriba). No hay API pública para automatizar esta sincronización: al
+// pedir una revisión de precios, hay que abrir esa URL y comparar a mano
+// contra los valores de aquí. Café es el único producto con tarjeta/checkout
+// propio en el sitio (/catalogo/cafe); las demás categorías ya no se listan
+// como tarjetas individuales en /catalogo (ese enlaza a Treinta + WhatsApp),
+// pero sus precios se dejan documentados aquí como referencia rápida.
 export const products: Product[] = [
   {
     slug: "cafe-de-origen",
