@@ -87,6 +87,7 @@ export function CafePurchase({ product }: { product: Product }) {
 
       <div className="mt-6 border-t border-beige-400 pt-6">
         <PriceCOPUSD precioCOP={totalCOP} />
+        <p className="mt-2 text-xs text-tierra-600">{t("envioGratis")}</p>
       </div>
 
       <div className="mt-8 border-t border-beige-400 pt-6">

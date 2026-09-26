@@ -42,12 +42,27 @@
     "completarEnvio": "Completa tus datos de envío para habilitar el pago.",
     "checkoutNoDisponible": "El checkout de Wompi se activará al configurar la llave pública en la variable de entorno NEXT_PUBLIC_WOMPI_PUBLIC_KEY.",
     "checkoutError": "No pudimos preparar el pago en este momento. Intenta de nuevo en unos segundos o escríbenos por WhatsApp.",
+    "envioGratis": "Envío gratis en compras superiores a $200.000.",
     "historia": {
       "01": { "kicker": "Origen", "titulo": "Quindío, Colombia", "texto": "Cultivado en el corazón del eje cafetero, donde la niebla se queda hasta el mediodía y la tierra ha sostenido a nuestra familia por generaciones." },
       "02": { "kicker": "Cultivo", "titulo": "Finca familiar", "texto": "El mismo cuidado con el que cultivamos huevos y lácteos de pastoreo, aplicado al café: procesos pequeños, sin apurar nada." },
       "03": { "kicker": "Cosecha", "titulo": "Selectiva, a mano", "texto": "Solo se recogen los granos en su punto justo de maduración, uno a uno, por manos que conocen el oficio." },
       "04": { "kicker": "Tueste", "titulo": "Perfil equilibrado", "texto": "Un tueste pensado para resaltar dulzura y cuerpo sin sacrificar la acidez natural del grano." },
       "05": { "kicker": "En tu taza", "titulo": "Café de Origen Veragua", "texto": "De la tierra, para quienes valoran un buen café: eso es lo que llega a tu mesa en cada bolsa." }
+    },
+    "ficha": {
+      "kicker": "El producto",
+      "titulo": "Un café, una sola finca.",
+      "finca": "Finca",
+      "fincaValor": "El Triunfo, Calarcá, Quindío",
+      "altitud": "Altitud",
+      "altitudValor": "1.500 msnm",
+      "tueste": "Tueste",
+      "tuesteValor": "Media alta",
+      "molienda": "Molienda",
+      "moliendaValor": "Media",
+      "notasKicker": "Notas de cata",
+      "notas": ["Chocolate", "Cítricas", "Panela"]
     },
     "combo": {
       "kicker": "Paquetón · 5 libras",

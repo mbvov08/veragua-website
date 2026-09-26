@@ -67,6 +67,28 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   font-weight: 600;
 }
 
+/* Textura sutil para los bloques de fondo sólido (secciones oscuras y el
+   amarillo tierra): una rejilla de puntos muy tenue más dos brillos suaves
+   en las esquinas, para que no se sientan planos — inspirado en el sitio de
+   referencia que compartió el cliente. Se aplica automáticamente a estas
+   clases de Tailwind en todo el sitio (no hay que agregar nada por sección). */
+.bg-verde-950, .bg-verde-900 {
+  background-image:
+    radial-gradient(circle at 14% 20%, rgba(212, 160, 23, 0.09), transparent 42%),
+    radial-gradient(circle at 88% 84%, rgba(242, 239, 230, 0.05), transparent 45%),
+    radial-gradient(rgba(242, 239, 230, 0.06) 1px, transparent 1px);
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-size: 100% 100%, 100% 100%, 22px 22px;
+}
+
+.bg-tierra-500 {
+  background-image:
+    radial-gradient(circle at 85% 15%, rgba(31, 47, 31, 0.08), transparent 45%),
+    radial-gradient(rgba(31, 47, 31, 0.05) 1px, transparent 1px);
+  background-repeat: no-repeat, repeat;
+  background-size: 100% 100%, 22px 22px;
+}
+
 ::selection {
   background: var(--color-tierra-400);
   color: var(--color-verde-950);

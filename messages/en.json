@@ -42,12 +42,27 @@
     "completarEnvio": "Complete your shipping details to enable payment.",
     "checkoutNoDisponible": "The Wompi checkout will activate once the public key is configured in the NEXT_PUBLIC_WOMPI_PUBLIC_KEY environment variable.",
     "checkoutError": "We couldn't set up the payment right now. Try again in a few seconds or write to us on WhatsApp.",
+    "envioGratis": "Free shipping on orders over $200,000 COP.",
     "historia": {
       "01": { "kicker": "Origin", "titulo": "Quindío, Colombia", "texto": "Grown in the heart of Colombia's coffee region, where the fog lingers until midday and the land has sustained our family for generations." },
       "02": { "kicker": "Growing", "titulo": "Family farm", "texto": "The same care we put into our pastured eggs and dairy, applied to coffee: small batches, nothing rushed." },
       "03": { "kicker": "Harvest", "titulo": "Selective, by hand", "texto": "Only the cherries at their exact point of ripeness are picked, one by one, by hands that know the craft." },
       "04": { "kicker": "Roast", "titulo": "Balanced profile", "texto": "A roast designed to bring out sweetness and body without sacrificing the bean's natural acidity." },
       "05": { "kicker": "In your cup", "titulo": "Veragua Origin Coffee", "texto": "From the land, for those who value good coffee: that's what arrives at your table in every bag." }
+    },
+    "ficha": {
+      "kicker": "The product",
+      "titulo": "One farm, one coffee.",
+      "finca": "Farm",
+      "fincaValor": "El Triunfo, Calarcá, Quindío",
+      "altitud": "Altitude",
+      "altitudValor": "1,500 masl",
+      "tueste": "Roast",
+      "tuesteValor": "Medium-high",
+      "molienda": "Grind",
+      "moliendaValor": "Medium",
+      "notasKicker": "Tasting notes",
+      "notas": ["Chocolate", "Citrus", "Panela"]
     },
     "combo": {
       "kicker": "Bulk pack · 5 lb",

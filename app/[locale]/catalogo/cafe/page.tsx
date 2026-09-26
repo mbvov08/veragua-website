@@ -54,6 +54,72 @@ export default async function CafePage({ params }: PageProps<"/[locale]/catalogo
 
       <CafeScrollStory imagen={cafe.imagen} />
 
+      <section className="bg-verde-900 px-6 py-24 md:py-32">
+        <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-2 md:items-center">
+          <Reveal>
+            <div className="relative aspect-square w-full max-w-sm overflow-hidden rounded-3xl bg-verde-950 md:mx-0">
+              <Image
+                src={cafe.imagen}
+                alt={cafe.nombre}
+                fill
+                className="object-cover"
+                sizes="(min-width: 768px) 30vw, 100vw"
+              />
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-tierra-400">
+              {t("ficha.kicker")}
+            </p>
+            <h2 className="mt-3 font-logo text-2xl italic text-beige-100 sm:text-3xl">
+              {t("ficha.titulo")}
+            </h2>
+
+            <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 border-y border-beige-100/15 py-6">
+              <div>
+                <dt className="text-xs uppercase tracking-wide text-tierra-300">
+                  {t("ficha.finca")}
+                </dt>
+                <dd className="mt-1 font-logo italic text-beige-100">{t("ficha.fincaValor")}</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase tracking-wide text-tierra-300">
+                  {t("ficha.altitud")}
+                </dt>
+                <dd className="mt-1 font-logo italic text-beige-100">{t("ficha.altitudValor")}</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase tracking-wide text-tierra-300">
+                  {t("ficha.tueste")}
+                </dt>
+                <dd className="mt-1 font-logo italic text-beige-100">{t("ficha.tuesteValor")}</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase tracking-wide text-tierra-300">
+                  {t("ficha.molienda")}
+                </dt>
+                <dd className="mt-1 font-logo italic text-beige-100">{t("ficha.moliendaValor")}</dd>
+              </div>
+            </dl>
+
+            <p className="mt-6 text-xs uppercase tracking-[0.3em] text-tierra-300">
+              {t("ficha.notasKicker")}
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {t.raw("ficha.notas").map((nota: string) => (
+                <span
+                  key={nota}
+                  className="rounded-full border border-tierra-400/60 px-4 py-1.5 text-sm text-beige-100"
+                >
+                  {nota}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="border-y border-tierra-500/30 bg-verde-950 px-6 py-16 md:py-20">
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
           <div>
