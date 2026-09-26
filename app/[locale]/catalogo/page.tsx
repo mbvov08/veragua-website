@@ -37,7 +37,7 @@ const OTRAS_CATEGORIAS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Catálogo — Veragua",
+  title: "Compra ahora — Veragua",
   description:
     "Café de origen con compra en línea, y huevos, lácteos, carnes, bebidas y artesanales bajo pedido por WhatsApp.",
 };
@@ -51,7 +51,7 @@ export default function CatalogoPage() {
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-300">
-              Catálogo
+              Compra ahora
             </p>
             <h1 className="font-logo text-3xl italic leading-snug sm:text-4xl">
               El café se compra en línea. Todo lo demás, a un mensaje de distancia.
