@@ -8,22 +8,22 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import "../globals.css";
 
-// Una sola familia (Montserrat) para todo el sitio, a pedido del cliente
-// (prefiere no usar Quicksand). La jerarquía título/subtítulo se construye
-// con peso y tamaño en vez de mezclar tipografías: 600 para títulos, 500
-// para subtítulos y cuerpo de texto (ver globals.css).
+// Montserrat: cuerpo de texto y párrafos en todo el sitio.
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-// Solo para el wordmark de texto del logo (fondos oscuros donde no se puede
-// usar la imagen real), para que combine con la serif elegante del logo real.
+// Cormorant Garamond: la serif "premium" para TODOS los títulos (h1-h6,
+// .font-heading) en globals.css, y para el wordmark de texto del logo en
+// fondos oscuros. `style: ["normal", "italic"]` para que la itálica use la
+// itálica real de la fuente en vez de una inclinación sintética del navegador.
 const cormorant = Cormorant_Garamond({
   variable: "--font-logo",
   subsets: ["latin"],
   weight: ["500", "600"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {

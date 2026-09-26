@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { LogoWordmark } from "@/components/ui/Logo";
+import { LogoIcon, LogoWordmark } from "@/components/ui/Logo";
 
 export function HeroVideo() {
   const t = useTranslations("home.hero");
@@ -37,11 +37,10 @@ export function HeroVideo() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
+          className="flex flex-col items-center"
         >
-          <LogoWordmark
-            variant="light"
-            className="mx-auto [&_span:first-child]:text-5xl [&_span:first-child]:sm:text-6xl [&_span:first-child]:md:text-7xl [&_span:first-child]:lg:text-8xl [&_span:last-child]:mt-2 [&_span:last-child]:text-xs [&_span:last-child]:sm:text-sm"
-          />
+          <LogoIcon variant="light" className="h-24 w-auto sm:h-28 md:h-32" />
+          <LogoWordmark variant="light" className="mt-4 h-16 w-auto sm:h-20 md:h-24" />
         </motion.div>
 
         <motion.p

@@ -57,11 +57,13 @@ body {
   font-weight: 500;
 }
 
-/* Una sola familia (Montserrat) para todo el sitio: la jerarquía entre
-   títulos y el resto del texto se construye con peso, no con tipografías
-   distintas. 600 (semibold) para títulos vs. 500 (medium) para cuerpo. */
+/* Montserrat para párrafos y cuerpo de texto (ver body arriba); la serif
+   Cormorant Garamond ("--font-logo") para TODOS los títulos, en todo el
+   sitio — es la pareja tipográfica premium que pidió el cliente, inspirada
+   en el logo. Un .font-heading explícito sigue disponible para el puñado de
+   textos que no son elementos <h1>-<h6> pero deben verse como título. */
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  font-family: var(--font-logo), Georgia, serif;
   font-weight: 600;
 }
 
