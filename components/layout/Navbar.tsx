@@ -17,7 +17,7 @@ export function Navbar() {
   const NAV_LINKS = [
     { href: "/", label: t("inicio") },
     { href: "/nosotros", label: t("nosotros") },
-    { href: "/catalogo", label: t("catalogo") },
+    { href: "/catalogo/cafe", label: t("catalogo") },
     { href: "/suscripciones", label: t("suscripciones") },
     { href: "/preguntas-frecuentes", label: t("preguntas") },
     { href: "/contacto", label: t("contacto") },

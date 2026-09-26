@@ -10,7 +10,7 @@ export function Footer() {
 
   const NAV_LINKS = [
     { href: "/nosotros", label: tNav("nosotros") },
-    { href: "/catalogo", label: tNav("catalogo") },
+    { href: "/catalogo/cafe", label: tNav("catalogo") },
     { href: "/suscripciones", label: tNav("suscripciones") },
     { href: "/preguntas-frecuentes", label: t("preguntasFrecuentes") },
     { href: "/contacto", label: tNav("contacto") },
