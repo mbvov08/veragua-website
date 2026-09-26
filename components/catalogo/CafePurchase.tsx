@@ -5,17 +5,16 @@ import { useLocale, useTranslations } from "next-intl";
 import type { Product } from "@/lib/products";
 import { formatCOP } from "@/lib/exchangeRate";
 import { getPathname } from "@/i18n/navigation";
+import { countries } from "@/lib/countries";
 import { PriceCOPUSD } from "@/components/catalogo/PriceCOPUSD";
 import { WompiCheckout, type ShippingAddress } from "@/components/catalogo/WompiCheckout";
-
-const CIUDADES_ENTREGA = ["Armenia", "Pereira", "Manizales"] as const;
 
 const direccionInicial: ShippingAddress = {
   nombre: "",
   telefono: "",
   direccion: "",
-  ciudad: CIUDADES_ENTREGA[0],
-  region: "Quindío",
+  ciudad: "",
+  region: "",
   pais: "CO",
 };
 
@@ -35,7 +34,9 @@ export function CafePurchase({ product }: { product: Product }) {
   const envioCompleto =
     envio.nombre.trim() !== "" &&
     envio.telefono.trim() !== "" &&
-    envio.direccion.trim() !== "";
+    envio.direccion.trim() !== "" &&
+    envio.ciudad.trim() !== "" &&
+    envio.region.trim() !== "";
 
   function actualizarCampo<K extends keyof ShippingAddress>(campo: K, valor: ShippingAddress[K]) {
     setEnvio((actual) => ({ ...actual, [campo]: valor }));
@@ -145,15 +146,46 @@ export function CafePurchase({ product }: { product: Product }) {
             <label htmlFor="envio-ciudad" className="block text-xs font-medium text-verde-700">
               {t("ciudad")}
             </label>
-            <select
+            <input
               id="envio-ciudad"
+              type="text"
               value={envio.ciudad}
               onChange={(e) => actualizarCampo("ciudad", e.target.value)}
               className="mt-1 w-full rounded-full border border-beige-400 bg-beige-100 px-4 py-2 text-sm text-verde-950"
+              autoComplete="address-level2"
+              placeholder={t("ciudadPlaceholder")}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="envio-region" className="block text-xs font-medium text-verde-700">
+              {t("region")}
+            </label>
+            <input
+              id="envio-region"
+              type="text"
+              value={envio.region}
+              onChange={(e) => actualizarCampo("region", e.target.value)}
+              className="mt-1 w-full rounded-full border border-beige-400 bg-beige-100 px-4 py-2 text-sm text-verde-950"
+              autoComplete="address-level1"
+              placeholder={t("regionPlaceholder")}
+            />
+          </div>
+
+          <div className="sm:col-span-2">
+            <label htmlFor="envio-pais" className="block text-xs font-medium text-verde-700">
+              {t("pais")}
+            </label>
+            <select
+              id="envio-pais"
+              value={envio.pais}
+              onChange={(e) => actualizarCampo("pais", e.target.value)}
+              className="mt-1 w-full rounded-full border border-beige-400 bg-beige-100 px-4 py-2 text-sm text-verde-950"
+              autoComplete="country"
             >
-              {CIUDADES_ENTREGA.map((ciudad) => (
-                <option key={ciudad} value={ciudad}>
-                  {ciudad}
+              {countries.map((pais) => (
+                <option key={pais.code} value={pais.code}>
+                  {pais.nombre}
                 </option>
               ))}
             </select>
@@ -174,6 +206,24 @@ export function CafePurchase({ product }: { product: Product }) {
             {t("completarEnvio")}
           </p>
         )}
+
+        <div className="mt-4 flex items-start gap-2 rounded-2xl bg-beige-200 p-4">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.75}
+            className="mt-0.5 h-5 w-5 shrink-0 text-verde-700"
+            aria-hidden
+          >
+            <rect x="4" y="10" width="16" height="10" rx="2" />
+            <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+          </svg>
+          <div>
+            <p className="text-sm font-semibold text-verde-900">{t("pagoSeguro")}</p>
+            <p className="mt-0.5 text-xs text-verde-700">{t("pagoSeguroDetalle")}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
