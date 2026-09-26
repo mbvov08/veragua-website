@@ -1,5 +1,7 @@
 import nodemailer from "nodemailer";
 import { google } from "googleapis";
+import { decodificarReferencia } from "@/lib/cart";
+import { formatCOP } from "@/lib/exchangeRate";
 
 export type PedidoConfirmado = {
   reference: string;
@@ -31,6 +33,7 @@ export async function enviarCorreoPedido(pedido: PedidoConfirmado) {
 
   const direccion = pedido.shippingAddress;
   const montoCOP = (pedido.amountInCents / 100).toLocaleString("es-CO");
+  const items = decodificarReferencia(pedido.reference);
 
   await transporter.sendMail({
     from: GMAIL_USER,
@@ -41,6 +44,11 @@ export async function enviarCorreoPedido(pedido: PedidoConfirmado) {
       `Monto: $${montoCOP} ${pedido.currency}`,
       `Transacción Wompi: ${pedido.wompiTransactionId}`,
       `Correo del cliente: ${pedido.customerEmail ?? "no informado"}`,
+      "",
+      "Productos:",
+      ...(items
+        ? items.map((item) => `  ${item.cantidad} × ${item.nombre} (${formatCOP(item.precioCOP)} c/u)`)
+        : ["  (no se pudo leer el detalle desde la referencia)"]),
       "",
       "Envío:",
       `  Nombre: ${direccion?.name ?? "-"}`,
@@ -71,10 +79,14 @@ export async function registrarPedidoEnSheet(pedido: PedidoConfirmado) {
 
   const sheets = google.sheets({ version: "v4", auth });
   const direccion = pedido.shippingAddress;
+  const items = decodificarReferencia(pedido.reference);
+  const productos = items
+    ? items.map((item) => `${item.cantidad} × ${item.nombre}`).join("; ")
+    : "";
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: GOOGLE_SHEET_ID,
-    range: "Pedidos!A:J",
+    range: "Pedidos!A:K",
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [
@@ -89,6 +101,7 @@ export async function registrarPedidoEnSheet(pedido: PedidoConfirmado) {
           direccion?.phoneNumber ?? "",
           direccion?.addressLine1 ?? "",
           `${direccion?.city ?? ""}, ${direccion?.region ?? ""}`,
+          productos,
         ],
       ],
     },

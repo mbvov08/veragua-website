@@ -6,6 +6,7 @@ import type { Product } from "@/lib/products";
 import { formatCOP } from "@/lib/exchangeRate";
 import { getPathname } from "@/i18n/navigation";
 import { countries } from "@/lib/countries";
+import { codificarReferencia, totalCarrito, type CartItem } from "@/lib/cart";
 import { PriceCOPUSD } from "@/components/catalogo/PriceCOPUSD";
 import { WompiCheckout, type ShippingAddress } from "@/components/catalogo/WompiCheckout";
 
@@ -23,13 +24,12 @@ export function CafePurchase({ product }: { product: Product }) {
   const locale = useLocale();
   const [varianteId, setVarianteId] = useState(product.variantes[0].id);
   const [cantidad, setCantidad] = useState(1);
+  const [carrito, setCarrito] = useState<CartItem[]>([]);
   const [envio, setEnvio] = useState<ShippingAddress>(direccionInicial);
   const sessionId = useId();
 
-  const variante = product.variantes.find((v) => v.id === varianteId) ?? product.variantes[0];
-  const totalCOP = variante.precioCOP * cantidad;
-  // Única por sesión de checkout (identidad del componente), variante y cantidad seleccionadas.
-  const reference = `veragua-cafe-${sessionId.replace(/[^a-zA-Z0-9]/g, "")}-${varianteId}-${cantidad}`;
+  const totalCOP = totalCarrito(carrito);
+  const reference = codificarReferencia(sessionId, carrito);
 
   const envioCompleto =
     envio.nombre.trim() !== "" &&
@@ -40,6 +40,33 @@ export function CafePurchase({ product }: { product: Product }) {
 
   function actualizarCampo<K extends keyof ShippingAddress>(campo: K, valor: ShippingAddress[K]) {
     setEnvio((actual) => ({ ...actual, [campo]: valor }));
+  }
+
+  function agregarAlCarrito() {
+    setCarrito((actual) => {
+      const existente = actual.find((item) => item.varianteId === varianteId);
+      if (existente) {
+        return actual.map((item) =>
+          item.varianteId === varianteId ? { ...item, cantidad: item.cantidad + cantidad } : item
+        );
+      }
+      return [...actual, { varianteId, cantidad }];
+    });
+    setCantidad(1);
+  }
+
+  function quitarDelCarrito(id: string) {
+    setCarrito((actual) => actual.filter((item) => item.varianteId !== id));
+  }
+
+  function cambiarCantidadCarrito(id: string, delta: number) {
+    setCarrito((actual) =>
+      actual
+        .map((item) =>
+          item.varianteId === id ? { ...item, cantidad: item.cantidad + delta } : item
+        )
+        .filter((item) => item.cantidad > 0)
+    );
   }
 
   return (
@@ -84,6 +111,68 @@ export function CafePurchase({ product }: { product: Product }) {
             +
           </button>
         </div>
+      </div>
+
+      <button
+        type="button"
+        onClick={agregarAlCarrito}
+        className="mt-4 w-full rounded-full border-2 border-verde-950 px-6 py-2.5 text-sm font-semibold text-verde-950 transition hover:bg-verde-950 hover:text-beige-100"
+      >
+        {t("agregarCarrito")}
+      </button>
+
+      <div className="mt-6 border-t border-beige-400 pt-6">
+        <p className="text-xs font-medium uppercase tracking-wide text-verde-700">
+          {t("tuCarrito")}
+        </p>
+
+        {carrito.length === 0 ? (
+          <p className="mt-3 text-sm text-verde-700">{t("carritoVacio")}</p>
+        ) : (
+          <ul className="mt-3 space-y-3">
+            {carrito.map((item) => {
+              const variante = product.variantes.find((v) => v.id === item.varianteId)!;
+              return (
+                <li key={item.varianteId} className="flex items-center justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="truncate text-sm text-verde-950">{variante.nombre}</p>
+                    <p className="text-xs text-verde-700">
+                      {formatCOP(variante.precioCOP)} × {item.cantidad}
+                    </p>
+                  </div>
+                  <div className="flex shrink-0 items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => cambiarCantidadCarrito(item.varianteId, -1)}
+                      className="flex h-7 w-7 items-center justify-center rounded-full border border-verde-950 text-verde-950 transition hover:bg-verde-950 hover:text-beige-100"
+                      aria-label={t("restar")}
+                    >
+                      −
+                    </button>
+                    <span className="w-5 text-center text-sm text-verde-950">
+                      {item.cantidad}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => cambiarCantidadCarrito(item.varianteId, 1)}
+                      className="flex h-7 w-7 items-center justify-center rounded-full border border-verde-950 text-verde-950 transition hover:bg-verde-950 hover:text-beige-100"
+                      aria-label={t("sumar")}
+                    >
+                      +
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => quitarDelCarrito(item.varianteId)}
+                      className="ml-1 text-xs font-medium text-tierra-600 underline-offset-2 hover:underline"
+                    >
+                      {t("quitar")}
+                    </button>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
 
       <div className="mt-6 border-t border-beige-400 pt-6">
@@ -194,7 +283,11 @@ export function CafePurchase({ product }: { product: Product }) {
       </div>
 
       <div className="mt-8">
-        {envioCompleto ? (
+        {carrito.length === 0 ? (
+          <p className="rounded-2xl border border-dashed border-tierra-500 bg-beige-200 p-4 text-sm text-verde-800">
+            {t("carritoVacio")}
+          </p>
+        ) : envioCompleto ? (
           <WompiCheckout
             amountInCents={totalCOP * 100}
             reference={reference}
