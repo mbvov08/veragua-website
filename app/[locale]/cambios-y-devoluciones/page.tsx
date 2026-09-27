@@ -49,7 +49,7 @@ export default async function CambiosYDevolucionesPage({
               <p className="mt-3">
                 Veragua
                 <br />
-                NIT: [COMPLETAR]
+                NIT: 1092851991-0
                 <br />
                 Dirección: Carrera 14 # 27 Norte - 80, Armenia, Quindío, Colombia
                 <br />
