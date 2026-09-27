@@ -272,14 +272,15 @@
     "historia": {
       "kicker": "Where we come from",
       "parrafos": [
-        "Veragua was born in the countryside of Quindío, out of the conviction that it was possible to produce food while respecting nature, animal welfare and the land's own cycles.",
+        "Ever since I was a little girl, I dreamed of having my own project. That entrepreneurial spirit was born almost as early as I was, and over the years it grew into the great purpose of my life: to build something of my own, from the land, with my hands and my heart in every step.",
+        "That's how what is today Veragua came to be, in the countryside of Quindío, out of the conviction that it was possible to produce food while respecting nature, animal welfare and the land's own cycles. We started out as Alma de Campo, but we couldn't register that name — so we went looking for a new one, and that's how Veragua came about (more on that below).",
         "We started with pastured eggs: hens that roam freely, feed naturally and live the way they should. That same care led us to add origin coffee and, alongside producers who share our way of working, A2 milk and artisanal products.",
         "Today we keep growing with the same idea as always: every food that reaches your table should tell a good story, from start to finish."
       ]
     },
     "historiaLogo": {
       "kicker": "The story behind the logo",
-      "introduccion": "We were born as Alma de Campo. We couldn't register that name, so we looked for a new one — and I wanted to honor my grandfather. Veragua was the name of the first farm he managed to buy with the fruit of his own work.",
+      "introduccion": "As I mentioned, we couldn't register the name Alma de Campo, so I went looking for a new one — and I wanted to honor my grandfather. Veragua was the name of the first farm he managed to buy with the fruit of his own work.",
       "titulo": "Every symbol has its story. Touch them.",
       "subtitulo": "Touch the guayacán tree, the cow or the hen to learn it.",
       "placeholder": "Choose an element of the logo to read its story.",
@@ -322,24 +323,12 @@
         "descripcion": "Our pastured hens roam freely and feed naturally. That welfare shows in the quality of every egg."
       },
       {
-        "titulo": "Respect for the land",
-        "descripcion": "We care for the soil, water and ecosystems of the Colombian countryside at every stage of our production."
-      },
-      {
         "titulo": "Quality from the origin",
         "descripcion": "Quality doesn't start at the point of sale: we take care at every stage, from the field until the product reaches you."
       },
       {
         "titulo": "Honesty",
         "descripcion": "Every product is exactly what we say it is. We share its origin and characteristics with full clarity."
-      },
-      {
-        "titulo": "Purposeful partnerships",
-        "descripcion": "We team up with regional producers who share our way of working, strengthening the countryside and expanding what we can offer you."
-      },
-      {
-        "titulo": "Real closeness",
-        "descripcion": "Every customer is part of Veragua's growth. We listen, we respond, and we build relationships that last."
       }
     ],
     "valores": {
@@ -351,28 +340,12 @@
           "descripcion": "We deliver fresh, safe food, with responsibility."
         },
         {
-          "titulo": "Honesty",
-          "descripcion": "We only offer what we truly know and stand behind."
-        },
-        {
           "titulo": "Respect",
           "descripcion": "For our customers, suppliers, animals and the environment."
         },
         {
           "titulo": "Passion",
           "descripcion": "We enjoy what we do and believe in good food."
-        },
-        {
-          "titulo": "Responsibility",
-          "descripcion": "We deliver on what we promise, with care in every detail."
-        },
-        {
-          "titulo": "Solidarity",
-          "descripcion": "We believe in working together to strengthen the Colombian countryside."
-        },
-        {
-          "titulo": "Innovation",
-          "descripcion": "We're always looking for new ways to add value to your table."
         },
         {
           "titulo": "Service",

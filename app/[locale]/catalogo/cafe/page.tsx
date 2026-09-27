@@ -12,9 +12,11 @@ import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 type GrupoOtrosProductos = { categoria: string; items: string[] };
 
-// Falta cafe-bolsa-beige.png (tercera foto de la galería) — se agrega acá en
-// cuanto esté disponible, sin tocar nada más.
-const GALERIA_CAFE = ["/images/productos/cafe-bolsa-blanco.png", "/images/productos/cafe-bolsa-granos.png"];
+const GALERIA_CAFE = [
+  "/images/productos/cafe-bolsa-blanco.png",
+  "/images/productos/cafe-bolsa-granos.png",
+  "/images/productos/cafe-bolsa-beige.png",
+];
 const OG_IMAGE_CAFE = "/images/productos/cafe-bolsa-granos.png";
 
 export async function generateMetadata(): Promise<Metadata> {

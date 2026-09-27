@@ -272,14 +272,15 @@
     "historia": {
       "kicker": "De dónde venimos",
       "parrafos": [
-        "Veragua nació en el campo del Quindío, de la convicción de que era posible producir alimentos respetando la naturaleza, el bienestar animal y los ciclos propios de la tierra.",
+        "Desde muy pequeña soñé con tener mi propio proyecto. Ese espíritu emprendedor nació casi al mismo tiempo que yo, y con los años se convirtió en el gran propósito de mi vida: construir algo propio, de la tierra, con las manos y el corazón puestos en cada paso.",
+        "Así nació lo que hoy es Veragua, en el campo del Quindío, de la convicción de que era posible producir alimentos respetando la naturaleza, el bienestar animal y los ciclos propios de la tierra. Empezamos como Alma de Campo, pero no logramos registrar ese nombre — así que salimos a buscar uno nuevo, y así llegó Veragua (más abajo te cuento de dónde viene).",
         "Empezamos con huevos de gallinas de pastoreo: aves que caminan libres, se alimentan naturalmente y viven como deben vivir. Ese mismo cuidado nos llevó a sumar café de origen y, junto a productores que comparten nuestra forma de trabajar, leche A2 y derivados artesanales.",
         "Hoy seguimos creciendo con la misma idea de siempre: cada alimento que llega a tu mesa debe contar una historia buena, de principio a fin."
       ]
     },
     "historiaLogo": {
       "kicker": "La historia detrás del logo",
-      "introduccion": "Nacimos como Alma de Campo. No pudimos registrar ese nombre, así que buscamos uno nuevo — y quise honrar a mi abuelo. Veragua fue el nombre de la primera finca que él logró comprar con el fruto de su trabajo.",
+      "introduccion": "Como te contaba, no pudimos registrar el nombre Alma de Campo, así que salí a buscar uno nuevo — y quise honrar a mi abuelo. Veragua fue el nombre de la primera finca que él logró comprar con el fruto de su trabajo.",
       "titulo": "Cada símbolo tiene su historia. Tócalos.",
       "subtitulo": "Toca el guayacán, la vaca o la gallina para conocerla.",
       "placeholder": "Elige un elemento del logo para leer su historia.",
@@ -322,24 +323,12 @@
         "descripcion": "Nuestras gallinas de pastoreo caminan libres y se alimentan naturalmente. Ese bienestar se nota en la calidad de cada huevo."
       },
       {
-        "titulo": "Respeto por la tierra",
-        "descripcion": "Cuidamos el suelo, el agua y los ecosistemas del campo colombiano en cada etapa de nuestra producción."
-      },
-      {
         "titulo": "Calidad desde el origen",
         "descripcion": "La calidad no empieza en el punto de venta: cuidamos cada etapa, desde el campo hasta que el producto llega a ti."
       },
       {
         "titulo": "Honestidad",
         "descripcion": "Cada producto es exactamente lo que decimos que es. Contamos su origen y sus características con toda claridad."
-      },
-      {
-        "titulo": "Alianzas con propósito",
-        "descripcion": "Sumamos a productores regionales que comparten nuestra forma de trabajar, fortaleciendo el campo y ampliando lo que podemos ofrecerte."
-      },
-      {
-        "titulo": "Cercanía real",
-        "descripcion": "Cada cliente es parte del crecimiento de Veragua. Escuchamos, respondemos y construimos relaciones que duran."
       }
     ],
     "valores": {
@@ -351,28 +340,12 @@
           "descripcion": "Entregamos alimentos frescos y seguros, con responsabilidad."
         },
         {
-          "titulo": "Honestidad",
-          "descripcion": "Ofrecemos solo lo que conocemos y respaldamos de verdad."
-        },
-        {
           "titulo": "Respeto",
           "descripcion": "Por nuestros clientes, proveedores, animales y el medio ambiente."
         },
         {
           "titulo": "Pasión",
           "descripcion": "Disfrutamos lo que hacemos y creemos en la buena alimentación."
-        },
-        {
-          "titulo": "Responsabilidad",
-          "descripcion": "Cumplimos lo que prometemos, con seriedad en cada detalle."
-        },
-        {
-          "titulo": "Solidaridad",
-          "descripcion": "Creemos en el trabajo conjunto para fortalecer el campo colombiano."
-        },
-        {
-          "titulo": "Innovación",
-          "descripcion": "Buscamos siempre nuevas formas de sumar valor a tu mesa."
         },
         {
           "titulo": "Servicio",
