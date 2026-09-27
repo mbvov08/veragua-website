@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { ProgressBar } from "@/components/configurador/ProgressBar";
 import { PersonasStep } from "@/components/configurador/steps/PersonasStep";
 import { FrecuenciaHuevoStep } from "@/components/configurador/steps/FrecuenciaHuevoStep";
@@ -17,6 +18,7 @@ const TOTAL_PASOS = 7;
 // Este componente se monta solo en el navegador (ver ConfiguratorLoader), así que
 // es seguro leer localStorage directamente en el inicializador de useState.
 export function Configurator() {
+  const t = useTranslations("configurador");
   const [paso, setPaso] = useState(0);
   const [respuestas, setRespuestas] = useState<RespuestasEncuesta>(
     () => cargarRespuestas() ?? respuestasIniciales
@@ -51,13 +53,13 @@ export function Configurator() {
     <div className="mx-auto max-w-2xl">
       {restaurado && paso === 0 && (
         <div className="mb-6 flex items-center justify-between gap-4 rounded-2xl border border-tierra-400 bg-beige-200 px-5 py-3 text-sm text-verde-800">
-          <span>Recuperamos tu última configuración.</span>
+          <span>{t("restaurado")}</span>
           <button
             type="button"
             onClick={reiniciar}
             className="font-semibold text-tierra-600 hover:underline"
           >
-            Empezar de nuevo
+            {t("reiniciar")}
           </button>
         </div>
       )}
@@ -121,14 +123,14 @@ export function Configurator() {
             disabled={paso === 0}
             className="rounded-full border border-verde-950 px-6 py-3 text-sm font-semibold text-verde-950 transition hover:bg-verde-950 hover:text-beige-100 disabled:opacity-0"
           >
-            Atrás
+            {t("atras")}
           </button>
           <button
             type="button"
             onClick={siguiente}
             className="rounded-full bg-verde-950 px-8 py-3 text-sm font-semibold text-beige-100 transition hover:bg-verde-800"
           >
-            Siguiente
+            {t("siguiente")}
           </button>
         </div>
       )}
@@ -140,7 +142,7 @@ export function Configurator() {
             onClick={atras}
             className="rounded-full border border-verde-950 px-6 py-3 text-sm font-semibold text-verde-950 transition hover:bg-verde-950 hover:text-beige-100"
           >
-            Atrás
+            {t("atras")}
           </button>
         </div>
       )}

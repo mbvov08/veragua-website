@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { StepShell } from "@/components/configurador/StepShell";
 import { ChoiceGroup } from "@/components/configurador/ChoiceGroup";
 import type { FrecuenciaHuevo } from "@/lib/configurador/types";
@@ -7,18 +10,16 @@ type FrecuenciaHuevoStepProps = {
   onChange: (value: FrecuenciaHuevo) => void;
 };
 
-const OPTIONS: { value: FrecuenciaHuevo; label: string }[] = [
-  { value: "desayuno", label: "Solo en el desayuno" },
-  { value: "desayuno_cena", label: "Desayuno y cena" },
-];
-
 export function FrecuenciaHuevoStep({ value, onChange }: FrecuenciaHuevoStepProps) {
+  const t = useTranslations("configurador.frecuenciaHuevo");
+
+  const OPTIONS: { value: FrecuenciaHuevo; label: string }[] = [
+    { value: "desayuno", label: t("desayuno") },
+    { value: "desayuno_cena", label: t("desayunoCena") },
+  ];
+
   return (
-    <StepShell
-      kicker="Consumo de huevo"
-      titulo="¿Cuántas veces al día suelen comer huevo?"
-      subtitulo="Esto nos dice cuántas cubetas por semana necesita tu hogar."
-    >
+    <StepShell kicker={t("kicker")} titulo={t("titulo")} subtitulo={t("subtitulo")}>
       <ChoiceGroup options={OPTIONS} value={value} onChange={onChange} />
     </StepShell>
   );

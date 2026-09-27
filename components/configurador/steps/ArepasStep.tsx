@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { StepShell } from "@/components/configurador/StepShell";
 import { ChoiceGroup } from "@/components/configurador/ChoiceGroup";
 
@@ -20,14 +23,15 @@ export function ArepasStep({
   onChangeIncluye,
   onChangePaquetes,
 }: ArepasStepProps) {
+  const t = useTranslations("configurador.arepas");
   const sugerido = sugerenciaPaquetesArepas(numeroPersonas);
 
   return (
-    <StepShell kicker="Arepas" titulo="¿Quieres incluir arepas artesanales?" subtitulo="Es opcional.">
+    <StepShell kicker={t("kicker")} titulo={t("titulo")} subtitulo={t("subtitulo")}>
       <ChoiceGroup
         options={[
-          { value: "si", label: "Sí, quiero arepas" },
-          { value: "no", label: "No por ahora" },
+          { value: "si", label: t("si") },
+          { value: "no", label: t("no") },
         ]}
         value={incluyeArepas ? "si" : "no"}
         onChange={(v) => onChangeIncluye(v === "si")}
@@ -36,7 +40,7 @@ export function ArepasStep({
       {incluyeArepas && (
         <div className="mt-6 rounded-3xl border border-beige-400 bg-beige-100 p-6">
           <label className="block text-xs font-medium uppercase tracking-wide text-verde-700">
-            Paquetes de arepas / semana
+            {t("paquetesPorSemana")}
           </label>
           <input
             type="number"
@@ -47,8 +51,12 @@ export function ArepasStep({
             className="mt-2 w-24 rounded-full border border-beige-400 bg-beige-100 px-4 py-2 text-sm text-verde-950"
           />
           <p className="mt-2 text-xs text-verde-700">
-            Sugerencia para {numeroPersonas} {numeroPersonas === 1 ? "persona" : "personas"}:{" "}
-            {sugerido} {sugerido === 1 ? "paquete" : "paquetes"}/semana.
+            {t("sugerencia", {
+              n: numeroPersonas,
+              personaWord: numeroPersonas === 1 ? t("persona") : t("personasPlural"),
+              sugerido,
+              paqueteWord: sugerido === 1 ? t("paquete") : t("paquetesPlural"),
+            })}
           </p>
         </div>
       )}

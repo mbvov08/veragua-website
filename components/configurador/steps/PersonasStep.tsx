@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { StepShell } from "@/components/configurador/StepShell";
 import { ChoiceGroup } from "@/components/configurador/ChoiceGroup";
 import type { NivelActividad, Persona } from "@/lib/configurador/types";
@@ -7,12 +10,14 @@ type PersonasStepProps = {
   onChange: (personas: Persona[]) => void;
 };
 
-const ACTIVIDAD_OPTIONS: { value: NivelActividad; label: string }[] = [
-  { value: "sedentario", label: "Sedentario" },
-  { value: "activo", label: "Hace ejercicio con frecuencia" },
-];
-
 export function PersonasStep({ personas, onChange }: PersonasStepProps) {
+  const t = useTranslations("configurador.personas");
+
+  const ACTIVIDAD_OPTIONS: { value: NivelActividad; label: string }[] = [
+    { value: "sedentario", label: t("sedentario") },
+    { value: "activo", label: t("activo") },
+  ];
+
   function setCantidad(cantidad: number) {
     const nueva = Math.max(1, Math.min(10, cantidad));
     if (nueva === personas.length) return;
@@ -33,17 +38,13 @@ export function PersonasStep({ personas, onChange }: PersonasStepProps) {
   }
 
   return (
-    <StepShell
-      kicker="Tu hogar"
-      titulo="¿Cuántas personas en tu hogar comen huevo?"
-      subtitulo="Usamos el peso y nivel de actividad de cada persona para calcular cuánta proteína necesita."
-    >
+    <StepShell kicker={t("kicker")} titulo={t("titulo")} subtitulo={t("subtitulo")}>
       <div className="mb-8 flex items-center gap-4">
         <button
           type="button"
           onClick={() => setCantidad(personas.length - 1)}
           className="flex h-10 w-10 items-center justify-center rounded-full border border-verde-950 text-verde-950 transition hover:bg-verde-950 hover:text-beige-100"
-          aria-label="Restar persona"
+          aria-label={t("restar")}
         >
           −
         </button>
@@ -54,22 +55,24 @@ export function PersonasStep({ personas, onChange }: PersonasStepProps) {
           type="button"
           onClick={() => setCantidad(personas.length + 1)}
           className="flex h-10 w-10 items-center justify-center rounded-full border border-verde-950 text-verde-950 transition hover:bg-verde-950 hover:text-beige-100"
-          aria-label="Sumar persona"
+          aria-label={t("sumar")}
         >
           +
         </button>
         <span className="text-sm text-verde-700">
-          {personas.length === 1 ? "persona" : "personas"}
+          {personas.length === 1 ? t("persona") : t("personasPlural")}
         </span>
       </div>
 
       <div className="space-y-6">
         {personas.map((persona, i) => (
           <div key={i} className="rounded-3xl border border-beige-400 bg-beige-100 p-6">
-            <p className="font-heading text-lg text-verde-950">Persona {i + 1}</p>
+            <p className="font-heading text-lg text-verde-950">
+              {t("personaLabel", { n: i + 1 })}
+            </p>
 
             <label className="mt-4 block text-xs font-medium uppercase tracking-wide text-verde-700">
-              Peso (kg)
+              {t("peso")}
             </label>
             <input
               type="number"
@@ -81,7 +84,7 @@ export function PersonasStep({ personas, onChange }: PersonasStepProps) {
             />
 
             <p className="mt-5 text-xs font-medium uppercase tracking-wide text-verde-700">
-              Nivel de actividad
+              {t("nivelActividad")}
             </p>
             <ChoiceGroup
               className="mt-2"

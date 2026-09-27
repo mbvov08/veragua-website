@@ -1,15 +1,28 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import type { SubscriptionPlan } from "@/lib/subscriptions";
-import { calcularPlan, diasDeEntrega } from "@/lib/subscriptions";
+import { calcularPlan } from "@/lib/subscriptions";
 import { formatCOP } from "@/lib/exchangeRate";
 import { buildSubscriptionOrderLink } from "@/lib/whatsapp";
 
 export function PlanCard({ plan }: { plan: SubscriptionPlan }) {
-  const [dia, setDia] = useState<string>(diasDeEntrega[5]);
+  const t = useTranslations("suscripciones");
+  const locale = useLocale() as "es" | "en";
+  const dias = t.raw("dias") as string[];
+  const [dia, setDia] = useState<string>(dias[5]);
   const { precioIndividualCOP, precioConDescuentoCOP, ahorroCOP, descuentoPorcentaje } =
     calcularPlan(plan);
+
+  const nombre = t(`planes.${plan.slug}.nombre`);
+
+  // Junta cantidades repetidas del mismo componente (ej. leche aparece dos
+  // veces en el plan sorpresa) usando la key traducible, no el texto final.
+  const totalesPorKey = plan.componentes.reduce<Record<string, number>>((acc, c) => {
+    acc[c.key] = (acc[c.key] ?? 0) + c.cantidadPorMes;
+    return acc;
+  }, {});
 
   return (
     <div
@@ -21,29 +34,25 @@ export function PlanCard({ plan }: { plan: SubscriptionPlan }) {
     >
       {plan.destacado && (
         <span className="mb-4 inline-block w-fit rounded-full bg-tierra-500 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-verde-950">
-          Más elegido
+          {t("masElegido")}
         </span>
       )}
 
-      <h3 className="font-heading text-xl">{plan.nombre}</h3>
+      <h3 className="font-heading text-xl">{nombre}</h3>
       <p className={`mt-3 text-sm leading-relaxed ${plan.destacado ? "text-beige-300" : "text-verde-800"}`}>
-        {plan.descripcion}
+        {t(`planes.${plan.slug}.descripcion`)}
       </p>
 
       <ul className={`mt-6 space-y-2 text-sm ${plan.destacado ? "text-beige-200" : "text-verde-800"}`}>
-        {plan.componentes
-          .reduce<{ nombre: string; total: number }[]>((acc, c) => {
-            const existente = acc.find((a) => a.nombre === c.nombre);
-            if (existente) existente.total += c.cantidadPorMes;
-            else acc.push({ nombre: c.nombre, total: c.cantidadPorMes });
-            return acc;
-          }, [])
-          .map((item) => (
-            <li key={item.nombre} className="flex justify-between gap-4">
-              <span>{item.nombre}</span>
-              <span className="font-medium">×{item.total}/mes</span>
-            </li>
-          ))}
+        {Object.entries(totalesPorKey).map(([key, total]) => (
+          <li key={key} className="flex justify-between gap-4">
+            <span>{t(`planes.${plan.slug}.componentes.${key}`)}</span>
+            <span className="font-medium">
+              ×{total}
+              {t("porMes")}
+            </span>
+          </li>
+        ))}
       </ul>
 
       <div className={`mt-8 border-t pt-6 ${plan.destacado ? "border-beige-300/30" : "border-beige-400"}`}>
@@ -52,7 +61,7 @@ export function PlanCard({ plan }: { plan: SubscriptionPlan }) {
         </p>
         <p className="font-heading text-2xl">{formatCOP(precioConDescuentoCOP)}</p>
         <p className={`mt-1 text-sm font-semibold ${plan.destacado ? "text-tierra-300" : "text-tierra-600"}`}>
-          Ahorras {formatCOP(ahorroCOP)} ({descuentoPorcentaje}% de descuento) cada mes
+          {t("ahorras", { ahorro: formatCOP(ahorroCOP), porcentaje: descuentoPorcentaje })}
         </p>
       </div>
 
@@ -63,7 +72,7 @@ export function PlanCard({ plan }: { plan: SubscriptionPlan }) {
             plan.destacado ? "text-beige-300" : "text-verde-700"
           }`}
         >
-          Día de entrega semanal
+          {t("diaEntrega")}
         </label>
         <select
           id={`dia-${plan.slug}`}
@@ -75,7 +84,7 @@ export function PlanCard({ plan }: { plan: SubscriptionPlan }) {
               : "border-verde-950/30 bg-beige-100 text-verde-950"
           }`}
         >
-          {diasDeEntrega.map((d) => (
+          {dias.map((d) => (
             <option key={d} value={d}>
               {d}
             </option>
@@ -84,7 +93,7 @@ export function PlanCard({ plan }: { plan: SubscriptionPlan }) {
       </div>
 
       <a
-        href={buildSubscriptionOrderLink(plan.nombre, dia)}
+        href={buildSubscriptionOrderLink(nombre, dia, locale)}
         target="_blank"
         rel="noopener noreferrer"
         className={`mt-6 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition ${
@@ -93,7 +102,7 @@ export function PlanCard({ plan }: { plan: SubscriptionPlan }) {
             : "bg-verde-950 text-beige-100 hover:bg-verde-800"
         }`}
       >
-        Suscribirme por WhatsApp
+        {t("suscribirme")}
       </a>
     </div>
   );

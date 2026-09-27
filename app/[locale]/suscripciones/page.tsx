@@ -1,31 +1,35 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/ui/Reveal";
 import { PlanCard } from "@/components/suscripciones/PlanCard";
 import { subscriptionPlans } from "@/lib/subscriptions";
 
-export const metadata: Metadata = {
-  title: "Suscripciones — Veragua",
-  description:
-    "Planes de suscripción semanal de Veragua: huevos, lácteos y desayuno completo, con descuento cada mes.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("suscripciones");
+  return {
+    title: `${t("hero.kicker")} — Veragua`,
+    description: t("hero.texto"),
+  };
+}
 
-export default function SuscripcionesPage() {
+export default async function SuscripcionesPage({ params }: PageProps<"/[locale]/suscripciones">) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("suscripciones");
+
   return (
     <>
       <section className="bg-verde-950 px-6 pb-16 pt-40 text-beige-100 md:pt-48">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-300">
-              Suscripciones
+              {t("hero.kicker")}
             </p>
             <h1 className="font-logo text-3xl italic leading-snug sm:text-4xl">
-              Tu pedido de la semana, listo cada vez.
+              {t("hero.titulo")}
             </h1>
-            <p className="mx-auto mt-6 max-w-xl text-base text-beige-300">
-              Elige tu plan y el día de entrega que prefieras. Cada mes renuevas con un
-              pago manual: no guardamos tu tarjeta ni hacemos cobros automáticos.
-            </p>
+            <p className="mx-auto mt-6 max-w-xl text-base text-beige-300">{t("hero.texto")}</p>
           </Reveal>
         </div>
       </section>
@@ -44,21 +48,19 @@ export default function SuscripcionesPage() {
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-600">
-              ¿Ninguno se ajusta del todo?
+              {t("personalizadoCta.kicker")}
             </p>
             <h2 className="font-heading text-2xl text-verde-950 sm:text-3xl">
-              Arma tu Plan Personalizado.
+              {t("personalizadoCta.titulo")}
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-base text-verde-800">
-              Responde unas preguntas sobre tu hogar y calculamos las cantidades
-              exactas que necesitas, con el mismo 5% de descuento. Entregas en
-              Armenia y Pereira.
+              {t("personalizadoCta.texto")}
             </p>
             <Link
               href="/suscripciones/personalizado"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-verde-950 px-8 py-4 text-sm font-semibold text-beige-100 transition hover:bg-verde-800"
             >
-              Armar mi plan
+              {t("personalizadoCta.cta")}
             </Link>
           </Reveal>
         </div>

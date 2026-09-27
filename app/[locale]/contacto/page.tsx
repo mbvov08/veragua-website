@@ -4,12 +4,15 @@ import { Reveal } from "@/components/ui/Reveal";
 import { buildGeneralContactLink } from "@/lib/whatsapp";
 import { socialLinks } from "@/lib/socialLinks";
 
-export const metadata: Metadata = {
-  title: "Contacto — Veragua",
-  description: "Escríbenos por WhatsApp, síguenos en redes o visítanos en Armenia, Quindío.",
-};
-
 const CORREOS = ["admin", "compras", "gerencia"] as const;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("contacto");
+  return {
+    title: `${t("titulo")} — Veragua`,
+    description: t("subtitulo"),
+  };
+}
 
 export default async function ContactoPage({ params }: PageProps<"/[locale]/contacto">) {
   const { locale } = await params;
@@ -61,7 +64,7 @@ export default async function ContactoPage({ params }: PageProps<"/[locale]/cont
         <div className="mx-auto mt-8 grid max-w-5xl gap-8 md:grid-cols-3">
           <Reveal>
             <a
-              href={buildGeneralContactLink()}
+              href={buildGeneralContactLink(locale as "es" | "en")}
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-full flex-col justify-between rounded-3xl border border-beige-400 bg-beige-100 p-8 transition hover:border-tierra-500"

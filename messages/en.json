@@ -44,6 +44,27 @@
   },
   "cafe": {
     "badge": "Buy online · Shipping to Colombia and worldwide",
+    "producto": {
+      "nombre": "Veragua Origin Coffee",
+      "descripcion": "Select Colombian origin coffee, roasted to bring out its best flavor profile."
+    },
+    "otros": {
+      "kicker": "Also available from Veragua",
+      "aviso": "These products have real photos and up-to-date prices in our Treinta catalog. Take a look there and message us on WhatsApp to coordinate your order.",
+      "conoceMas": "Learn more here",
+      "haPedido": "Order on WhatsApp",
+      "mensajeWhatsApp": "Hello Veragua! I'd like to place an order for products I saw in your catalog.",
+      "mensajeWhatsAppCategoria": "Hello Veragua! I'd like to order {categoria} products. Can you help me with availability and delivery?",
+      "entregaAviso": "Delivery by order in Armenia, Pereira and Manizales.",
+      "grupos": [
+        { "categoria": "Eggs", "items": ["Brown eggs x15", "Brown eggs x30", "Blue eggs x15", "Blue eggs x30", "Mixed eggs x30"] },
+        { "categoria": "Meat", "items": ["Whole frozen hen", "Whole frozen free-range chicken"] },
+        { "categoria": "Artisanal", "items": ["Fátima Fine Arepas"] },
+        { "categoria": "A2 Sanorigen Dairy", "items": ["A2 Milk", "A2 Kefir", "A2 Drinking Yogurt", "A2 Greek Yogurt", "A2 Fresh Cheese", "A2 Grilling Cheese"] },
+        { "categoria": "Guali Beverages", "items": ["Sparkling water", "Still water", "Ginger soda", "Lemon soda"] },
+        { "categoria": "Sanorigen Desserts", "items": ["Gelato (15+ flavors)", "Assorted popsicles", "Cookies (chocolate, churro, milo)", "Honey granola"] }
+      ]
+    },
     "presentacion": "Format",
     "cantidad": "Quantity",
     "restar": "Decrease quantity",
@@ -233,6 +254,140 @@
         { "titulo": "Innovation", "descripcion": "We're always looking for new ways to add value to your table." },
         { "titulo": "Service", "descripcion": "Every interaction with you can be a close, memorable experience." }
       ]
+    }
+  },
+  "configurador": {
+    "hero": {
+      "kicker": "Custom Plan",
+      "titulo": "Your subscription, calculated just for you.",
+      "texto": "Answer a few questions about your household and we'll put together a plan with the exact quantities you need, with the same 5% discount and no card on file."
+    },
+    "restaurado": "We restored your last configuration.",
+    "reiniciar": "Start over",
+    "atras": "Back",
+    "siguiente": "Next",
+    "paso": "Step {actual} of {total}",
+    "personas": {
+      "kicker": "Your household",
+      "titulo": "How many people in your household eat eggs?",
+      "subtitulo": "We use each person's weight and activity level to calculate how much protein they need.",
+      "restar": "Remove person",
+      "sumar": "Add person",
+      "persona": "person",
+      "personasPlural": "people",
+      "personaLabel": "Person {n}",
+      "peso": "Weight (kg)",
+      "nivelActividad": "Activity level",
+      "sedentario": "Sedentary",
+      "activo": "Exercises frequently"
+    },
+    "frecuenciaHuevo": {
+      "kicker": "Egg consumption",
+      "titulo": "How many times a day do you usually eat eggs?",
+      "subtitulo": "This tells us how many cartons per week your household needs.",
+      "desayuno": "Only at breakfast",
+      "desayunoCena": "Breakfast and dinner"
+    },
+    "lacteos": {
+      "kicker": "Dairy",
+      "titulo": "Would you like to include dairy in your plan?",
+      "subtitulo": "It's optional.",
+      "si": "Yes, I want dairy",
+      "no": "Not for now",
+      "incluido": "Included",
+      "incluir": "Include",
+      "cantidadPorSemana": "Quantity per week",
+      "tipos": {
+        "leche": { "label": "A2 Sanorigen Milk", "unidad": "bottles x 1 L / week" },
+        "yogur": { "label": "A2 Sanorigen Drinking Yogurt", "unidad": "containers x 500 g / week" },
+        "queso": { "label": "A2 Sanorigen Fresh Cheese", "unidad": "lb / week" }
+      }
+    },
+    "arepas": {
+      "kicker": "Arepas",
+      "titulo": "Would you like to include artisanal arepas?",
+      "subtitulo": "It's optional.",
+      "si": "Yes, I want arepas",
+      "no": "Not for now",
+      "paquetesPorSemana": "Packs of arepas / week",
+      "sugerencia": "Suggestion for {n} {personaWord}: {sugerido} {paqueteWord}/week.",
+      "persona": "person",
+      "personasPlural": "people",
+      "paquete": "pack",
+      "paquetesPlural": "packs"
+    },
+    "cafe": {
+      "kicker": "Coffee",
+      "titulo": "Would you like to include origin coffee?",
+      "subtitulo": "It's optional.",
+      "si": "Yes, I want coffee",
+      "no": "Not for now",
+      "tazasPorDia": "Cups of coffee per day",
+      "librasAlMes": "≈ {libras} lb of coffee per month."
+    },
+    "entrega": {
+      "kicker": "Delivery",
+      "titulo": "Where and when would you like to receive your plan?",
+      "subtitulo": "The Custom Plan is delivered in Armenia and Pereira.",
+      "ciudad": "City",
+      "diaSemanal": "Weekly delivery day"
+    },
+    "resumen": {
+      "kicker": "Your plan",
+      "titulo": "Your Custom Plan",
+      "subtitulo": "Here's what we calculated for your household.",
+      "porMes": "/mo",
+      "ahorras": "You save {ahorro} ({porcentaje}% off) every month",
+      "ciudadEntrega": "Delivery city: {ciudad}",
+      "diaEntrega": "Delivery day: {dia}",
+      "confirmarPagar": "Confirm and pay for the first month on WhatsApp",
+      "pagoManual": "Manual monthly payment to renew your subscription: we don't store your card or charge automatically."
+    }
+  },
+  "suscripciones": {
+    "hero": {
+      "kicker": "Subscriptions",
+      "titulo": "Your weekly order, ready every time.",
+      "texto": "Choose your plan and the delivery day you prefer. Each month you renew with a manual payment: we don't store your card or charge automatically."
+    },
+    "personalizadoCta": {
+      "kicker": "None quite fit?",
+      "titulo": "Build your Custom Plan.",
+      "texto": "Answer a few questions about your household and we'll calculate the exact quantities you need, with the same 5% discount. Deliveries in Armenia and Pereira.",
+      "cta": "Build my plan"
+    },
+    "masElegido": "Most chosen",
+    "ahorras": "You save {ahorro} ({porcentaje}% off) every month",
+    "diaEntrega": "Weekly delivery day",
+    "suscribirme": "Subscribe on WhatsApp",
+    "porMes": "/mo",
+    "dias": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "planes": {
+      "plan-huevos": {
+        "nombre": "Eggs Plan",
+        "descripcion": "2 cartons of pastured eggs every week, delivered on the 4 weekends of the month.",
+        "componentes": { "huevos": "Carton of 30 eggs (2 per week)" }
+      },
+      "plan-huevos-lacteos-sorpresa": {
+        "nombre": "Eggs + Surprise Dairy Plan",
+        "descripcion": "Weekly pastured eggs plus a different dairy product in every delivery: cheese, yogurt or milk, rotating each week.",
+        "componentes": {
+          "huevos": "Carton of 30 eggs (2 per week)",
+          "leche": "A2 Sanorigen Milk x 1 L",
+          "yogur": "A2 Sanorigen Drinking Yogurt x 500 g",
+          "queso": "A2 Sanorigen Fresh Cheese x lb"
+        }
+      },
+      "plan-desayuno-completo": {
+        "nombre": "Full Breakfast Plan",
+        "descripcion": "Our most complete plan: coffee, weekly eggs, a dairy product and arepas so you never have to think about breakfast all month.",
+        "componentes": {
+          "cafe": "Veragua Origin Coffee x 340 g",
+          "huevos": "Carton of 30 eggs (2 per week)",
+          "lacteo": "Weekly rotating dairy",
+          "arepas": "Pack of arepas"
+        }
+      }
     }
   },
   "contacto": {

@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { StepShell } from "@/components/configurador/StepShell";
 import { ChoiceGroup } from "@/components/configurador/ChoiceGroup";
 import type { LacteoSeleccionado, TipoLacteo } from "@/lib/configurador/types";
@@ -9,10 +12,10 @@ type LacteosStepProps = {
   onChangeLacteos: (lacteos: LacteoSeleccionado[]) => void;
 };
 
-const TIPOS: { tipo: TipoLacteo; label: string; unidad: string; defaultCantidad: number }[] = [
-  { tipo: "leche", label: "Leche A2 Sanorigen", unidad: "botellas x 1 L / semana", defaultCantidad: 1 },
-  { tipo: "yogur", label: "Yogur Líquido A2 Sanorigen", unidad: "envases x 500 g / semana", defaultCantidad: 1 },
-  { tipo: "queso", label: "Queso Fresco A2 Sanorigen", unidad: "libras / semana", defaultCantidad: 1 },
+const TIPOS: { tipo: TipoLacteo; defaultCantidad: number }[] = [
+  { tipo: "leche", defaultCantidad: 1 },
+  { tipo: "yogur", defaultCantidad: 1 },
+  { tipo: "queso", defaultCantidad: 1 },
 ];
 
 export function LacteosStep({
@@ -21,6 +24,8 @@ export function LacteosStep({
   onChangeIncluye,
   onChangeLacteos,
 }: LacteosStepProps) {
+  const t = useTranslations("configurador.lacteos");
+
   function seleccionado(tipo: TipoLacteo) {
     return lacteos.find((l) => l.tipo === tipo);
   }
@@ -38,11 +43,11 @@ export function LacteosStep({
   }
 
   return (
-    <StepShell kicker="Lácteos" titulo="¿Quieres incluir lácteos en tu plan?" subtitulo="Es opcional.">
+    <StepShell kicker={t("kicker")} titulo={t("titulo")} subtitulo={t("subtitulo")}>
       <ChoiceGroup
         options={[
-          { value: "si", label: "Sí, quiero lácteos" },
-          { value: "no", label: "No por ahora" },
+          { value: "si", label: t("si") },
+          { value: "no", label: t("no") },
         ]}
         value={incluyeLacteos ? "si" : "no"}
         onChange={(v) => onChangeIncluye(v === "si")}
@@ -50,7 +55,7 @@ export function LacteosStep({
 
       {incluyeLacteos && (
         <div className="mt-8 space-y-4">
-          {TIPOS.map(({ tipo, label, unidad, defaultCantidad }) => {
+          {TIPOS.map(({ tipo, defaultCantidad }) => {
             const activo = seleccionado(tipo);
             return (
               <div
@@ -61,8 +66,10 @@ export function LacteosStep({
               >
                 <div className="flex items-center justify-between gap-4">
                   <div>
-                    <p className="font-heading text-lg text-verde-950">{label}</p>
-                    <p className="text-xs text-verde-700">{unidad}</p>
+                    <p className="font-heading text-lg text-verde-950">
+                      {t(`tipos.${tipo}.label`)}
+                    </p>
+                    <p className="text-xs text-verde-700">{t(`tipos.${tipo}.unidad`)}</p>
                   </div>
                   <button
                     type="button"
@@ -73,14 +80,14 @@ export function LacteosStep({
                         : "border-beige-400 text-verde-800 hover:border-verde-950"
                     }`}
                   >
-                    {activo ? "Incluido" : "Incluir"}
+                    {activo ? t("incluido") : t("incluir")}
                   </button>
                 </div>
 
                 {activo && (
                   <div className="mt-4 flex items-center gap-3">
                     <label className="text-xs font-medium uppercase tracking-wide text-verde-700">
-                      Cantidad por semana
+                      {t("cantidadPorSemana")}
                     </label>
                     <input
                       type="number"

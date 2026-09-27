@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { buildGeneralContactLink } from "@/lib/whatsapp";
@@ -7,6 +7,7 @@ import { socialLinks } from "@/lib/socialLinks";
 export function Footer() {
   const t = useTranslations("footer");
   const tNav = useTranslations("nav");
+  const locale = useLocale() as "es" | "en";
 
   const NAV_LINKS = [
     { href: "/nosotros", label: tNav("nosotros") },
@@ -41,7 +42,7 @@ export function Footer() {
           <h3 className="font-heading text-lg text-tierra-300">{t("contacto")}</h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <a href={buildGeneralContactLink()} target="_blank" rel="noopener noreferrer" className="hover:text-tierra-300">
+              <a href={buildGeneralContactLink(locale)} target="_blank" rel="noopener noreferrer" className="hover:text-tierra-300">
                 {t("whatsapp")}
               </a>
             </li>

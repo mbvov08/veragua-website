@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { StepShell } from "@/components/configurador/StepShell";
 import { ChoiceGroup } from "@/components/configurador/ChoiceGroup";
 import { librasCafePorMes } from "@/lib/configurador/calculoCafe";
@@ -10,12 +13,14 @@ type CafeStepProps = {
 };
 
 export function CafeStep({ incluyeCafe, tazasPorDia, onChangeIncluye, onChangeTazas }: CafeStepProps) {
+  const t = useTranslations("configurador.cafe");
+
   return (
-    <StepShell kicker="Café" titulo="¿Te gustaría incluir café de origen?" subtitulo="Es opcional.">
+    <StepShell kicker={t("kicker")} titulo={t("titulo")} subtitulo={t("subtitulo")}>
       <ChoiceGroup
         options={[
-          { value: "si", label: "Sí, quiero café" },
-          { value: "no", label: "No por ahora" },
+          { value: "si", label: t("si") },
+          { value: "no", label: t("no") },
         ]}
         value={incluyeCafe ? "si" : "no"}
         onChange={(v) => onChangeIncluye(v === "si")}
@@ -24,7 +29,7 @@ export function CafeStep({ incluyeCafe, tazasPorDia, onChangeIncluye, onChangeTa
       {incluyeCafe && (
         <div className="mt-6 rounded-3xl border border-beige-400 bg-beige-100 p-6">
           <label className="block text-xs font-medium uppercase tracking-wide text-verde-700">
-            Tazas de café al día
+            {t("tazasPorDia")}
           </label>
           <input
             type="number"
@@ -35,7 +40,7 @@ export function CafeStep({ incluyeCafe, tazasPorDia, onChangeIncluye, onChangeTa
             className="mt-2 w-24 rounded-full border border-beige-400 bg-beige-100 px-4 py-2 text-sm text-verde-950"
           />
           <p className="mt-2 text-xs text-verde-700">
-            ≈ {librasCafePorMes(tazasPorDia).toFixed(1)} libras de café al mes.
+            {t("librasAlMes", { libras: librasCafePorMes(tazasPorDia).toFixed(1) })}
           </p>
         </div>
       )}

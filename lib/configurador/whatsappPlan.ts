@@ -1,6 +1,6 @@
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { formatCOP } from "@/lib/exchangeRate";
-import type { RespuestasEncuesta } from "@/lib/configurador/types";
+import { diaLabelEs, type RespuestasEncuesta } from "@/lib/configurador/types";
 import { calcularPlanPersonalizado } from "@/lib/configurador/calculoPlan";
 
 // El mensaje de WhatsApp incluye todas las respuestas de la encuesta y el plan
@@ -34,7 +34,7 @@ Precio con 5% de descuento: ${formatCOP(precioConDescuentoCOP)}
 Ahorro: ${formatCOP(ahorroCOP)}
 
 Ciudad de entrega: ${respuestas.ciudadEntrega}
-Día de entrega preferido: ${respuestas.diaEntrega}
+Día de entrega preferido: ${diaLabelEs[respuestas.diaEntrega]}
 
 ¿Me ayudan a confirmar y coordinar el pago del primer mes?`;
 

@@ -1,13 +1,24 @@
-export type SubscriptionComponent = {
-  nombre: string;
+// Los nombres/descripciones visibles viven en messages/es.json y en.json
+// (namespace "suscripciones.planes.<slug>"), no acá — esta data solo trae
+// los números y una "key" para encontrar la etiqueta traducida de cada
+// componente. Precios sincronizados manualmente con el catálogo de Treinta
+// (ver la nota en lib/products.ts); estos componentes están duplicados a
+// propósito (no se derivan de `products`) porque cada plan empaqueta
+// cantidades propias.
+// Solo lo que hace falta para el cálculo de precio — el nombre visible se
+// resuelve aparte (por "key" en los planes fijos, dinámicamente en el
+// configurador). Así ambos casos pueden reusar calcularDesdeComponentes.
+export type ComponentePrecio = {
   cantidadPorMes: number;
   precioUnitarioCOP: number;
 };
 
+export type SubscriptionComponent = ComponentePrecio & {
+  key: string;
+};
+
 export type SubscriptionPlan = {
   slug: string;
-  nombre: string;
-  descripcion: string;
   entregasPorMes: number;
   componentes: SubscriptionComponent[];
   destacado?: boolean;
@@ -15,52 +26,37 @@ export type SubscriptionPlan = {
 
 export const DESCUENTO_SUSCRIPCION = 0.05;
 
-// Precios sincronizados manualmente con el catálogo de Treinta — ver la nota
-// en lib/products.ts. Estos componentes están duplicados a propósito (no se
-// derivan de `products`) porque cada plan puede empaquetar cantidades propias;
-// si cambian los precios base, actualizar también aquí.
 export const subscriptionPlans: SubscriptionPlan[] = [
   {
     slug: "plan-huevos",
-    nombre: "Plan Huevos",
-    descripcion:
-      "2 cubetas de huevos de pastoreo cada semana, con entrega los 4 fines de semana del mes.",
     entregasPorMes: 4,
-    componentes: [
-      { nombre: "Cubeta de huevos x 30 (2 por semana)", cantidadPorMes: 8, precioUnitarioCOP: 27000 },
-    ],
+    componentes: [{ key: "huevos", cantidadPorMes: 8, precioUnitarioCOP: 27000 }],
   },
   {
     slug: "plan-huevos-lacteos-sorpresa",
-    nombre: "Plan Huevos + Lácteos Sorpresa",
-    descripcion:
-      "Huevos semanales de pastoreo más un lácteo distinto en cada entrega: queso, yogur o leche, rotando cada semana.",
     entregasPorMes: 4,
     destacado: true,
     componentes: [
-      { nombre: "Cubeta de huevos x 30 (2 por semana)", cantidadPorMes: 8, precioUnitarioCOP: 27000 },
-      { nombre: "Leche A2 Sanorigen x 1 L", cantidadPorMes: 1, precioUnitarioCOP: 15000 },
-      { nombre: "Yogur Líquido A2 Sanorigen x 500 g", cantidadPorMes: 1, precioUnitarioCOP: 31000 },
-      { nombre: "Queso Fresco A2 Sanorigen x libra", cantidadPorMes: 1, precioUnitarioCOP: 17000 },
-      { nombre: "Leche A2 Sanorigen x 1 L", cantidadPorMes: 1, precioUnitarioCOP: 15000 },
+      { key: "huevos", cantidadPorMes: 8, precioUnitarioCOP: 27000 },
+      { key: "leche", cantidadPorMes: 1, precioUnitarioCOP: 15000 },
+      { key: "yogur", cantidadPorMes: 1, precioUnitarioCOP: 31000 },
+      { key: "queso", cantidadPorMes: 1, precioUnitarioCOP: 17000 },
+      { key: "leche", cantidadPorMes: 1, precioUnitarioCOP: 15000 },
     ],
   },
   {
     slug: "plan-desayuno-completo",
-    nombre: "Plan Desayuno Completo",
-    descripcion:
-      "Nuestro plan más completo: café, huevos semanales, un lácteo y arepas para no pensar en el desayuno en todo el mes.",
     entregasPorMes: 4,
     componentes: [
-      { nombre: "Café de Origen Veragua x 340 g", cantidadPorMes: 2, precioUnitarioCOP: 38000 },
-      { nombre: "Cubeta de huevos x 30 (2 por semana)", cantidadPorMes: 8, precioUnitarioCOP: 27000 },
-      { nombre: "Lácteo rotativo semanal", cantidadPorMes: 4, precioUnitarioCOP: 21000 },
-      { nombre: "Paquete de arepas", cantidadPorMes: 4, precioUnitarioCOP: 6000 },
+      { key: "cafe", cantidadPorMes: 2, precioUnitarioCOP: 38000 },
+      { key: "huevos", cantidadPorMes: 8, precioUnitarioCOP: 27000 },
+      { key: "lacteo", cantidadPorMes: 4, precioUnitarioCOP: 21000 },
+      { key: "arepas", cantidadPorMes: 4, precioUnitarioCOP: 6000 },
     ],
   },
 ];
 
-export function calcularDesdeComponentes(componentes: SubscriptionComponent[]) {
+export function calcularDesdeComponentes(componentes: ComponentePrecio[]) {
   const precioIndividualCOP = componentes.reduce(
     (total, c) => total + c.cantidadPorMes * c.precioUnitarioCOP,
     0
@@ -79,12 +75,3 @@ export function calcularDesdeComponentes(componentes: SubscriptionComponent[]) {
 export function calcularPlan(plan: SubscriptionPlan) {
   return calcularDesdeComponentes(plan.componentes);
 }
-
-export const diasDeEntrega = [
-  "Lunes",
-  "Martes",
-  "Miércoles",
-  "Jueves",
-  "Viernes",
-  "Sábado",
-] as const;

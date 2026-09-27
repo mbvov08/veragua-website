@@ -7,42 +7,15 @@ import { CafeScrollStory } from "@/components/catalogo/CafeScrollStory";
 import { products, TREINTA_CATALOG_URL } from "@/lib/products";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
-// Listado simple de todo lo demás que se consigue en el catálogo de Treinta
-// (sincronizado a mano contra esa URL — ver la nota en lib/products.ts).
-// A propósito NO son tarjetas individuales: el cliente solo pidió una lista
-// para "conocer más" antes de mandar el link de Treinta + WhatsApp.
-const OTROS_PRODUCTOS = [
-  {
-    categoria: "Huevos",
-    items: ["Huevos Marrones x15", "Huevos Marrones x30", "Huevos Azules x15", "Huevos Azules x30", "Huevos Mixtos x30"],
-  },
-  {
-    categoria: "Carnes",
-    items: ["Gallina entera congelada", "Pollo criollo entero congelado"],
-  },
-  {
-    categoria: "Artesanales",
-    items: ["Arepas Finas de Fátima"],
-  },
-  {
-    categoria: "Lácteos A2 Sanorigen",
-    items: ["Leche A2", "Kéfir A2", "Yogur líquido A2", "Yogur griego A2", "Queso fresco A2", "Queso parrillero A2"],
-  },
-  {
-    categoria: "Bebidas Guali",
-    items: ["Agua con gas", "Agua sin gas", "Soda de jengibre", "Soda de limón"],
-  },
-  {
-    categoria: "Postres Sanorigen",
-    items: ["Gelato (más de 15 sabores)", "Paletas surtidas", "Galletas (chocolate, churro, milo)", "Granola con miel"],
-  },
-] as const;
+type GrupoOtrosProductos = { categoria: string; items: string[] };
 
-export const metadata: Metadata = {
-  title: "Compra ahora — Veragua",
-  description:
-    "Café de origen colombiano de Veragua, con compra en línea y envíos a Colombia y al mundo.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("cafe");
+  return {
+    title: `${t("producto.nombre")} — Veragua`,
+    description: t("producto.descripcion"),
+  };
+}
 
 export default async function CafePage({ params }: PageProps<"/[locale]/catalogo/cafe">) {
   const { locale } = await params;
@@ -51,6 +24,8 @@ export default async function CafePage({ params }: PageProps<"/[locale]/catalogo
 
   const cafe = products.find((p) => p.slug === "cafe-de-origen")!;
   const paqueton = cafe.variantes.find((v) => v.id === "5lb-molido")!;
+  const nombreProducto = t("producto.nombre");
+  const otrosGrupos = t.raw("otros.grupos") as GrupoOtrosProductos[];
 
   return (
     <>
@@ -60,7 +35,7 @@ export default async function CafePage({ params }: PageProps<"/[locale]/catalogo
             <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-beige-300">
               <Image
                 src={cafe.imagen}
-                alt={cafe.nombre}
+                alt={nombreProducto}
                 fill
                 className="object-cover"
                 sizes="(min-width: 768px) 40vw, 100vw"
@@ -73,8 +48,10 @@ export default async function CafePage({ params }: PageProps<"/[locale]/catalogo
             <span className="inline-block rounded-full bg-tierra-500 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-verde-950">
               {t("badge")}
             </span>
-            <h1 className="mt-6 font-logo text-4xl italic text-verde-950">{cafe.nombre}</h1>
-            <p className="mt-4 text-base leading-relaxed text-verde-800">{cafe.descripcion}</p>
+            <h1 className="mt-6 font-logo text-4xl italic text-verde-950">{nombreProducto}</h1>
+            <p className="mt-4 text-base leading-relaxed text-verde-800">
+              {t("producto.descripcion")}
+            </p>
 
             <div id="comprar" className="mt-8 scroll-mt-32">
               <CafePurchase product={cafe} />
@@ -91,7 +68,7 @@ export default async function CafePage({ params }: PageProps<"/[locale]/catalogo
             <div className="relative aspect-square w-full max-w-sm overflow-hidden rounded-3xl bg-verde-950 md:mx-0">
               <Image
                 src={cafe.imagen}
-                alt={cafe.nombre}
+                alt={nombreProducto}
                 fill
                 className="object-cover"
                 sizes="(min-width: 768px) 30vw, 100vw"
@@ -203,12 +180,12 @@ export default async function CafePage({ params }: PageProps<"/[locale]/catalogo
         <div className="mx-auto max-w-3xl">
           <Reveal>
             <p className="text-center text-xs font-semibold uppercase tracking-[0.3em] text-tierra-400">
-              También encuentras en Veragua
+              {t("otros.kicker")}
             </p>
           </Reveal>
 
           <div className="mt-10 grid gap-8 sm:grid-cols-2">
-            {OTROS_PRODUCTOS.map((grupo, i) => (
+            {otrosGrupos.map((grupo, i) => (
               <Reveal key={grupo.categoria} delay={i * 0.05}>
                 <h3 className="font-logo italic text-lg text-beige-100">{grupo.categoria}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-beige-300">
@@ -220,11 +197,7 @@ export default async function CafePage({ params }: PageProps<"/[locale]/catalogo
 
           <Reveal delay={0.2}>
             <div className="mt-14 flex flex-col items-center gap-4 border-t border-beige-100/15 pt-10 text-center">
-              <p className="max-w-md text-sm leading-relaxed text-beige-300">
-                Para conocer más de estos productos —fotos, presentaciones y
-                disponibilidad— entra a nuestro catálogo de Treinta, y
-                finalmente haz tu pedido por WhatsApp.
-              </p>
+              <p className="max-w-md text-sm leading-relaxed text-beige-300">{t("otros.aviso")}</p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <a
                   href={TREINTA_CATALOG_URL}
@@ -232,22 +205,18 @@ export default async function CafePage({ params }: PageProps<"/[locale]/catalogo
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-tierra-400 px-6 py-3 text-sm font-semibold text-tierra-300 transition hover:bg-tierra-400 hover:text-verde-950"
                 >
-                  Conoce más aquí
+                  {t("otros.conoceMas")}
                 </a>
                 <a
-                  href={buildWhatsAppLink(
-                    "¡Hola Veragua! Quiero hacer un pedido de productos que vi en su catálogo."
-                  )}
+                  href={buildWhatsAppLink(t("otros.mensajeWhatsApp"))}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-tierra-500 px-6 py-3 text-sm font-semibold text-verde-950 transition hover:bg-tierra-400"
                 >
-                  Haz tu pedido por WhatsApp
+                  {t("otros.haPedido")}
                 </a>
               </div>
-              <p className="text-xs text-tierra-400">
-                Entrega bajo pedido en Armenia, Pereira y Manizales.
-              </p>
+              <p className="text-xs text-tierra-400">{t("otros.entregaAviso")}</p>
             </div>
           </Reveal>
         </div>

@@ -1,6 +1,14 @@
 import { products } from "@/lib/products";
-import type { SubscriptionComponent } from "@/lib/subscriptions";
 import { calcularDesdeComponentes } from "@/lib/subscriptions";
+
+// A diferencia de los planes fijos (que usan una "key" traducible), acá el
+// nombre se arma dinámicamente con las cantidades reales que calculamos para
+// este hogar — por eso trae directamente el texto final, no una key.
+export type ComponentePlanPersonalizado = {
+  nombre: string;
+  cantidadPorMes: number;
+  precioUnitarioCOP: number;
+};
 import type { RespuestasEncuesta, TipoLacteo } from "@/lib/configurador/types";
 import { cubetasPorSemana, huevosPorSemanaHogar } from "@/lib/configurador/calculoProteina";
 import { bolsasCafePorMes, librasCafePorMes } from "@/lib/configurador/calculoCafe";
@@ -26,7 +34,7 @@ export type DetallePlanPersonalizado = {
 };
 
 export function calcularPlanPersonalizado(respuestas: RespuestasEncuesta) {
-  const componentes: SubscriptionComponent[] = [];
+  const componentes: ComponentePlanPersonalizado[] = [];
 
   const cubetas = cubetasPorSemana(respuestas.personas, respuestas.frecuenciaHuevo);
   componentes.push({

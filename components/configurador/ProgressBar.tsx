@@ -1,9 +1,14 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 type ProgressBarProps = {
   pasoActual: number;
   totalPasos: number;
 };
 
 export function ProgressBar({ pasoActual, totalPasos }: ProgressBarProps) {
+  const t = useTranslations("configurador");
   const porcentaje = ((pasoActual + 1) / totalPasos) * 100;
 
   return (
@@ -15,7 +20,7 @@ export function ProgressBar({ pasoActual, totalPasos }: ProgressBarProps) {
         />
       </div>
       <p className="mt-2 text-xs uppercase tracking-wide text-verde-700">
-        Paso {pasoActual + 1} de {totalPasos}
+        {t("paso", { actual: pasoActual + 1, total: totalPasos })}
       </p>
     </div>
   );

@@ -16,6 +16,25 @@ export type LacteoSeleccionado = {
 
 export type CiudadEntregaPersonalizada = "Armenia" | "Pereira";
 
+// Keys estables (no dependen del idioma) para el día de entrega — el label
+// visible se busca en messages/*.json bajo "suscripciones.dias" (mismo orden
+// que este array). Así el valor guardado en localStorage no se rompe si el
+// visitante cambia de idioma a mitad de sesión.
+export const diaKeys = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado"] as const;
+export type DiaKey = (typeof diaKeys)[number];
+
+// Etiquetas en español, para el mensaje de WhatsApp del Plan Personalizado
+// (ver whatsappPlan.ts) — ese mensaje es para el equipo de Veragua y se
+// mantiene siempre en español, sin importar el idioma del sitio.
+export const diaLabelEs: Record<DiaKey, string> = {
+  lunes: "Lunes",
+  martes: "Martes",
+  miercoles: "Miércoles",
+  jueves: "Jueves",
+  viernes: "Viernes",
+  sabado: "Sábado",
+};
+
 export type RespuestasEncuesta = {
   personas: Persona[];
   frecuenciaHuevo: FrecuenciaHuevo;
@@ -26,7 +45,7 @@ export type RespuestasEncuesta = {
   incluyeCafe: boolean;
   tazasCafePorDia: number;
   ciudadEntrega: CiudadEntregaPersonalizada;
-  diaEntrega: string;
+  diaEntrega: DiaKey;
 };
 
 export const ciudadesEntregaPersonalizada: CiudadEntregaPersonalizada[] = ["Armenia", "Pereira"];
@@ -41,5 +60,5 @@ export const respuestasIniciales: RespuestasEncuesta = {
   incluyeCafe: false,
   tazasCafePorDia: 1,
   ciudadEntrega: "Armenia",
-  diaEntrega: "Sábado",
+  diaEntrega: "sabado",
 };

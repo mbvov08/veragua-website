@@ -44,6 +44,27 @@
   },
   "cafe": {
     "badge": "Compra en línea · Envíos a Colombia y al mundo",
+    "producto": {
+      "nombre": "Café de Origen Veragua",
+      "descripcion": "Café seleccionado de origen colombiano, tostado para resaltar su mejor perfil de sabor."
+    },
+    "otros": {
+      "kicker": "También encuentras en Veragua",
+      "aviso": "Estos productos tienen fotos reales y precios actualizados en nuestro catálogo de Treinta. Míralo ahí y escríbenos por WhatsApp para coordinar tu pedido.",
+      "conoceMas": "Conoce más aquí",
+      "haPedido": "Haz tu pedido por WhatsApp",
+      "mensajeWhatsApp": "¡Hola Veragua! Quiero hacer un pedido de productos que vi en su catálogo.",
+      "mensajeWhatsAppCategoria": "¡Hola Veragua! Quiero pedir productos de {categoria}. ¿Me ayudan con la disponibilidad y la entrega?",
+      "entregaAviso": "Entrega bajo pedido en Armenia, Pereira y Manizales.",
+      "grupos": [
+        { "categoria": "Huevos", "items": ["Huevos Marrones x15", "Huevos Marrones x30", "Huevos Azules x15", "Huevos Azules x30", "Huevos Mixtos x30"] },
+        { "categoria": "Carnes", "items": ["Gallina entera congelada", "Pollo criollo entero congelado"] },
+        { "categoria": "Artesanales", "items": ["Arepas Finas de Fátima"] },
+        { "categoria": "Lácteos A2 Sanorigen", "items": ["Leche A2", "Kéfir A2", "Yogur líquido A2", "Yogur griego A2", "Queso fresco A2", "Queso parrillero A2"] },
+        { "categoria": "Bebidas Guali", "items": ["Agua con gas", "Agua sin gas", "Soda de jengibre", "Soda de limón"] },
+        { "categoria": "Postres Sanorigen", "items": ["Gelato (más de 15 sabores)", "Paletas surtidas", "Galletas (chocolate, churro, milo)", "Granola con miel"] }
+      ]
+    },
     "presentacion": "Presentación",
     "cantidad": "Cantidad",
     "restar": "Restar unidad",
@@ -233,6 +254,140 @@
         { "titulo": "Innovación", "descripcion": "Buscamos siempre nuevas formas de sumar valor a tu mesa." },
         { "titulo": "Servicio", "descripcion": "Cada contacto contigo puede ser una experiencia cercana y memorable." }
       ]
+    }
+  },
+  "configurador": {
+    "hero": {
+      "kicker": "Plan Personalizado",
+      "titulo": "Tu suscripción, calculada a tu medida.",
+      "texto": "Responde unas preguntas sobre tu hogar y armamos un plan con las cantidades justas que necesitas, con el mismo 5% de descuento y sin tarjeta guardada."
+    },
+    "restaurado": "Recuperamos tu última configuración.",
+    "reiniciar": "Empezar de nuevo",
+    "atras": "Atrás",
+    "siguiente": "Siguiente",
+    "paso": "Paso {actual} de {total}",
+    "personas": {
+      "kicker": "Tu hogar",
+      "titulo": "¿Cuántas personas en tu hogar comen huevo?",
+      "subtitulo": "Usamos el peso y nivel de actividad de cada persona para calcular cuánta proteína necesita.",
+      "restar": "Restar persona",
+      "sumar": "Sumar persona",
+      "persona": "persona",
+      "personasPlural": "personas",
+      "personaLabel": "Persona {n}",
+      "peso": "Peso (kg)",
+      "nivelActividad": "Nivel de actividad",
+      "sedentario": "Sedentario",
+      "activo": "Hace ejercicio con frecuencia"
+    },
+    "frecuenciaHuevo": {
+      "kicker": "Consumo de huevo",
+      "titulo": "¿Cuántas veces al día suelen comer huevo?",
+      "subtitulo": "Esto nos dice cuántas cubetas por semana necesita tu hogar.",
+      "desayuno": "Solo en el desayuno",
+      "desayunoCena": "Desayuno y cena"
+    },
+    "lacteos": {
+      "kicker": "Lácteos",
+      "titulo": "¿Quieres incluir lácteos en tu plan?",
+      "subtitulo": "Es opcional.",
+      "si": "Sí, quiero lácteos",
+      "no": "No por ahora",
+      "incluido": "Incluido",
+      "incluir": "Incluir",
+      "cantidadPorSemana": "Cantidad por semana",
+      "tipos": {
+        "leche": { "label": "Leche A2 Sanorigen", "unidad": "botellas x 1 L / semana" },
+        "yogur": { "label": "Yogur Líquido A2 Sanorigen", "unidad": "envases x 500 g / semana" },
+        "queso": { "label": "Queso Fresco A2 Sanorigen", "unidad": "libras / semana" }
+      }
+    },
+    "arepas": {
+      "kicker": "Arepas",
+      "titulo": "¿Quieres incluir arepas artesanales?",
+      "subtitulo": "Es opcional.",
+      "si": "Sí, quiero arepas",
+      "no": "No por ahora",
+      "paquetesPorSemana": "Paquetes de arepas / semana",
+      "sugerencia": "Sugerencia para {n} {personaWord}: {sugerido} {paqueteWord}/semana.",
+      "persona": "persona",
+      "personasPlural": "personas",
+      "paquete": "paquete",
+      "paquetesPlural": "paquetes"
+    },
+    "cafe": {
+      "kicker": "Café",
+      "titulo": "¿Te gustaría incluir café de origen?",
+      "subtitulo": "Es opcional.",
+      "si": "Sí, quiero café",
+      "no": "No por ahora",
+      "tazasPorDia": "Tazas de café al día",
+      "librasAlMes": "≈ {libras} libras de café al mes."
+    },
+    "entrega": {
+      "kicker": "Entrega",
+      "titulo": "¿Dónde y cuándo quieres recibir tu plan?",
+      "subtitulo": "El Plan Personalizado se entrega en Armenia y Pereira.",
+      "ciudad": "Ciudad",
+      "diaSemanal": "Día de entrega semanal"
+    },
+    "resumen": {
+      "kicker": "Tu plan",
+      "titulo": "Tu Plan Personalizado",
+      "subtitulo": "Esto es lo que calculamos para tu hogar.",
+      "porMes": "/mes",
+      "ahorras": "Ahorras {ahorro} ({porcentaje}% de descuento) cada mes",
+      "ciudadEntrega": "Ciudad de entrega: {ciudad}",
+      "diaEntrega": "Día de entrega: {dia}",
+      "confirmarPagar": "Confirmar y pagar el primer mes por WhatsApp",
+      "pagoManual": "Pago manual cada mes para renovar tu suscripción: no guardamos tu tarjeta ni hacemos cobros automáticos."
+    }
+  },
+  "suscripciones": {
+    "hero": {
+      "kicker": "Suscripciones",
+      "titulo": "Tu pedido de la semana, listo cada vez.",
+      "texto": "Elige tu plan y el día de entrega que prefieras. Cada mes renuevas con un pago manual: no guardamos tu tarjeta ni hacemos cobros automáticos."
+    },
+    "personalizadoCta": {
+      "kicker": "¿Ninguno se ajusta del todo?",
+      "titulo": "Arma tu Plan Personalizado.",
+      "texto": "Responde unas preguntas sobre tu hogar y calculamos las cantidades exactas que necesitas, con el mismo 5% de descuento. Entregas en Armenia y Pereira.",
+      "cta": "Armar mi plan"
+    },
+    "masElegido": "Más elegido",
+    "ahorras": "Ahorras {ahorro} ({porcentaje}% de descuento) cada mes",
+    "diaEntrega": "Día de entrega semanal",
+    "suscribirme": "Suscribirme por WhatsApp",
+    "porMes": "/mes",
+    "dias": ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+    "planes": {
+      "plan-huevos": {
+        "nombre": "Plan Huevos",
+        "descripcion": "2 cubetas de huevos de pastoreo cada semana, con entrega los 4 fines de semana del mes.",
+        "componentes": { "huevos": "Cubeta de huevos x 30 (2 por semana)" }
+      },
+      "plan-huevos-lacteos-sorpresa": {
+        "nombre": "Plan Huevos + Lácteos Sorpresa",
+        "descripcion": "Huevos semanales de pastoreo más un lácteo distinto en cada entrega: queso, yogur o leche, rotando cada semana.",
+        "componentes": {
+          "huevos": "Cubeta de huevos x 30 (2 por semana)",
+          "leche": "Leche A2 Sanorigen x 1 L",
+          "yogur": "Yogur Líquido A2 Sanorigen x 500 g",
+          "queso": "Queso Fresco A2 Sanorigen x libra"
+        }
+      },
+      "plan-desayuno-completo": {
+        "nombre": "Plan Desayuno Completo",
+        "descripcion": "Nuestro plan más completo: café, huevos semanales, un lácteo y arepas para no pensar en el desayuno en todo el mes.",
+        "componentes": {
+          "cafe": "Café de Origen Veragua x 340 g",
+          "huevos": "Cubeta de huevos x 30 (2 por semana)",
+          "lacteo": "Lácteo rotativo semanal",
+          "arepas": "Paquete de arepas"
+        }
+      }
     }
   },
   "contacto": {
