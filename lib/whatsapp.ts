@@ -34,3 +34,11 @@ export function buildGeneralContactLink(locale: Locale = "es"): string {
       : "¡Hola Veragua! Quiero conocer más sobre sus productos."
   );
 }
+
+export function buildCafeQuestionLink(locale: Locale = "es"): string {
+  return buildWhatsAppLink(
+    locale === "en"
+      ? "Hello Veragua! I have a question about the coffee."
+      : "¡Hola Veragua! Tengo una pregunta sobre el café."
+  );
+}

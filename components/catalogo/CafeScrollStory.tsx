@@ -48,8 +48,6 @@ export function CafeScrollStory({ imagen }: { imagen: string }) {
     };
   }, []);
 
-  const total = PASOS.length;
-
   return (
     <section className="bg-verde-950 px-6 py-24 text-beige-100 md:py-32">
       <div className="mx-auto max-w-5xl">
@@ -87,10 +85,7 @@ export function CafeScrollStory({ imagen }: { imagen: string }) {
                   i === activo ? "opacity-100" : "opacity-40"
                 }`}
               >
-                <p className="text-xs tracking-[0.2em] text-tierra-300">
-                  {numero} / {String(total).padStart(2, "0")}
-                </p>
-                <p className="mt-2 text-xs font-medium uppercase tracking-[0.3em] text-tierra-500">
+                <p className="text-xs font-medium uppercase tracking-[0.3em] text-tierra-500">
                   {t(`${numero}.kicker`)}
                 </p>
                 <h3 className="mt-4 font-logo text-3xl font-medium italic text-beige-100 sm:text-4xl">

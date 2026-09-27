@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useSyncExternalStore, type ReactNode } from "react";
+import { createContext, useContext, useState, useSyncExternalStore, type ReactNode } from "react";
 import type { CartItem } from "@/lib/cart";
 
 const STORAGE_KEY = "veragua-carrito-cafe";
@@ -93,12 +93,20 @@ type CartContextValue = {
   quitar: (varianteId: string) => void;
   cambiarCantidad: (varianteId: string, delta: number) => void;
   vaciar: () => void;
+  // El carrito completo (datos de envío + pago) vive en un panel aparte
+  // (CartDrawer) que se abre desde cualquier página al hacer clic en el
+  // ícono del carrito — así la persona revisa el producto primero y solo
+  // ve el formulario de envío cuando ya decidió comprar.
+  abierto: boolean;
+  abrir: () => void;
+  cerrar: () => void;
 };
 
 const CartContext = createContext<CartContextValue | null>(null);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const carrito = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const [abierto, setAbierto] = useState(false);
 
   return (
     <CartContext.Provider
@@ -108,6 +116,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
         quitar: quitarItem,
         cambiarCantidad: cambiarCantidadItem,
         vaciar: vaciarCarrito,
+        abierto,
+        abrir: () => setAbierto(true),
+        cerrar: () => setAbierto(false),
       }}
     >
       {children}

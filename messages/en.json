@@ -17,7 +17,10 @@
     "whatsapp": "WhatsApp",
     "instagram": "Instagram",
     "direccion": "Carrera 14 # 27 Norte - 80, Armenia, Colombia",
-    "derechos": "All rights reserved."
+    "derechos": "All rights reserved.",
+    "legal": "Legal",
+    "politicaPrivacidad": "Privacy policy",
+    "cambiosDevoluciones": "Returns & exchanges"
   },
   "home": {
     "hero": {
@@ -30,7 +33,7 @@
       "catalogoTitulo": "Coffee with online checkout. Everything else, a message away.",
       "cafeBadge": "Buy online",
       "cafeTitulo": "Origin Coffee",
-      "cafeTexto": "Secure payment with Wompi, shipping to Colombia and worldwide.",
+      "cafeTexto": "Secure payment with Wompi, shipping across Colombia.",
       "cafeCta": "Buy coffee",
       "otrosBadge": "Order on WhatsApp",
       "otrosTitulo": "Eggs, dairy, artisanal goods",
@@ -43,10 +46,10 @@
     }
   },
   "cafe": {
-    "badge": "Buy online · Shipping to Colombia and worldwide",
+    "badge": "Buy online · Shipping across Colombia",
     "producto": {
       "nombre": "Veragua Origin Coffee",
-      "descripcion": "Select Colombian origin coffee, roasted to bring out its best flavor profile."
+      "descripcion": "Veragua Origin Coffee · 340 g · Finca El Triunfo, Calarcá, Quindío · 1,500 masl · Castillo variety · Medium-high roast · Notes of chocolate, citrus and panela · Hand-picked."
     },
     "otros": {
       "kicker": "Also available from Veragua",
@@ -57,46 +60,117 @@
       "mensajeWhatsAppCategoria": "Hello Veragua! I'd like to order {categoria} products. Can you help me with availability and delivery?",
       "entregaAviso": "Delivery by order in Armenia, Pereira and Manizales.",
       "grupos": [
-        { "categoria": "Eggs", "items": ["Brown eggs x15", "Brown eggs x30", "Blue eggs x15", "Blue eggs x30", "Mixed eggs x30"] },
-        { "categoria": "Meat", "items": ["Whole frozen hen", "Whole frozen free-range chicken"] },
-        { "categoria": "Artisanal", "items": ["Fátima Fine Arepas"] },
-        { "categoria": "A2 Sanorigen Dairy", "items": ["A2 Milk", "A2 Kefir", "A2 Drinking Yogurt", "A2 Greek Yogurt", "A2 Fresh Cheese", "A2 Grilling Cheese"] },
-        { "categoria": "Guali Beverages", "items": ["Sparkling water", "Still water", "Ginger soda", "Lemon soda"] },
-        { "categoria": "Sanorigen Desserts", "items": ["Gelato (15+ flavors)", "Assorted popsicles", "Cookies (chocolate, churro, milo)", "Honey granola"] }
+        {
+          "categoria": "Eggs",
+          "items": [
+            "Brown eggs x15",
+            "Brown eggs x30",
+            "Blue eggs x15",
+            "Blue eggs x30",
+            "Mixed eggs x30"
+          ]
+        },
+        {
+          "categoria": "Meat",
+          "items": [
+            "Whole frozen hen",
+            "Whole frozen free-range chicken"
+          ]
+        },
+        {
+          "categoria": "Artisanal",
+          "items": [
+            "Fátima Fine Arepas"
+          ]
+        },
+        {
+          "categoria": "A2 Sanorigen Dairy",
+          "items": [
+            "A2 Milk",
+            "A2 Kefir",
+            "A2 Drinking Yogurt",
+            "A2 Greek Yogurt",
+            "A2 Fresh Cheese",
+            "A2 Grilling Cheese"
+          ]
+        },
+        {
+          "categoria": "Guali Beverages",
+          "items": [
+            "Sparkling water",
+            "Still water",
+            "Ginger soda",
+            "Lemon soda"
+          ]
+        },
+        {
+          "categoria": "Sanorigen Desserts",
+          "items": [
+            "Gelato (15+ flavors)",
+            "Assorted popsicles",
+            "Cookies (chocolate, churro, milo)",
+            "Honey granola"
+          ]
+        }
       ]
     },
-    "presentacion": "Format",
+    "molienda": "Grind",
     "cantidad": "Quantity",
     "restar": "Decrease quantity",
     "sumar": "Increase quantity",
     "agregarCarrito": "Add to cart",
+    "agregadoAlCarrito": "You have {cantidad, plural, one {# item} other {# items}} in your cart.",
     "tuCarrito": "Your cart",
     "carritoVacio": "Your cart is empty. Add at least one coffee format to continue.",
     "quitar": "Remove",
     "irAPagar": "Go to checkout",
     "datosEnvio": "Shipping details",
-    "avisoCiudades": "We ship to any city in Colombia and worldwide.",
+    "avisoCiudades": "We ship across Colombia.",
     "nombreCompleto": "Full name",
     "telefono": "Phone",
     "direccion": "Address",
     "direccionPlaceholder": "Street, number, neighborhood",
     "ciudad": "City",
-    "ciudadPlaceholder": "E.g. Bogotá, Miami...",
-    "region": "State / Region / Province",
-    "regionPlaceholder": "E.g. Florida, Cundinamarca...",
-    "pais": "Country",
+    "ciudadPlaceholder": "E.g. Bogotá, Armenia...",
+    "region": "Department",
+    "regionPlaceholder": "Select your department",
     "completarEnvio": "Complete your shipping details to enable payment.",
     "checkoutNoDisponible": "The Wompi checkout will activate once the public key is configured in the NEXT_PUBLIC_WOMPI_PUBLIC_KEY environment variable.",
     "checkoutError": "We couldn't set up the payment right now. Try again in a few seconds or write to us on WhatsApp.",
-    "envioGratis": "Free shipping on domestic orders over $200,000 COP.",
+    "envioGratis": "Free shipping on orders over $200,000 COP.",
+    "tiempoEntrega": "Delivery time: around 5 business days, depending on your location.",
+    "envioContraEntrega": "⚠️ Shipping is paid on delivery: you pay the carrier directly when you receive your coffee.",
+    "cerrarCarrito": "Close cart",
+    "linkCambios": "Returns & exchanges",
+    "linkPrivacidad": "Privacy policy",
     "pagoSeguro": "100% secure payment, processed by Wompi.",
     "pagoSeguroDetalle": "Your payment details travel encrypted straight to Wompi — we never see or store them.",
     "historia": {
-      "01": { "kicker": "Origin", "titulo": "Quindío, Colombia", "texto": "Grown in the heart of Colombia's coffee region, where the fog lingers until midday and the land has sustained our family for generations." },
-      "02": { "kicker": "Growing", "titulo": "Family farm", "texto": "The same care we put into our pastured eggs and dairy, applied to coffee: small batches, nothing rushed." },
-      "03": { "kicker": "Harvest", "titulo": "Selective, by hand", "texto": "Only the cherries at their exact point of ripeness are picked, one by one, by hands that know the craft." },
-      "04": { "kicker": "Roast", "titulo": "Balanced profile", "texto": "A roast designed to bring out sweetness and body without sacrificing the bean's natural acidity." },
-      "05": { "kicker": "In your cup", "titulo": "Veragua Origin Coffee", "texto": "From the land, for those who value good coffee: that's what arrives at your table in every bag." }
+      "01": {
+        "kicker": "Origin",
+        "titulo": "Quindío, Colombia",
+        "texto": "Grown in the heart of Colombia's coffee region, where the fog lingers until midday and the land has sustained our family for generations."
+      },
+      "02": {
+        "kicker": "Growing",
+        "titulo": "Family farm",
+        "texto": "The same care we put into our pastured eggs and dairy, applied to coffee: small batches, nothing rushed."
+      },
+      "03": {
+        "kicker": "Harvest",
+        "titulo": "Selective, by hand",
+        "texto": "Only the cherries at their exact point of ripeness are picked, one by one, by hands that know the craft."
+      },
+      "04": {
+        "kicker": "Roast",
+        "titulo": "Balanced profile",
+        "texto": "A roast designed to bring out sweetness and body without sacrificing the bean's natural acidity."
+      },
+      "05": {
+        "kicker": "In your cup",
+        "titulo": "Veragua Origin Coffee",
+        "texto": "From the land, for those who value good coffee: that's what arrives at your table in every bag."
+      }
     },
     "ficha": {
       "kicker": "The product",
@@ -110,13 +184,18 @@
       "molienda": "Grind",
       "moliendaValor": "Medium",
       "notasKicker": "Tasting notes",
-      "notas": ["Chocolate", "Citrus", "Panela"]
+      "notas": [
+        "Chocolate",
+        "Citrus",
+        "Panela"
+      ]
     },
-    "combo": {
-      "kicker": "Bulk pack · 5 lb",
-      "titulo": "So you never run out of coffee for the month.",
-      "texto": "The same origin coffee, in the format that goes furthest: {unidad}.",
-      "cta": "Go to purchase"
+    "resenas": {
+      "kicker": "What our customers are saying",
+      "titulo": "Customer reviews"
+    },
+    "whatsappFlotante": {
+      "ariaLabel": "Message us on WhatsApp"
     },
     "negocio": {
       "kicker": "For your business",
@@ -154,15 +233,19 @@
     "items": [
       {
         "pregunta": "Where can I buy Veragua products?",
-        "respuesta": "Coffee is purchased online right on this page, with shipping across Colombia and internationally too. Every other product (eggs, dairy, arepas and more) is ordered on WhatsApp, delivered by order in Armenia, Pereira and Manizales."
+        "respuesta": "Coffee is purchased online right on this page, with shipping across Colombia. Every other product (eggs, dairy, arepas and more) is ordered on WhatsApp, delivered by order in Armenia, Pereira and Manizales."
       },
       {
         "pregunta": "Why is coffee the only product with online checkout?",
-        "respuesta": "Coffee travels well and arrives in perfect condition anywhere in the country or the world. Our other products are fresh with a short shelf life, so we prefer coordinating them directly with you on WhatsApp to make sure they arrive in the best condition."
+        "respuesta": "Coffee travels well and arrives in perfect condition anywhere in the country. Our other products are fresh with a short shelf life, so we prefer coordinating them directly with you on WhatsApp to make sure they arrive in the best condition."
       },
       {
         "pregunta": "Which cities do you deliver to?",
-        "respuesta": "We deliver by order in Armenia, Pereira and Manizales. Coffee, with online checkout, ships to any city in Colombia and abroad too."
+        "respuesta": "We deliver by order in Armenia, Pereira and Manizales. Coffee, with online checkout, ships to any city in Colombia."
+      },
+      {
+        "pregunta": "How does coffee shipping work?",
+        "respuesta": "We ship across Colombia. Shipping is paid on delivery: you pay the carrier directly when you receive your coffee, and it's free on orders over $200,000 COP. We dispatch your order within 48 business hours of payment, and it arrives at your door in around 5 business days, depending on your location."
       },
       {
         "pregunta": "How do the subscriptions work?",
@@ -234,25 +317,67 @@
     },
     "principiosTitulo": "The principles that guide every decision",
     "principios": [
-      { "titulo": "Animal welfare", "descripcion": "Our pastured hens roam freely and feed naturally. That welfare shows in the quality of every egg." },
-      { "titulo": "Respect for the land", "descripcion": "We care for the soil, water and ecosystems of the Colombian countryside at every stage of our production." },
-      { "titulo": "Quality from the origin", "descripcion": "Quality doesn't start at the point of sale: we take care at every stage, from the field until the product reaches you." },
-      { "titulo": "Honesty", "descripcion": "Every product is exactly what we say it is. We share its origin and characteristics with full clarity." },
-      { "titulo": "Purposeful partnerships", "descripcion": "We team up with regional producers who share our way of working, strengthening the countryside and expanding what we can offer you." },
-      { "titulo": "Real closeness", "descripcion": "Every customer is part of Veragua's growth. We listen, we respond, and we build relationships that last." }
+      {
+        "titulo": "Animal welfare",
+        "descripcion": "Our pastured hens roam freely and feed naturally. That welfare shows in the quality of every egg."
+      },
+      {
+        "titulo": "Respect for the land",
+        "descripcion": "We care for the soil, water and ecosystems of the Colombian countryside at every stage of our production."
+      },
+      {
+        "titulo": "Quality from the origin",
+        "descripcion": "Quality doesn't start at the point of sale: we take care at every stage, from the field until the product reaches you."
+      },
+      {
+        "titulo": "Honesty",
+        "descripcion": "Every product is exactly what we say it is. We share its origin and characteristics with full clarity."
+      },
+      {
+        "titulo": "Purposeful partnerships",
+        "descripcion": "We team up with regional producers who share our way of working, strengthening the countryside and expanding what we can offer you."
+      },
+      {
+        "titulo": "Real closeness",
+        "descripcion": "Every customer is part of Veragua's growth. We listen, we respond, and we build relationships that last."
+      }
     ],
     "valores": {
       "kicker": "Our values",
       "titulo": "What guides us every day",
       "lista": [
-        { "titulo": "Commitment", "descripcion": "We deliver fresh, safe food, with responsibility." },
-        { "titulo": "Honesty", "descripcion": "We only offer what we truly know and stand behind." },
-        { "titulo": "Respect", "descripcion": "For our customers, suppliers, animals and the environment." },
-        { "titulo": "Passion", "descripcion": "We enjoy what we do and believe in good food." },
-        { "titulo": "Responsibility", "descripcion": "We deliver on what we promise, with care in every detail." },
-        { "titulo": "Solidarity", "descripcion": "We believe in working together to strengthen the Colombian countryside." },
-        { "titulo": "Innovation", "descripcion": "We're always looking for new ways to add value to your table." },
-        { "titulo": "Service", "descripcion": "Every interaction with you can be a close, memorable experience." }
+        {
+          "titulo": "Commitment",
+          "descripcion": "We deliver fresh, safe food, with responsibility."
+        },
+        {
+          "titulo": "Honesty",
+          "descripcion": "We only offer what we truly know and stand behind."
+        },
+        {
+          "titulo": "Respect",
+          "descripcion": "For our customers, suppliers, animals and the environment."
+        },
+        {
+          "titulo": "Passion",
+          "descripcion": "We enjoy what we do and believe in good food."
+        },
+        {
+          "titulo": "Responsibility",
+          "descripcion": "We deliver on what we promise, with care in every detail."
+        },
+        {
+          "titulo": "Solidarity",
+          "descripcion": "We believe in working together to strengthen the Colombian countryside."
+        },
+        {
+          "titulo": "Innovation",
+          "descripcion": "We're always looking for new ways to add value to your table."
+        },
+        {
+          "titulo": "Service",
+          "descripcion": "Every interaction with you can be a close, memorable experience."
+        }
       ]
     }
   },
@@ -298,9 +423,18 @@
       "incluir": "Include",
       "cantidadPorSemana": "Quantity per week",
       "tipos": {
-        "leche": { "label": "A2 Sanorigen Milk", "unidad": "bottles x 1 L / week" },
-        "yogur": { "label": "A2 Sanorigen Drinking Yogurt", "unidad": "containers x 500 g / week" },
-        "queso": { "label": "A2 Sanorigen Fresh Cheese", "unidad": "lb / week" }
+        "leche": {
+          "label": "A2 Sanorigen Milk",
+          "unidad": "bottles x 1 L / week"
+        },
+        "yogur": {
+          "label": "A2 Sanorigen Drinking Yogurt",
+          "unidad": "containers x 500 g / week"
+        },
+        "queso": {
+          "label": "A2 Sanorigen Fresh Cheese",
+          "unidad": "lb / week"
+        }
       }
     },
     "arepas": {
@@ -361,12 +495,21 @@
     "diaEntrega": "Weekly delivery day",
     "suscribirme": "Subscribe on WhatsApp",
     "porMes": "/mo",
-    "dias": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "dias": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
     "planes": {
       "plan-huevos": {
         "nombre": "Eggs Plan",
         "descripcion": "2 cartons of pastured eggs every week, delivered on the 4 weekends of the month.",
-        "componentes": { "huevos": "Carton of 30 eggs (2 per week)" }
+        "componentes": {
+          "huevos": "Carton of 30 eggs (2 per week)"
+        }
       },
       "plan-huevos-lacteos-sorpresa": {
         "nombre": "Eggs + Surprise Dairy Plan",

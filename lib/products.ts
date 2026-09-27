@@ -3,6 +3,9 @@ export type ProductVariant = {
   nombre: string;
   precioCOP: number;
   unidad: string;
+  // false = no se vende por ahora (queda en los datos para reactivarla más
+  // adelante sin tener que reconstruirla). Si no está presente, se asume activa.
+  activa?: boolean;
 };
 
 export type Product = {
@@ -37,16 +40,49 @@ export const products: Product[] = [
     categoria: "cafe",
     descripcion:
       "Café seleccionado de origen colombiano, tostado para resaltar su mejor perfil de sabor.",
-    imagen: "/images/productos/cafe.svg",
+    imagen: "/images/productos/cafe-bolsa-blanco.png",
     comprableEnLinea: true,
+    // Por ahora solo se vende la presentación de 340 g (Molido / Grano). Las
+    // demás quedan desactivadas (activa: false) para poder reactivarlas más
+    // adelante sin perder sus datos.
     variantes: [
       { id: "340g-molido", nombre: "340 g · Molido", precioCOP: 41000, unidad: "bolsa x 340 g" },
       { id: "340g-grano", nombre: "340 g · Grano", precioCOP: 41000, unidad: "bolsa x 340 g" },
-      { id: "250g-grano", nombre: "250 g · Grano", precioCOP: 21000, unidad: "bolsa x 250 g" },
-      { id: "500g-grano", nombre: "500 g · Grano", precioCOP: 47000, unidad: "bolsa x 500 g" },
-      { id: "500g-molido", nombre: "500 g · Molido", precioCOP: 47000, unidad: "bolsa x 500 g" },
-      { id: "5lb-grano", nombre: "Paquetón 5 lb · Grano", precioCOP: 170000, unidad: "paquetón x 5 lb" },
-      { id: "5lb-molido", nombre: "Paquetón 5 lb · Molido", precioCOP: 170000, unidad: "paquetón x 5 lb" },
+      {
+        id: "250g-grano",
+        nombre: "250 g · Grano",
+        precioCOP: 21000,
+        unidad: "bolsa x 250 g",
+        activa: false,
+      },
+      {
+        id: "500g-grano",
+        nombre: "500 g · Grano",
+        precioCOP: 47000,
+        unidad: "bolsa x 500 g",
+        activa: false,
+      },
+      {
+        id: "500g-molido",
+        nombre: "500 g · Molido",
+        precioCOP: 47000,
+        unidad: "bolsa x 500 g",
+        activa: false,
+      },
+      {
+        id: "5lb-grano",
+        nombre: "Paquetón 5 lb · Grano",
+        precioCOP: 170000,
+        unidad: "paquetón x 5 lb",
+        activa: false,
+      },
+      {
+        id: "5lb-molido",
+        nombre: "Paquetón 5 lb · Molido",
+        precioCOP: 170000,
+        unidad: "paquetón x 5 lb",
+        activa: false,
+      },
     ],
   },
   {

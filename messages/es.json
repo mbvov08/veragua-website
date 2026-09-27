@@ -17,7 +17,10 @@
     "whatsapp": "WhatsApp",
     "instagram": "Instagram",
     "direccion": "Carrera 14 # 27 Norte - 80, Armenia",
-    "derechos": "Todos los derechos reservados."
+    "derechos": "Todos los derechos reservados.",
+    "legal": "Legal",
+    "politicaPrivacidad": "Política de privacidad",
+    "cambiosDevoluciones": "Cambios y devoluciones"
   },
   "home": {
     "hero": {
@@ -30,7 +33,7 @@
       "catalogoTitulo": "Café con compra en línea. Todo lo demás, a un mensaje de distancia.",
       "cafeBadge": "Compra en línea",
       "cafeTitulo": "Café de Origen",
-      "cafeTexto": "Pago seguro con Wompi, envíos a Colombia y al mundo.",
+      "cafeTexto": "Pago seguro con Wompi, envíos a toda Colombia.",
       "cafeCta": "Comprar café",
       "otrosBadge": "Pide por WhatsApp",
       "otrosTitulo": "Huevos, lácteos, artesanales",
@@ -43,10 +46,10 @@
     }
   },
   "cafe": {
-    "badge": "Compra en línea · Envíos a Colombia y al mundo",
+    "badge": "Compra en línea · Envíos a toda Colombia",
     "producto": {
       "nombre": "Café de Origen Veragua",
-      "descripcion": "Café seleccionado de origen colombiano, tostado para resaltar su mejor perfil de sabor."
+      "descripcion": "Café de Origen Veragua · 340 g · Finca El Triunfo, Calarcá, Quindío · 1.500 msnm · Variedad Castillo · Tostión media alta · Notas a chocolate, cítricos y panela · Cosechado a mano."
     },
     "otros": {
       "kicker": "También encuentras en Veragua",
@@ -57,46 +60,117 @@
       "mensajeWhatsAppCategoria": "¡Hola Veragua! Quiero pedir productos de {categoria}. ¿Me ayudan con la disponibilidad y la entrega?",
       "entregaAviso": "Entrega bajo pedido en Armenia, Pereira y Manizales.",
       "grupos": [
-        { "categoria": "Huevos", "items": ["Huevos Marrones x15", "Huevos Marrones x30", "Huevos Azules x15", "Huevos Azules x30", "Huevos Mixtos x30"] },
-        { "categoria": "Carnes", "items": ["Gallina entera congelada", "Pollo criollo entero congelado"] },
-        { "categoria": "Artesanales", "items": ["Arepas Finas de Fátima"] },
-        { "categoria": "Lácteos A2 Sanorigen", "items": ["Leche A2", "Kéfir A2", "Yogur líquido A2", "Yogur griego A2", "Queso fresco A2", "Queso parrillero A2"] },
-        { "categoria": "Bebidas Guali", "items": ["Agua con gas", "Agua sin gas", "Soda de jengibre", "Soda de limón"] },
-        { "categoria": "Postres Sanorigen", "items": ["Gelato (más de 15 sabores)", "Paletas surtidas", "Galletas (chocolate, churro, milo)", "Granola con miel"] }
+        {
+          "categoria": "Huevos",
+          "items": [
+            "Huevos Marrones x15",
+            "Huevos Marrones x30",
+            "Huevos Azules x15",
+            "Huevos Azules x30",
+            "Huevos Mixtos x30"
+          ]
+        },
+        {
+          "categoria": "Carnes",
+          "items": [
+            "Gallina entera congelada",
+            "Pollo criollo entero congelado"
+          ]
+        },
+        {
+          "categoria": "Artesanales",
+          "items": [
+            "Arepas Finas de Fátima"
+          ]
+        },
+        {
+          "categoria": "Lácteos A2 Sanorigen",
+          "items": [
+            "Leche A2",
+            "Kéfir A2",
+            "Yogur líquido A2",
+            "Yogur griego A2",
+            "Queso fresco A2",
+            "Queso parrillero A2"
+          ]
+        },
+        {
+          "categoria": "Bebidas Guali",
+          "items": [
+            "Agua con gas",
+            "Agua sin gas",
+            "Soda de jengibre",
+            "Soda de limón"
+          ]
+        },
+        {
+          "categoria": "Postres Sanorigen",
+          "items": [
+            "Gelato (más de 15 sabores)",
+            "Paletas surtidas",
+            "Galletas (chocolate, churro, milo)",
+            "Granola con miel"
+          ]
+        }
       ]
     },
-    "presentacion": "Presentación",
+    "molienda": "Molienda",
     "cantidad": "Cantidad",
     "restar": "Restar unidad",
     "sumar": "Sumar unidad",
     "agregarCarrito": "Agregar al carrito",
+    "agregadoAlCarrito": "Tienes {cantidad, plural, one {# unidad} other {# unidades}} en tu carrito.",
     "tuCarrito": "Tu carrito",
     "carritoVacio": "Tu carrito está vacío. Agrega al menos una presentación de café para continuar.",
     "quitar": "Quitar",
     "irAPagar": "Ir a pagar",
     "datosEnvio": "Datos de envío",
-    "avisoCiudades": "Enviamos a cualquier ciudad de Colombia y también al resto del mundo.",
+    "avisoCiudades": "Enviamos a toda Colombia.",
     "nombreCompleto": "Nombre completo",
     "telefono": "Teléfono",
     "direccion": "Dirección",
     "direccionPlaceholder": "Calle / Carrera, número, barrio",
     "ciudad": "Ciudad",
-    "ciudadPlaceholder": "Ej. Bogotá, Miami...",
-    "region": "Departamento / Región / Estado",
-    "regionPlaceholder": "Ej. Cundinamarca, Florida...",
-    "pais": "País",
+    "ciudadPlaceholder": "Ej. Bogotá, Armenia...",
+    "region": "Departamento",
+    "regionPlaceholder": "Selecciona tu departamento",
     "completarEnvio": "Completa tus datos de envío para habilitar el pago.",
     "checkoutNoDisponible": "El checkout de Wompi se activará al configurar la llave pública en la variable de entorno NEXT_PUBLIC_WOMPI_PUBLIC_KEY.",
     "checkoutError": "No pudimos preparar el pago en este momento. Intenta de nuevo en unos segundos o escríbenos por WhatsApp.",
-    "envioGratis": "Envío gratis en compras superiores a $200.000 (envíos nacionales).",
+    "envioGratis": "Envío gratis en compras superiores a $200.000.",
+    "tiempoEntrega": "Tiempo de entrega: alrededor de 5 días hábiles, según tu ubicación.",
+    "envioContraEntrega": "⚠️ El pago del envío es contra entrega: lo pagas directamente a la transportadora al recibir tu café.",
+    "cerrarCarrito": "Cerrar carrito",
+    "linkCambios": "Cambios y devoluciones",
+    "linkPrivacidad": "Política de privacidad",
     "pagoSeguro": "Pago 100% seguro, procesado por Wompi.",
     "pagoSeguroDetalle": "Tus datos de pago viajan cifrados directamente a Wompi — nunca los vemos ni los guardamos.",
     "historia": {
-      "01": { "kicker": "Origen", "titulo": "Quindío, Colombia", "texto": "Cultivado en el corazón del eje cafetero, donde la niebla se queda hasta el mediodía y la tierra ha sostenido a nuestra familia por generaciones." },
-      "02": { "kicker": "Cultivo", "titulo": "Finca familiar", "texto": "El mismo cuidado con el que cultivamos huevos y lácteos de pastoreo, aplicado al café: procesos pequeños, sin apurar nada." },
-      "03": { "kicker": "Cosecha", "titulo": "Selectiva, a mano", "texto": "Solo se recogen los granos en su punto justo de maduración, uno a uno, por manos que conocen el oficio." },
-      "04": { "kicker": "Tueste", "titulo": "Perfil equilibrado", "texto": "Un tueste pensado para resaltar dulzura y cuerpo sin sacrificar la acidez natural del grano." },
-      "05": { "kicker": "En tu taza", "titulo": "Café de Origen Veragua", "texto": "De la tierra, para quienes valoran un buen café: eso es lo que llega a tu mesa en cada bolsa." }
+      "01": {
+        "kicker": "Origen",
+        "titulo": "Quindío, Colombia",
+        "texto": "Cultivado en el corazón del eje cafetero, donde la niebla se queda hasta el mediodía y la tierra ha sostenido a nuestra familia por generaciones."
+      },
+      "02": {
+        "kicker": "Cultivo",
+        "titulo": "Finca familiar",
+        "texto": "El mismo cuidado con el que cultivamos huevos y lácteos de pastoreo, aplicado al café: procesos pequeños, sin apurar nada."
+      },
+      "03": {
+        "kicker": "Cosecha",
+        "titulo": "Selectiva, a mano",
+        "texto": "Solo se recogen los granos en su punto justo de maduración, uno a uno, por manos que conocen el oficio."
+      },
+      "04": {
+        "kicker": "Tueste",
+        "titulo": "Perfil equilibrado",
+        "texto": "Un tueste pensado para resaltar dulzura y cuerpo sin sacrificar la acidez natural del grano."
+      },
+      "05": {
+        "kicker": "En tu taza",
+        "titulo": "Café de Origen Veragua",
+        "texto": "De la tierra, para quienes valoran un buen café: eso es lo que llega a tu mesa en cada bolsa."
+      }
     },
     "ficha": {
       "kicker": "El producto",
@@ -110,13 +184,18 @@
       "molienda": "Molienda",
       "moliendaValor": "Media",
       "notasKicker": "Notas de cata",
-      "notas": ["Chocolate", "Cítricas", "Panela"]
+      "notas": [
+        "Chocolate",
+        "Cítricas",
+        "Panela"
+      ]
     },
-    "combo": {
-      "kicker": "Paquetón · 5 libras",
-      "titulo": "Para que no se te acabe el café del mes.",
-      "texto": "El mismo café de origen, en el formato que más rinde: {unidad}.",
-      "cta": "Ir a la compra"
+    "resenas": {
+      "kicker": "Lo que dicen quienes ya lo probaron",
+      "titulo": "Reseñas de nuestros clientes"
+    },
+    "whatsappFlotante": {
+      "ariaLabel": "Escríbenos por WhatsApp"
     },
     "negocio": {
       "kicker": "Para tu negocio",
@@ -154,15 +233,19 @@
     "items": [
       {
         "pregunta": "¿Dónde puedo comprar los productos de Veragua?",
-        "respuesta": "El café se compra en línea directamente en esta página, con envío a toda Colombia y también al exterior. Los demás productos (huevos, lácteos, arepas y más) se piden por WhatsApp, con entrega bajo pedido en Armenia, Pereira y Manizales."
+        "respuesta": "El café se compra en línea directamente en esta página, con envío a toda Colombia. Los demás productos (huevos, lácteos, arepas y más) se piden por WhatsApp, con entrega bajo pedido en Armenia, Pereira y Manizales."
       },
       {
         "pregunta": "¿Por qué el café es el único producto con compra en línea?",
-        "respuesta": "El café viaja bien y llega en perfecto estado a cualquier parte del país o del mundo. Los demás productos son frescos y de vida útil corta, por eso preferimos coordinarlos directamente contigo por WhatsApp para asegurar que lleguen en las mejores condiciones."
+        "respuesta": "El café viaja bien y llega en perfecto estado a cualquier rincón del país. Los demás productos son frescos y de vida útil corta, por eso preferimos coordinarlos directamente contigo por WhatsApp para asegurar que lleguen en las mejores condiciones."
       },
       {
         "pregunta": "¿En qué ciudades hacen entregas?",
-        "respuesta": "Hacemos entregas bajo pedido en Armenia, Pereira y Manizales. El café con compra en línea llega a cualquier ciudad de Colombia y también fuera del país."
+        "respuesta": "Hacemos entregas bajo pedido en Armenia, Pereira y Manizales. El café con compra en línea llega a cualquier ciudad de Colombia."
+      },
+      {
+        "pregunta": "¿Cómo funciona el envío del café?",
+        "respuesta": "Enviamos a toda Colombia. El pago del envío es contra entrega: lo pagas directamente a la transportadora al recibir tu café, y es gratis en compras superiores a $200.000. Despachamos tu pedido en un máximo de 48 horas hábiles después del pago, y llega a tu puerta en alrededor de 5 días hábiles, según tu ubicación."
       },
       {
         "pregunta": "¿Cómo funcionan las suscripciones?",
@@ -234,25 +317,67 @@
     },
     "principiosTitulo": "Los principios que guían cada decisión",
     "principios": [
-      { "titulo": "Bienestar animal", "descripcion": "Nuestras gallinas de pastoreo caminan libres y se alimentan naturalmente. Ese bienestar se nota en la calidad de cada huevo." },
-      { "titulo": "Respeto por la tierra", "descripcion": "Cuidamos el suelo, el agua y los ecosistemas del campo colombiano en cada etapa de nuestra producción." },
-      { "titulo": "Calidad desde el origen", "descripcion": "La calidad no empieza en el punto de venta: cuidamos cada etapa, desde el campo hasta que el producto llega a ti." },
-      { "titulo": "Honestidad", "descripcion": "Cada producto es exactamente lo que decimos que es. Contamos su origen y sus características con toda claridad." },
-      { "titulo": "Alianzas con propósito", "descripcion": "Sumamos a productores regionales que comparten nuestra forma de trabajar, fortaleciendo el campo y ampliando lo que podemos ofrecerte." },
-      { "titulo": "Cercanía real", "descripcion": "Cada cliente es parte del crecimiento de Veragua. Escuchamos, respondemos y construimos relaciones que duran." }
+      {
+        "titulo": "Bienestar animal",
+        "descripcion": "Nuestras gallinas de pastoreo caminan libres y se alimentan naturalmente. Ese bienestar se nota en la calidad de cada huevo."
+      },
+      {
+        "titulo": "Respeto por la tierra",
+        "descripcion": "Cuidamos el suelo, el agua y los ecosistemas del campo colombiano en cada etapa de nuestra producción."
+      },
+      {
+        "titulo": "Calidad desde el origen",
+        "descripcion": "La calidad no empieza en el punto de venta: cuidamos cada etapa, desde el campo hasta que el producto llega a ti."
+      },
+      {
+        "titulo": "Honestidad",
+        "descripcion": "Cada producto es exactamente lo que decimos que es. Contamos su origen y sus características con toda claridad."
+      },
+      {
+        "titulo": "Alianzas con propósito",
+        "descripcion": "Sumamos a productores regionales que comparten nuestra forma de trabajar, fortaleciendo el campo y ampliando lo que podemos ofrecerte."
+      },
+      {
+        "titulo": "Cercanía real",
+        "descripcion": "Cada cliente es parte del crecimiento de Veragua. Escuchamos, respondemos y construimos relaciones que duran."
+      }
     ],
     "valores": {
       "kicker": "Nuestros valores",
       "titulo": "Lo que nos guía todos los días",
       "lista": [
-        { "titulo": "Compromiso", "descripcion": "Entregamos alimentos frescos y seguros, con responsabilidad." },
-        { "titulo": "Honestidad", "descripcion": "Ofrecemos solo lo que conocemos y respaldamos de verdad." },
-        { "titulo": "Respeto", "descripcion": "Por nuestros clientes, proveedores, animales y el medio ambiente." },
-        { "titulo": "Pasión", "descripcion": "Disfrutamos lo que hacemos y creemos en la buena alimentación." },
-        { "titulo": "Responsabilidad", "descripcion": "Cumplimos lo que prometemos, con seriedad en cada detalle." },
-        { "titulo": "Solidaridad", "descripcion": "Creemos en el trabajo conjunto para fortalecer el campo colombiano." },
-        { "titulo": "Innovación", "descripcion": "Buscamos siempre nuevas formas de sumar valor a tu mesa." },
-        { "titulo": "Servicio", "descripcion": "Cada contacto contigo puede ser una experiencia cercana y memorable." }
+        {
+          "titulo": "Compromiso",
+          "descripcion": "Entregamos alimentos frescos y seguros, con responsabilidad."
+        },
+        {
+          "titulo": "Honestidad",
+          "descripcion": "Ofrecemos solo lo que conocemos y respaldamos de verdad."
+        },
+        {
+          "titulo": "Respeto",
+          "descripcion": "Por nuestros clientes, proveedores, animales y el medio ambiente."
+        },
+        {
+          "titulo": "Pasión",
+          "descripcion": "Disfrutamos lo que hacemos y creemos en la buena alimentación."
+        },
+        {
+          "titulo": "Responsabilidad",
+          "descripcion": "Cumplimos lo que prometemos, con seriedad en cada detalle."
+        },
+        {
+          "titulo": "Solidaridad",
+          "descripcion": "Creemos en el trabajo conjunto para fortalecer el campo colombiano."
+        },
+        {
+          "titulo": "Innovación",
+          "descripcion": "Buscamos siempre nuevas formas de sumar valor a tu mesa."
+        },
+        {
+          "titulo": "Servicio",
+          "descripcion": "Cada contacto contigo puede ser una experiencia cercana y memorable."
+        }
       ]
     }
   },
@@ -298,9 +423,18 @@
       "incluir": "Incluir",
       "cantidadPorSemana": "Cantidad por semana",
       "tipos": {
-        "leche": { "label": "Leche A2 Sanorigen", "unidad": "botellas x 1 L / semana" },
-        "yogur": { "label": "Yogur Líquido A2 Sanorigen", "unidad": "envases x 500 g / semana" },
-        "queso": { "label": "Queso Fresco A2 Sanorigen", "unidad": "libras / semana" }
+        "leche": {
+          "label": "Leche A2 Sanorigen",
+          "unidad": "botellas x 1 L / semana"
+        },
+        "yogur": {
+          "label": "Yogur Líquido A2 Sanorigen",
+          "unidad": "envases x 500 g / semana"
+        },
+        "queso": {
+          "label": "Queso Fresco A2 Sanorigen",
+          "unidad": "libras / semana"
+        }
       }
     },
     "arepas": {
@@ -361,12 +495,21 @@
     "diaEntrega": "Día de entrega semanal",
     "suscribirme": "Suscribirme por WhatsApp",
     "porMes": "/mes",
-    "dias": ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+    "dias": [
+      "Lunes",
+      "Martes",
+      "Miércoles",
+      "Jueves",
+      "Viernes",
+      "Sábado"
+    ],
     "planes": {
       "plan-huevos": {
         "nombre": "Plan Huevos",
         "descripcion": "2 cubetas de huevos de pastoreo cada semana, con entrega los 4 fines de semana del mes.",
-        "componentes": { "huevos": "Cubeta de huevos x 30 (2 por semana)" }
+        "componentes": {
+          "huevos": "Cubeta de huevos x 30 (2 por semana)"
+        }
       },
       "plan-huevos-lacteos-sorpresa": {
         "nombre": "Plan Huevos + Lácteos Sorpresa",

@@ -4,16 +4,31 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/ui/Reveal";
 import { CafePurchase } from "@/components/catalogo/CafePurchase";
 import { CafeScrollStory } from "@/components/catalogo/CafeScrollStory";
+import { CafeGallery } from "@/components/catalogo/CafeGallery";
+import { CafeReviews } from "@/components/catalogo/CafeReviews";
+import { WhatsAppFloatButton } from "@/components/catalogo/WhatsAppFloatButton";
 import { products, TREINTA_CATALOG_URL } from "@/lib/products";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 type GrupoOtrosProductos = { categoria: string; items: string[] };
 
+// Falta cafe-bolsa-beige.png (tercera foto de la galería) — se agrega acá en
+// cuanto esté disponible, sin tocar nada más.
+const GALERIA_CAFE = ["/images/productos/cafe-bolsa-blanco.png", "/images/productos/cafe-bolsa-granos.png"];
+const OG_IMAGE_CAFE = "/images/productos/cafe-bolsa-granos.png";
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("cafe");
+  const titulo = `${t("producto.nombre")} — Veragua`;
+  const descripcion = t("producto.descripcion");
   return {
-    title: `${t("producto.nombre")} — Veragua`,
-    description: t("producto.descripcion"),
+    title: titulo,
+    description: descripcion,
+    openGraph: {
+      title: titulo,
+      description: descripcion,
+      images: [OG_IMAGE_CAFE],
+    },
   };
 }
 
@@ -23,7 +38,6 @@ export default async function CafePage({ params }: PageProps<"/[locale]/catalogo
   const t = await getTranslations("cafe");
 
   const cafe = products.find((p) => p.slug === "cafe-de-origen")!;
-  const paqueton = cafe.variantes.find((v) => v.id === "5lb-molido")!;
   const nombreProducto = t("producto.nombre");
   const otrosGrupos = t.raw("otros.grupos") as GrupoOtrosProductos[];
 
@@ -32,16 +46,7 @@ export default async function CafePage({ params }: PageProps<"/[locale]/catalogo
       <section className="bg-beige-100 px-6 pb-24 pt-40 md:pt-48">
         <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-2 md:items-start">
           <Reveal>
-            <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-beige-300">
-              <Image
-                src={cafe.imagen}
-                alt={nombreProducto}
-                fill
-                className="object-cover"
-                sizes="(min-width: 768px) 40vw, 100vw"
-                priority
-              />
-            </div>
+            <CafeGallery imagenes={GALERIA_CAFE} alt={nombreProducto} />
           </Reveal>
 
           <Reveal delay={0.1}>
@@ -128,27 +133,7 @@ export default async function CafePage({ params }: PageProps<"/[locale]/catalogo
         </div>
       </section>
 
-      <section className="border-y border-tierra-500/30 bg-verde-950 px-6 py-16 md:py-20">
-        <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-tierra-400">
-              {t("combo.kicker")}
-            </p>
-            <h2 className="mt-3 font-logo text-2xl italic text-beige-100 sm:text-3xl">
-              {t("combo.titulo")}
-            </h2>
-            <p className="mt-3 text-sm text-beige-300">
-              {t("combo.texto", { unidad: paqueton.unidad })}
-            </p>
-          </div>
-          <a
-            href="#comprar"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-tierra-500 px-8 py-4 text-sm font-semibold text-verde-950 transition hover:bg-tierra-400"
-          >
-            {t("combo.cta")}
-          </a>
-        </div>
-      </section>
+      <CafeReviews />
 
       <section className="bg-beige-200 px-6 py-24 md:py-32">
         <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-2 md:items-center">
@@ -221,6 +206,8 @@ export default async function CafePage({ params }: PageProps<"/[locale]/catalogo
           </Reveal>
         </div>
       </section>
+
+      <WhatsAppFloatButton />
     </>
   );
 }

@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CartProvider } from "@/components/cart/CartContext";
+import { CartDrawer } from "@/components/cart/CartDrawer";
 import "../globals.css";
 
 // Montserrat: cuerpo de texto y párrafos en todo el sitio.
@@ -27,10 +28,22 @@ const cormorant = Cormorant_Garamond({
   style: ["normal", "italic"],
 });
 
+// TODO: dominio de producción aún por confirmar. En cuanto se sepa, poner la
+// URL real acá o en la variable de entorno NEXT_PUBLIC_SITE_URL en Vercel —
+// mientras tanto las imágenes Open Graph pueden no resolver bien en Meta Ads.
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://veraguaalimentos.com";
+const DESCRIPCION_SITIO =
+  "Alimentos de origen producidos con responsabilidad: huevos de pastoreo, café de origen, lácteos y más. Envíos a toda Colombia.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Veragua — Alimentos de Origen",
-  description:
-    "Alimentos de origen producidos con responsabilidad: huevos de pastoreo, café de origen, lácteos y más.",
+  description: DESCRIPCION_SITIO,
+  openGraph: {
+    title: "Veragua — Alimentos de Origen",
+    description: DESCRIPCION_SITIO,
+    images: ["/images/productos/cafe-bolsa-granos.png"],
+  },
 };
 
 export function generateStaticParams() {
@@ -58,6 +71,7 @@ export default async function RootLayout({
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
+            <CartDrawer />
           </CartProvider>
         </NextIntlClientProvider>
       </body>

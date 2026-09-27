@@ -19,7 +19,7 @@ export function Footer() {
 
   return (
     <footer className="bg-verde-950 text-beige-200">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-3 md:px-10">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-4 md:px-10">
         <div>
           <Logo variant="light" />
           <p className="mt-4 max-w-xs text-sm text-beige-300">{t("descripcion")}</p>
@@ -57,6 +57,22 @@ export function Footer() {
               </a>
             </li>
             <li className="text-beige-300">{t("direccion")}</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-heading text-lg text-tierra-300">{t("legal")}</h3>
+          <ul className="mt-4 space-y-2 text-sm">
+            <li>
+              <Link href="/politica-de-privacidad" className="hover:text-tierra-300">
+                {t("politicaPrivacidad")}
+              </Link>
+            </li>
+            <li>
+              <Link href="/cambios-y-devoluciones" className="hover:text-tierra-300">
+                {t("cambiosDevoluciones")}
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
