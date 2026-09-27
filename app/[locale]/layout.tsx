@@ -28,11 +28,11 @@ const cormorant = Cormorant_Garamond({
   style: ["normal", "italic"],
 });
 
-// Dominio de producción: veragua.site. Una vez esté conectado en Vercel,
+// Dominio de producción: veragua.store. Una vez esté conectado en Vercel,
 // conviene además fijarlo como NEXT_PUBLIC_SITE_URL en las variables de
 // entorno del proyecto para que quede explícito sin depender de este valor
 // por defecto.
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://veragua.site";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://veragua.store";
 const DESCRIPCION_SITIO =
   "Alimentos de origen producidos con responsabilidad: huevos de pastoreo, café de origen, lácteos y más. Envíos a toda Colombia.";
 
