@@ -54,8 +54,8 @@ export function CafeScrollStory({ imagen }: { imagen: string }) {
         <div className="grid gap-16 md:grid-cols-2">
           <div className="hidden md:block">
             <div className="sticky top-32 flex flex-col items-center gap-6">
-              <div className="relative aspect-square w-full max-w-sm overflow-hidden rounded-3xl bg-verde-900">
-                <Image src={imagen} alt="Café de Origen Veragua" fill className="object-cover" sizes="400px" />
+              <div className="relative aspect-square w-full max-w-sm">
+                <Image src={imagen} alt="Café de Origen Veragua" fill className="object-contain" sizes="400px" />
               </div>
               <div className="flex gap-2">
                 {PASOS.map((numero, i) => (
@@ -71,8 +71,8 @@ export function CafeScrollStory({ imagen }: { imagen: string }) {
           </div>
 
           <div className="flex flex-col gap-32 md:gap-48">
-            <div className="relative aspect-square w-full max-w-sm overflow-hidden rounded-3xl bg-verde-900 md:hidden">
-              <Image src={imagen} alt="Café de Origen Veragua" fill className="object-cover" sizes="400px" />
+            <div className="relative aspect-square w-full max-w-sm md:hidden">
+              <Image src={imagen} alt="Café de Origen Veragua" fill className="object-contain" sizes="400px" />
             </div>
 
             {PASOS.map((numero, i) => (

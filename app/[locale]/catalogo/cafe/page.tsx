@@ -13,10 +13,12 @@ import { buildWhatsAppLink } from "@/lib/whatsapp";
 type GrupoOtrosProductos = { categoria: string; items: string[] };
 
 const GALERIA_CAFE = [
-  "/images/productos/cafe-bolsa-blanco.png",
-  "/images/productos/cafe-bolsa-granos.png",
   "/images/productos/cafe-bolsa-beige.png",
+  "/images/productos/cafe-bolsa-granos.png",
 ];
+// Recorte sin fondo (a partir de la foto de fondo blanco) para la sección
+// que se desliza al hacer scroll — ver components/catalogo/CafeScrollStory.
+const IMAGEN_SIN_FONDO_CAFE = "/images/productos/cafe-bolsa-recortada.png";
 const OG_IMAGE_CAFE = "/images/productos/cafe-bolsa-granos.png";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -67,7 +69,7 @@ export default async function CafePage({ params }: PageProps<"/[locale]/catalogo
         </div>
       </section>
 
-      <CafeScrollStory imagen={cafe.imagen} />
+      <CafeScrollStory imagen={IMAGEN_SIN_FONDO_CAFE} />
 
       <section className="bg-verde-900 px-6 py-24 md:py-32">
         <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-2 md:items-center">
