@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { buildGeneralContactLink } from "@/lib/whatsapp";
-import { socialEmbeds } from "@/content/faq";
+import { socialLinks } from "@/lib/socialLinks";
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -47,7 +47,7 @@ export function Footer() {
             </li>
             <li>
               <a
-                href={socialEmbeds.instagram.url}
+                href={socialLinks.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-tierra-300"

@@ -1,7 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import type { FaqItem } from "@/content/faq";
+
+export type FaqItem = {
+  pregunta: string;
+  respuesta: string;
+};
 
 export function FaqAccordion({ items }: { items: FaqItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);

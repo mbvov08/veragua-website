@@ -31,10 +31,12 @@ const HOTSPOTS: Record<string, { area: string; punto: string }> = {
 export function LogoStory({
   titulo,
   subtitulo,
+  placeholder,
   elementos,
 }: {
   titulo: string;
   subtitulo: string;
+  placeholder: string;
   elementos: ElementoHistoria[];
 }) {
   const [activoId, setActivoId] = useState<string | null>(null);
@@ -100,7 +102,7 @@ export function LogoStory({
               animate={{ opacity: 1 }}
               className="flex h-full items-center justify-center text-base text-verde-700"
             >
-              Elige un elemento del logo para leer su historia.
+              {placeholder}
             </motion.p>
           )}
         </AnimatePresence>

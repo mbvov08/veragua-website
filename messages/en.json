@@ -24,6 +24,22 @@
       "kicker": "Quindío, Colombia",
       "titulo": "We believe food should have<br></br> a responsible origin, and we want you to know it.",
       "subtitulo": "With the pride of the Colombian countryside, straight to your table."
+    },
+    "scrollStory": {
+      "catalogoKicker": "Our catalog",
+      "catalogoTitulo": "Coffee with online checkout. Everything else, a message away.",
+      "cafeBadge": "Buy online",
+      "cafeTitulo": "Origin Coffee",
+      "cafeTexto": "Secure payment with Wompi, shipping to Colombia and worldwide.",
+      "cafeCta": "Buy coffee",
+      "otrosBadge": "Order on WhatsApp",
+      "otrosTitulo": "Eggs, dairy, artisanal goods",
+      "otrosTexto": "Delivery by order in Armenia, Pereira and Manizales.",
+      "otrosCta": "View full catalog",
+      "suscripcionesKicker": "Subscriptions",
+      "suscripcionesTitulo": "Your weekly order, without having to think about it.",
+      "suscripcionesTexto": "Choose your plan, pick the day you'd like to receive it, and save compared to buying everything separately.",
+      "suscripcionesCta": "View subscription plans"
     }
   },
   "cafe": {
@@ -95,6 +111,128 @@
       "volverCatalogo": "Back to catalog",
       "escribirWhatsapp": "Message us on WhatsApp",
       "mensajeWhatsApp": "Hello Veragua! I just placed a coffee order on the website and I'd like to confirm the details."
+    }
+  },
+  "faq": {
+    "kicker": "FAQ",
+    "titulo": "Everything you want to know before ordering.",
+    "verlo": {
+      "kicker": "See it for yourself",
+      "titulo": "We'd rather show you the process than just tell you about it."
+    },
+    "instagram": {
+      "label": "Instagram",
+      "descripcion": "Follow us to see day-to-day life on the farm, the pastured hens, and how we prepare each product."
+    },
+    "tiktok": {
+      "label": "TikTok",
+      "descripcion": "Short videos showing the real production process, from start to finish."
+    },
+    "enlacePendiente": "Link coming soon",
+    "verProceso": "See the process →",
+    "items": [
+      {
+        "pregunta": "Where can I buy Veragua products?",
+        "respuesta": "Coffee is purchased online right on this page, with shipping across Colombia and internationally too. Every other product (eggs, dairy, arepas and more) is ordered on WhatsApp, delivered by order in Armenia, Pereira and Manizales."
+      },
+      {
+        "pregunta": "Why is coffee the only product with online checkout?",
+        "respuesta": "Coffee travels well and arrives in perfect condition anywhere in the country or the world. Our other products are fresh with a short shelf life, so we prefer coordinating them directly with you on WhatsApp to make sure they arrive in the best condition."
+      },
+      {
+        "pregunta": "Which cities do you deliver to?",
+        "respuesta": "We deliver by order in Armenia, Pereira and Manizales. Coffee, with online checkout, ships to any city in Colombia and abroad too."
+      },
+      {
+        "pregunta": "How do the subscriptions work?",
+        "respuesta": "You choose the plan that suits you best and the day of the week you'd like to receive your order. Each month you renew your subscription with a manual payment: we don't store your card or charge automatically, you decide each time you want to continue."
+      },
+      {
+        "pregunta": "Can I change my subscription's delivery day?",
+        "respuesta": "Yes. Message us on WhatsApp and we'll gladly adjust the weekly delivery day that works best for you."
+      },
+      {
+        "pregunta": "How do you care for the pastured hens?",
+        "respuesta": "Our hens roam freely, feed naturally and live outdoors. We'd rather show you what day-to-day life on the farm looks like with real photos and videos than just tell you about it."
+      },
+      {
+        "pregunta": "What is A2 milk and why do you offer it?",
+        "respuesta": "It's milk produced by cows selected for their protein type, which makes it gentler for many people. We offer it through partnerships with regional producers who share our same quality principles."
+      }
+    ]
+  },
+  "nosotros": {
+    "heroKicker": "Our story",
+    "heroTitle": "It all started with a simple idea:",
+    "heroHighlight": "produce food the way it used to be produced.",
+    "historia": {
+      "kicker": "Where we come from",
+      "parrafos": [
+        "Veragua was born in the countryside of Quindío, out of the conviction that it was possible to produce food while respecting nature, animal welfare and the land's own cycles.",
+        "We started with pastured eggs: hens that roam freely, feed naturally and live the way they should. That same care led us to add origin coffee and, alongside producers who share our way of working, A2 milk and artisanal products.",
+        "Today we keep growing with the same idea as always: every food that reaches your table should tell a good story, from start to finish."
+      ]
+    },
+    "historiaLogo": {
+      "kicker": "The story behind the logo",
+      "introduccion": "We were born as Alma de Campo. We couldn't register that name, so we looked for a new one — and I wanted to honor my grandfather. Veragua was the name of the first farm he managed to buy with the fruit of his own work.",
+      "titulo": "Every symbol has its story. Touch them.",
+      "subtitulo": "Touch the guayacán tree, the cow or the hen to learn it.",
+      "placeholder": "Choose an element of the logo to read its story.",
+      "elementos": {
+        "vaca": {
+          "nombre": "The cow",
+          "texto": "I come from a cattle-ranching family. I grew up dreaming of continuing that legacy, building a future in the countryside and feeling proud of what my family did. That love for the cattle was the foundation of everything that came after."
+        },
+        "gallina": {
+          "nombre": "The hen",
+          "texto": "Thanks to the family cattle business, I was able to start my own venture: pastured hens. I wanted systems that respected the animals and had a positive environmental impact. That's how Veragua was born."
+        },
+        "guayacan": {
+          "nombre": "The guayacán tree",
+          "texto": "This tree reminds me of my grandfather. One day he asked me to plant guayacán trees together, on the mountain farm visible from the house's balcony. He wanted every time I sat there and saw them, I'd remember everything he taught me about a passion for the land and what we built together as a family."
+        }
+      }
+    },
+    "filosofia": {
+      "kicker": "How we think",
+      "texto": "We believe true quality starts at the origin. Every decision seeks a balance between productivity, animal welfare, care for the environment and your satisfaction. We don't just want to sell food: we want to inspire a more conscious way of consuming, where a product's origin matters as much as its quality."
+    },
+    "mision": {
+      "kicker": "Our mission",
+      "texto": "We produce and select origin foods through responsible processes that care for animal welfare, the land and the Colombian countryside. We combine our own production with partnerships with producers who share our principles, to bring your table reliable, healthy food with an origin we know from start to finish."
+    },
+    "promesa": {
+      "kicker": "Our promise",
+      "texto": "We bring you food with a story: produced responsibly and chosen with the same care we'd use to feed our own family."
+    },
+    "diferenciacion": {
+      "kicker": "What sets us apart",
+      "titulo": "Quality comes first.",
+      "texto": "Every decision — from how our hens live to who we partner with — is made with quality in mind first. We'd rather show you the real process, in photos and video, than just tell you about it."
+    },
+    "principiosTitulo": "The principles that guide every decision",
+    "principios": [
+      { "titulo": "Animal welfare", "descripcion": "Our pastured hens roam freely and feed naturally. That welfare shows in the quality of every egg." },
+      { "titulo": "Respect for the land", "descripcion": "We care for the soil, water and ecosystems of the Colombian countryside at every stage of our production." },
+      { "titulo": "Quality from the origin", "descripcion": "Quality doesn't start at the point of sale: we take care at every stage, from the field until the product reaches you." },
+      { "titulo": "Honesty", "descripcion": "Every product is exactly what we say it is. We share its origin and characteristics with full clarity." },
+      { "titulo": "Purposeful partnerships", "descripcion": "We team up with regional producers who share our way of working, strengthening the countryside and expanding what we can offer you." },
+      { "titulo": "Real closeness", "descripcion": "Every customer is part of Veragua's growth. We listen, we respond, and we build relationships that last." }
+    ],
+    "valores": {
+      "kicker": "Our values",
+      "titulo": "What guides us every day",
+      "lista": [
+        { "titulo": "Commitment", "descripcion": "We deliver fresh, safe food, with responsibility." },
+        { "titulo": "Honesty", "descripcion": "We only offer what we truly know and stand behind." },
+        { "titulo": "Respect", "descripcion": "For our customers, suppliers, animals and the environment." },
+        { "titulo": "Passion", "descripcion": "We enjoy what we do and believe in good food." },
+        { "titulo": "Responsibility", "descripcion": "We deliver on what we promise, with care in every detail." },
+        { "titulo": "Solidarity", "descripcion": "We believe in working together to strengthen the Colombian countryside." },
+        { "titulo": "Innovation", "descripcion": "We're always looking for new ways to add value to your table." },
+        { "titulo": "Service", "descripcion": "Every interaction with you can be a close, memorable experience." }
+      ]
     }
   },
   "contacto": {

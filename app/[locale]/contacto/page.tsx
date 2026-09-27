@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/ui/Reveal";
 import { buildGeneralContactLink } from "@/lib/whatsapp";
-import { socialEmbeds } from "@/content/faq";
+import { socialLinks } from "@/lib/socialLinks";
 
 export const metadata: Metadata = {
   title: "Contacto — Veragua",
@@ -78,7 +78,7 @@ export default async function ContactoPage({ params }: PageProps<"/[locale]/cont
 
           <Reveal delay={0.1}>
             <a
-              href={socialEmbeds.instagram.url}
+              href={socialLinks.instagram}
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-full flex-col justify-between rounded-3xl border border-beige-400 bg-beige-100 p-8 transition hover:border-tierra-500"

@@ -24,6 +24,22 @@
       "kicker": "Quindío, Colombia",
       "titulo": "Creemos que los alimentos deben tener<br></br> un origen responsable, y queremos que tú lo conozcas.",
       "subtitulo": "Con el orgullo del campo colombiano, directo a tu mesa."
+    },
+    "scrollStory": {
+      "catalogoKicker": "Nuestro catálogo",
+      "catalogoTitulo": "Café con compra en línea. Todo lo demás, a un mensaje de distancia.",
+      "cafeBadge": "Compra en línea",
+      "cafeTitulo": "Café de Origen",
+      "cafeTexto": "Pago seguro con Wompi, envíos a Colombia y al mundo.",
+      "cafeCta": "Comprar café",
+      "otrosBadge": "Pide por WhatsApp",
+      "otrosTitulo": "Huevos, lácteos, artesanales",
+      "otrosTexto": "Entrega bajo pedido en Armenia, Pereira y Manizales.",
+      "otrosCta": "Ver catálogo completo",
+      "suscripcionesKicker": "Suscripciones",
+      "suscripcionesTitulo": "Tu pedido de la semana, sin tener que pensarlo.",
+      "suscripcionesTexto": "Elige tu plan, escoge el día que prefieres recibirlo y ahorra frente a comprarlo todo por separado.",
+      "suscripcionesCta": "Ver planes de suscripción"
     }
   },
   "cafe": {
@@ -95,6 +111,128 @@
       "volverCatalogo": "Volver al catálogo",
       "escribirWhatsapp": "Escribir por WhatsApp",
       "mensajeWhatsApp": "¡Hola Veragua! Acabo de hacer un pedido de café en la página y quiero confirmar los detalles."
+    }
+  },
+  "faq": {
+    "kicker": "Preguntas Frecuentes",
+    "titulo": "Todo lo que quieres saber antes de pedir.",
+    "verlo": {
+      "kicker": "Míralo con tus propios ojos",
+      "titulo": "Preferimos mostrarte el proceso, no solo contártelo."
+    },
+    "instagram": {
+      "label": "Instagram",
+      "descripcion": "Síguenos para ver el día a día en el campo, las gallinas de pastoreo y cómo preparamos cada producto."
+    },
+    "tiktok": {
+      "label": "TikTok",
+      "descripcion": "Videos cortos mostrando el proceso real de producción, de principio a fin."
+    },
+    "enlacePendiente": "Enlace pendiente",
+    "verProceso": "Ver el proceso →",
+    "items": [
+      {
+        "pregunta": "¿Dónde puedo comprar los productos de Veragua?",
+        "respuesta": "El café se compra en línea directamente en esta página, con envío a toda Colombia y también al exterior. Los demás productos (huevos, lácteos, arepas y más) se piden por WhatsApp, con entrega bajo pedido en Armenia, Pereira y Manizales."
+      },
+      {
+        "pregunta": "¿Por qué el café es el único producto con compra en línea?",
+        "respuesta": "El café viaja bien y llega en perfecto estado a cualquier parte del país o del mundo. Los demás productos son frescos y de vida útil corta, por eso preferimos coordinarlos directamente contigo por WhatsApp para asegurar que lleguen en las mejores condiciones."
+      },
+      {
+        "pregunta": "¿En qué ciudades hacen entregas?",
+        "respuesta": "Hacemos entregas bajo pedido en Armenia, Pereira y Manizales. El café con compra en línea llega a cualquier ciudad de Colombia y también fuera del país."
+      },
+      {
+        "pregunta": "¿Cómo funcionan las suscripciones?",
+        "respuesta": "Eliges el plan que más se ajuste a ti y el día de la semana en que prefieres recibir tu pedido. Cada mes renuevas tu suscripción con un pago manual: no guardamos tu tarjeta ni hacemos cobros automáticos, tú decides cada vez que quieres continuar."
+      },
+      {
+        "pregunta": "¿Puedo cambiar el día de entrega de mi suscripción?",
+        "respuesta": "Sí. Escríbenos por WhatsApp y con gusto ajustamos el día de entrega semanal que mejor te funcione."
+      },
+      {
+        "pregunta": "¿Cómo cuidan a las gallinas de pastoreo?",
+        "respuesta": "Nuestras gallinas caminan libres, se alimentan naturalmente y viven al aire libre. Preferimos mostrarte cómo es el día a día en el campo con fotos y videos reales, en lugar de solo contártelo."
+      },
+      {
+        "pregunta": "¿Qué es la leche A2 y por qué la ofrecen?",
+        "respuesta": "Es leche producida por vacas seleccionadas por su tipo de proteína, lo que la hace más suave para muchas personas. La ofrecemos a través de alianzas con productores regionales que comparten nuestros mismos principios de calidad."
+      }
+    ]
+  },
+  "nosotros": {
+    "heroKicker": "Nuestra historia",
+    "heroTitle": "Todo comenzó con una idea sencilla:",
+    "heroHighlight": "producir alimentos como se producían antes.",
+    "historia": {
+      "kicker": "De dónde venimos",
+      "parrafos": [
+        "Veragua nació en el campo del Quindío, de la convicción de que era posible producir alimentos respetando la naturaleza, el bienestar animal y los ciclos propios de la tierra.",
+        "Empezamos con huevos de gallinas de pastoreo: aves que caminan libres, se alimentan naturalmente y viven como deben vivir. Ese mismo cuidado nos llevó a sumar café de origen y, junto a productores que comparten nuestra forma de trabajar, leche A2 y derivados artesanales.",
+        "Hoy seguimos creciendo con la misma idea de siempre: cada alimento que llega a tu mesa debe contar una historia buena, de principio a fin."
+      ]
+    },
+    "historiaLogo": {
+      "kicker": "La historia detrás del logo",
+      "introduccion": "Nacimos como Alma de Campo. No pudimos registrar ese nombre, así que buscamos uno nuevo — y quise honrar a mi abuelo. Veragua fue el nombre de la primera finca que él logró comprar con el fruto de su trabajo.",
+      "titulo": "Cada símbolo tiene su historia. Tócalos.",
+      "subtitulo": "Toca el guayacán, la vaca o la gallina para conocerla.",
+      "placeholder": "Elige un elemento del logo para leer su historia.",
+      "elementos": {
+        "vaca": {
+          "nombre": "La vaca",
+          "texto": "Vengo de una familia ganadera. Crecí soñando con seguir ese legado, construir un futuro en el campo y sentirme orgullosa de lo que hacía mi familia. Ese amor por las vacas fue la base de todo lo que vino después."
+        },
+        "gallina": {
+          "nombre": "La gallina",
+          "texto": "Gracias al negocio familiar de las vacas pude empezar mi propio proyecto: gallinas en pastoreo. Quería sistemas que respetaran a los animales y generaran un impacto ambiental positivo. Así nació Veragua."
+        },
+        "guayacan": {
+          "nombre": "El guayacán",
+          "texto": "Este árbol me recuerda a mi abuelo. Un día me propuso sembrar guayacanes juntos, en la finca de la montaña que se veía desde el balcón de la casa. Quería que cada vez que me sentara ahí y los viera, recordara todo lo que me enseñó sobre la pasión por el campo y lo que construimos juntos en familia."
+        }
+      }
+    },
+    "filosofia": {
+      "kicker": "Cómo pensamos",
+      "texto": "Creemos que la verdadera calidad empieza desde el origen. Cada decisión busca un equilibrio entre la productividad, el bienestar animal, el cuidado del entorno y tu satisfacción. No solo queremos vender alimentos: queremos inspirar una forma de consumo más consciente, donde el origen de cada producto importe tanto como su calidad."
+    },
+    "mision": {
+      "kicker": "Nuestra misión",
+      "texto": "Producimos y seleccionamos alimentos de origen mediante procesos responsables que cuidan el bienestar animal, la tierra y el campo colombiano. Integramos producción propia y alianzas con productores que comparten nuestros principios, para llevar a tu mesa alimentos confiables, saludables y con un origen que conocemos de principio a fin."
+    },
+    "promesa": {
+      "kicker": "Nuestra promesa",
+      "texto": "Te llevamos alimentos con historia: producidos con responsabilidad y elegidos con el mismo cuidado con que alimentaríamos a los nuestros."
+    },
+    "diferenciacion": {
+      "kicker": "Lo que nos hace distintos",
+      "titulo": "La calidad va primero.",
+      "texto": "Cada decisión —desde cómo viven nuestras gallinas hasta con quién nos aliamos— se toma pensando primero en la calidad. Preferimos mostrarte el proceso real, en fotos y video, antes que solo contártelo."
+    },
+    "principiosTitulo": "Los principios que guían cada decisión",
+    "principios": [
+      { "titulo": "Bienestar animal", "descripcion": "Nuestras gallinas de pastoreo caminan libres y se alimentan naturalmente. Ese bienestar se nota en la calidad de cada huevo." },
+      { "titulo": "Respeto por la tierra", "descripcion": "Cuidamos el suelo, el agua y los ecosistemas del campo colombiano en cada etapa de nuestra producción." },
+      { "titulo": "Calidad desde el origen", "descripcion": "La calidad no empieza en el punto de venta: cuidamos cada etapa, desde el campo hasta que el producto llega a ti." },
+      { "titulo": "Honestidad", "descripcion": "Cada producto es exactamente lo que decimos que es. Contamos su origen y sus características con toda claridad." },
+      { "titulo": "Alianzas con propósito", "descripcion": "Sumamos a productores regionales que comparten nuestra forma de trabajar, fortaleciendo el campo y ampliando lo que podemos ofrecerte." },
+      { "titulo": "Cercanía real", "descripcion": "Cada cliente es parte del crecimiento de Veragua. Escuchamos, respondemos y construimos relaciones que duran." }
+    ],
+    "valores": {
+      "kicker": "Nuestros valores",
+      "titulo": "Lo que nos guía todos los días",
+      "lista": [
+        { "titulo": "Compromiso", "descripcion": "Entregamos alimentos frescos y seguros, con responsabilidad." },
+        { "titulo": "Honestidad", "descripcion": "Ofrecemos solo lo que conocemos y respaldamos de verdad." },
+        { "titulo": "Respeto", "descripcion": "Por nuestros clientes, proveedores, animales y el medio ambiente." },
+        { "titulo": "Pasión", "descripcion": "Disfrutamos lo que hacemos y creemos en la buena alimentación." },
+        { "titulo": "Responsabilidad", "descripcion": "Cumplimos lo que prometemos, con seriedad en cada detalle." },
+        { "titulo": "Solidaridad", "descripcion": "Creemos en el trabajo conjunto para fortalecer el campo colombiano." },
+        { "titulo": "Innovación", "descripcion": "Buscamos siempre nuevas formas de sumar valor a tu mesa." },
+        { "titulo": "Servicio", "descripcion": "Cada contacto contigo puede ser una experiencia cercana y memorable." }
+      ]
     }
   },
   "contacto": {
