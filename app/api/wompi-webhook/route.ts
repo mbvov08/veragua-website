@@ -33,8 +33,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "Payload sin firma válida" });
   }
 
+  // Las rutas en signature.properties (ej. "transaction.id") son relativas a
+  // payload.data, no a la raíz del mensaje — hay que resolverlas ahí.
   const valoresConcatenados = properties
-    .map((ruta: string) => String(leerCampo(payload, ruta) ?? ""))
+    .map((ruta: string) => String(leerCampo(payload?.data, ruta) ?? ""))
     .join("");
   const checksumCalculado = createHash("sha256")
     .update(`${valoresConcatenados}${timestamp}${secret}`)
