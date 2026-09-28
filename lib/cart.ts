@@ -15,8 +15,26 @@ export function nombreVariante(varianteId: string): string {
   return cafe.variantes.find((v) => v.id === varianteId)?.nombre ?? varianteId;
 }
 
-export function totalCarrito(items: CartItem[]): number {
+export function cantidadTotalCarrito(items: CartItem[]): number {
+  return items.reduce((total, item) => total + item.cantidad, 0);
+}
+
+// Descuento por volumen sobre el total de unidades de café en el carrito
+// (sin importar si son molido o grano): 2 unidades, 5%; 3 o más, 10%.
+export function descuentoPorCantidad(cantidadTotal: number): number {
+  if (cantidadTotal >= 3) return 0.1;
+  if (cantidadTotal >= 2) return 0.05;
+  return 0;
+}
+
+export function subtotalCarrito(items: CartItem[]): number {
   return items.reduce((total, item) => total + precioVariante(item.varianteId) * item.cantidad, 0);
+}
+
+export function totalCarrito(items: CartItem[]): number {
+  const subtotal = subtotalCarrito(items);
+  const descuento = descuentoPorCantidad(cantidadTotalCarrito(items));
+  return Math.round(subtotal * (1 - descuento));
 }
 
 // Codifica el carrito dentro de la referencia de Wompi (no hay base de datos:

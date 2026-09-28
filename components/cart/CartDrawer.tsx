@@ -4,7 +4,16 @@ import { useId, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, getPathname } from "@/i18n/navigation";
 import { colombiaDepartamentos } from "@/lib/colombiaDepartamentos";
-import { codificarReferencia, nombreVariante, precioVariante, totalCarrito } from "@/lib/cart";
+import {
+  cantidadTotalCarrito,
+  codificarReferencia,
+  descuentoPorCantidad,
+  nombreVariante,
+  precioVariante,
+  subtotalCarrito,
+  totalCarrito,
+} from "@/lib/cart";
+import { formatCOP } from "@/lib/exchangeRate";
 import { useCart } from "@/components/cart/CartContext";
 import { PriceCOPUSD } from "@/components/catalogo/PriceCOPUSD";
 import { WompiCheckout, type ShippingAddress } from "@/components/catalogo/WompiCheckout";
@@ -29,7 +38,9 @@ export function CartDrawer() {
   const [envio, setEnvio] = useState<ShippingAddress>(direccionInicial);
   const sessionId = useId();
 
+  const subtotalCOP = subtotalCarrito(carrito);
   const totalCOP = totalCarrito(carrito);
+  const descuento = descuentoPorCantidad(cantidadTotalCarrito(carrito));
   const reference = codificarReferencia(sessionId, carrito);
 
   const envioCompleto =
@@ -125,8 +136,21 @@ export function CartDrawer() {
               </ul>
 
               <div className="mt-6 border-t border-beige-400 pt-6">
+                {descuento > 0 && (
+                  <div className="mb-3 space-y-1 text-sm">
+                    <div className="flex justify-between text-verde-700">
+                      <span>{t("subtotal")}</span>
+                      <span>{formatCOP(subtotalCOP)}</span>
+                    </div>
+                    <div className="flex justify-between font-medium text-tierra-600">
+                      <span>{t("descuentoAplicado", { porcentaje: descuento * 100 })}</span>
+                      <span>−{formatCOP(subtotalCOP - totalCOP)}</span>
+                    </div>
+                  </div>
+                )}
                 <PriceCOPUSD precioCOP={totalCOP} />
                 <p className="mt-2 text-xs text-tierra-600">{t("envioGratis")}</p>
+                <p className="mt-1 text-xs text-verde-700">{t("descuentoPorCantidad")}</p>
                 <p className="mt-1 text-xs text-verde-700">{t("tiempoEntrega")}</p>
               </div>
 

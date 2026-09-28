@@ -20,6 +20,13 @@ export function CafePurchase({ product }: { product: Product }) {
   const [agregado, setAgregado] = useState(false);
 
   const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
+  const varianteSeleccionada = variantesActivas.find((v) => v.id === varianteId);
+  const subtotal = (varianteSeleccionada?.precioCOP ?? 0) * cantidad;
+  // Solo el nombre de la molienda (p. ej. "Molido"), sin repetir "340 g" —
+  // ya se ve en la ficha del producto arriba.
+  function nombreMolienda(nombre: string) {
+    return nombre.split("·").pop()?.trim() ?? nombre;
+  }
 
   function agregarAlCarrito() {
     agregar(varianteId, cantidad);
@@ -52,7 +59,7 @@ export function CafePurchase({ product }: { product: Product }) {
       >
         {variantesActivas.map((v) => (
           <option key={v.id} value={v.id}>
-            {v.nombre} — {formatCOP(v.precioCOP)}
+            {nombreMolienda(v.nombre)}
           </option>
         ))}
       </select>
@@ -79,6 +86,12 @@ export function CafePurchase({ product }: { product: Product }) {
           </button>
         </div>
       </div>
+
+      <div className="mt-4 flex items-center justify-between border-t border-beige-400 pt-4">
+        <span className="text-sm font-medium text-verde-800">{t("subtotal")}</span>
+        <span className="font-heading text-lg text-verde-950">{formatCOP(subtotal)}</span>
+      </div>
+      <p className="mt-1 text-xs text-tierra-600">{t("descuentoPorCantidad")}</p>
 
       <button
         type="button"
