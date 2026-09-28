@@ -8,6 +8,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CartProvider } from "@/components/cart/CartContext";
 import { CartDrawer } from "@/components/cart/CartDrawer";
+import { MetaPixel } from "@/components/analytics/MetaPixel";
 import "../globals.css";
 
 // Montserrat: cuerpo de texto y párrafos en todo el sitio.
@@ -67,6 +68,7 @@ export default async function RootLayout({
       className={`${montserrat.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-beige-100 text-verde-950">
+        <MetaPixel />
         <NextIntlClientProvider>
           <CartProvider>
             <Navbar />
