@@ -99,19 +99,6 @@ export default async function NosotrosPage({ params }: PageProps<"/[locale]/noso
         </div>
       </section>
 
-      <section className="bg-beige-100 px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-2xl text-center">
-          <Reveal>
-            <p className="text-sm font-medium uppercase tracking-[0.3em] text-tierra-600">
-              {t("mision.kicker")}
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-verde-900 sm:text-lg">
-              {t("mision.texto")}
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
       <section className="bg-verde-950 px-6 py-24 text-beige-100 md:py-32">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>

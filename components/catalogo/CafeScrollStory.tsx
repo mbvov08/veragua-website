@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Reveal } from "@/components/ui/Reveal";
 
 const PASOS = ["01", "02", "03", "04", "05"] as const;
 
@@ -55,7 +56,13 @@ export function CafeScrollStory({ imagen }: { imagen: string }) {
           <div className="hidden md:block">
             <div className="sticky top-32 flex flex-col items-center gap-6">
               <div className="relative aspect-square w-full max-w-sm">
-                <Image src={imagen} alt="Café de Origen Veragua" fill className="object-contain" sizes="400px" />
+                <Image
+                  src={imagen}
+                  alt="Café de Origen Veragua"
+                  fill
+                  className="object-contain drop-shadow-[0_35px_40px_rgba(0,0,0,0.55)]"
+                  sizes="400px"
+                />
               </div>
               <div className="flex gap-2">
                 {PASOS.map((numero, i) => (
@@ -72,7 +79,13 @@ export function CafeScrollStory({ imagen }: { imagen: string }) {
 
           <div className="flex flex-col gap-32 md:gap-48">
             <div className="relative aspect-square w-full max-w-sm md:hidden">
-              <Image src={imagen} alt="Café de Origen Veragua" fill className="object-contain" sizes="400px" />
+              <Image
+                src={imagen}
+                alt="Café de Origen Veragua"
+                fill
+                className="object-contain drop-shadow-[0_35px_40px_rgba(0,0,0,0.55)]"
+                sizes="400px"
+              />
             </div>
 
             {PASOS.map((numero, i) => (
@@ -81,19 +94,18 @@ export function CafeScrollStory({ imagen }: { imagen: string }) {
                 ref={(el) => {
                   refs.current[i] = el;
                 }}
-                className={`transition-opacity duration-500 ${
-                  i === activo ? "opacity-100" : "opacity-40"
-                }`}
               >
-                <p className="text-xs font-medium uppercase tracking-[0.3em] text-tierra-500">
-                  {t(`${numero}.kicker`)}
-                </p>
-                <h3 className="mt-4 font-logo text-3xl font-medium italic text-beige-100 sm:text-4xl">
-                  {t(`${numero}.titulo`)}
-                </h3>
-                <p className="mt-6 max-w-md text-base leading-relaxed text-beige-300">
-                  {t(`${numero}.texto`)}
-                </p>
+                <Reveal>
+                  <p className="text-xs font-medium uppercase tracking-[0.3em] text-tierra-500">
+                    {t(`${numero}.kicker`)}
+                  </p>
+                  <h3 className="mt-4 font-logo text-3xl font-medium italic text-beige-100 sm:text-4xl">
+                    {t(`${numero}.titulo`)}
+                  </h3>
+                  <p className="mt-6 max-w-md text-base leading-relaxed text-beige-300">
+                    {t(`${numero}.texto`)}
+                  </p>
+                </Reveal>
               </div>
             ))}
           </div>
