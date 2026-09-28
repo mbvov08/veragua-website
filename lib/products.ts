@@ -46,8 +46,8 @@ export const products: Product[] = [
     // demás quedan desactivadas (activa: false) para poder reactivarlas más
     // adelante sin perder sus datos.
     variantes: [
-      { id: "340g-molido", nombre: "340 g · Molido", precioCOP: 41000, unidad: "bolsa x 340 g" },
-      { id: "340g-grano", nombre: "340 g · Grano", precioCOP: 41000, unidad: "bolsa x 340 g" },
+      { id: "340g-molido", nombre: "340 g · Molido", precioCOP: 43000, unidad: "bolsa x 340 g" },
+      { id: "340g-grano", nombre: "340 g · Grano", precioCOP: 43000, unidad: "bolsa x 340 g" },
       {
         id: "250g-grano",
         nombre: "250 g · Grano",
