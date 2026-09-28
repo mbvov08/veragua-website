@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import type { Product } from "@/lib/products";
 import { formatCOP } from "@/lib/exchangeRate";
+import { descuentoPorCantidad } from "@/lib/cart";
 import { useCart } from "@/components/cart/CartContext";
 import { trackMetaEvent } from "@/lib/metaPixel";
 
@@ -22,6 +23,8 @@ export function CafePurchase({ product }: { product: Product }) {
   const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
   const varianteSeleccionada = variantesActivas.find((v) => v.id === varianteId);
   const subtotal = (varianteSeleccionada?.precioCOP ?? 0) * cantidad;
+  const descuento = descuentoPorCantidad(cantidad);
+  const subtotalConDescuento = Math.round(subtotal * (1 - descuento));
   // Solo el nombre de la molienda (p. ej. "Molido"), sin repetir "340 g" —
   // ya se ve en la ficha del producto arriba.
   function nombreMolienda(nombre: string) {
@@ -89,9 +92,24 @@ export function CafePurchase({ product }: { product: Product }) {
 
       <div className="mt-4 flex items-center justify-between border-t border-beige-400 pt-4">
         <span className="text-sm font-medium text-verde-800">{t("subtotal")}</span>
-        <span className="font-heading text-lg text-verde-950">{formatCOP(subtotal)}</span>
+        {descuento > 0 ? (
+          <span className="flex items-baseline gap-2">
+            <span className="text-sm text-verde-700 line-through">{formatCOP(subtotal)}</span>
+            <span className="font-heading text-lg text-tierra-600">
+              {formatCOP(subtotalConDescuento)}
+            </span>
+          </span>
+        ) : (
+          <span className="font-heading text-lg text-verde-950">{formatCOP(subtotal)}</span>
+        )}
       </div>
-      <p className="mt-1 text-xs text-tierra-600">{t("descuentoPorCantidad")}</p>
+      {descuento > 0 ? (
+        <p className="mt-1 text-xs font-semibold text-tierra-600">
+          {t("descuentoAplicado", { porcentaje: descuento * 100 })}
+        </p>
+      ) : (
+        <p className="mt-1 text-xs text-tierra-600">{t("descuentoPorCantidad")}</p>
+      )}
 
       <button
         type="button"
