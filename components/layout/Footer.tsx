@@ -56,6 +56,11 @@ export function Footer() {
                 {t("instagram")}
               </a>
             </li>
+            <li>
+              <a href="mailto:compras@veraguaalimentos.com" className="hover:text-tierra-300">
+                compras@veraguaalimentos.com
+              </a>
+            </li>
             <li className="text-beige-300">{t("direccion")}</li>
           </ul>
         </div>
