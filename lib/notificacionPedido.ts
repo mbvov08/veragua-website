@@ -8,10 +8,12 @@ export type PedidoConfirmado = {
   amountInCents: number;
   currency: string;
   customerEmail: string | null;
+  // Nombres de campo tal como los devuelve Wompi en shipping_address
+  // (snake_case, igual que el resto de su API) — no camelCase.
   shippingAddress: {
     name?: string;
-    phoneNumber?: string;
-    addressLine1?: string;
+    phone_number?: string;
+    address_line_1?: string;
     city?: string;
     region?: string;
     country?: string;
@@ -52,8 +54,8 @@ export async function enviarCorreoPedido(pedido: PedidoConfirmado) {
       "",
       "Envío:",
       `  Nombre: ${direccion?.name ?? "-"}`,
-      `  Teléfono: ${direccion?.phoneNumber ?? "-"}`,
-      `  Dirección: ${direccion?.addressLine1 ?? "-"}`,
+      `  Teléfono: ${direccion?.phone_number ?? "-"}`,
+      `  Dirección: ${direccion?.address_line_1 ?? "-"}`,
       `  Ciudad: ${direccion?.city ?? "-"}`,
       `  Región: ${direccion?.region ?? "-"}`,
       `  País: ${direccion?.country ?? "-"}`,
@@ -98,8 +100,8 @@ export async function registrarPedidoEnSheet(pedido: PedidoConfirmado) {
           pedido.currency,
           pedido.customerEmail ?? "",
           direccion?.name ?? "",
-          direccion?.phoneNumber ?? "",
-          direccion?.addressLine1 ?? "",
+          direccion?.phone_number ?? "",
+          direccion?.address_line_1 ?? "",
           `${direccion?.city ?? ""}, ${direccion?.region ?? ""}`,
           productos,
         ],

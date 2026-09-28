@@ -2,42 +2,36 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Reveal } from "@/components/ui/Reveal";
 
 const PASOS = ["01", "02", "03", "04", "05"] as const;
 
-// Imagen fija a la izquierda (sticky) mientras el texto de la derecha avanza
-// paso a paso al hacer scroll — cada paso se activa cuando cruza el centro
-// del viewport (IntersectionObserver), sin necesidad de librerías de scroll.
+// En escritorio, la imagen y el texto quedan fijos (sticky), centrados en el
+// viewport, y solo se ve un paso a la vez: la persona hace scroll a través de
+// un contenedor alto (uno de estos "vh" por paso) que nunca se muestra —
+// solo controla cuánto hay que scrollear para pasar al siguiente letrero,
+// que hace un crossfade con el anterior. En celular no hay espacio para fijar
+// nada, así que ahí se mantiene la lista simple de toda la vida.
 export function CafeScrollStory({ imagen }: { imagen: string }) {
   const t = useTranslations("cafe.historia");
   const [activo, setActivo] = useState(0);
-  const refs = useRef<(HTMLDivElement | null)[]>([]);
+  const contenedorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Un IntersectionObserver con una banda central angosta puede "saltarse"
-    // un paso si el usuario hace scroll rápido (el paso nunca queda marcado
-    // como intersecting en ningún frame renderizado). En su lugar, en cada
-    // scroll calculamos qué paso tiene su centro más cerca del centro del
-    // viewport — así nunca se pierde un paso sin importar la velocidad.
     function actualizarActivo() {
+      const contenedor = contenedorRef.current;
+      if (!contenedor) return;
+
+      const rect = contenedor.getBoundingClientRect();
       const centroViewport = window.innerHeight / 2;
-      let mejorIndice = 0;
-      let mejorDistancia = Infinity;
-
-      refs.current.forEach((el, i) => {
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        const centroEl = rect.top + rect.height / 2;
-        const distancia = Math.abs(centroEl - centroViewport);
-        if (distancia < mejorDistancia) {
-          mejorDistancia = distancia;
-          mejorIndice = i;
-        }
-      });
-
-      setActivo(mejorIndice);
+      const progreso = (centroViewport - rect.top) / rect.height;
+      const indice = Math.min(
+        PASOS.length - 1,
+        Math.max(0, Math.floor(progreso * PASOS.length))
+      );
+      setActivo(indice);
     }
 
     actualizarActivo();
@@ -50,11 +44,13 @@ export function CafeScrollStory({ imagen }: { imagen: string }) {
   }, []);
 
   return (
-    <section className="bg-verde-950 px-6 py-24 text-beige-100 md:py-32">
-      <div className="mx-auto max-w-5xl">
-        <div className="grid gap-16 md:grid-cols-2">
-          <div className="hidden md:block">
-            <div className="sticky top-32 flex flex-col items-center gap-6">
+    <section className="bg-verde-950 text-beige-100">
+      {/* Desktop: contenedor alto que solo da espacio de scroll; el bloque
+          fijo (sticky) adentro es lo único que se ve. */}
+      <div ref={contenedorRef} className="hidden md:block md:h-[400vh]">
+        <div className="sticky top-0 flex h-screen items-center px-6">
+          <div className="mx-auto grid w-full max-w-5xl gap-16 md:grid-cols-2 md:items-center">
+            <div className="flex flex-col items-center gap-6">
               <div className="relative aspect-square w-full max-w-sm">
                 <Image
                   src={imagen}
@@ -75,40 +71,58 @@ export function CafeScrollStory({ imagen }: { imagen: string }) {
                 ))}
               </div>
             </div>
-          </div>
 
-          <div className="flex flex-col gap-32 md:gap-48">
-            <div className="relative aspect-square w-full max-w-sm md:hidden">
-              <Image
-                src={imagen}
-                alt="Café de Origen Veragua"
-                fill
-                className="object-contain drop-shadow-[0_35px_40px_rgba(0,0,0,0.55)]"
-                sizes="400px"
-              />
-            </div>
-
-            {PASOS.map((numero, i) => (
-              <div
-                key={numero}
-                ref={(el) => {
-                  refs.current[i] = el;
-                }}
-              >
-                <Reveal>
+            <div className="relative min-h-[220px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activo}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -16 }}
+                  transition={{ duration: 0.4 }}
+                >
                   <p className="text-xs font-medium uppercase tracking-[0.3em] text-tierra-500">
-                    {t(`${numero}.kicker`)}
+                    {t(`${PASOS[activo]}.kicker`)}
                   </p>
                   <h3 className="mt-4 font-logo text-3xl font-medium italic text-beige-100 sm:text-4xl">
-                    {t(`${numero}.titulo`)}
+                    {t(`${PASOS[activo]}.titulo`)}
                   </h3>
                   <p className="mt-6 max-w-md text-base leading-relaxed text-beige-300">
-                    {t(`${numero}.texto`)}
+                    {t(`${PASOS[activo]}.texto`)}
                   </p>
-                </Reveal>
-              </div>
-            ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
+        </div>
+      </div>
+
+      {/* Celular: lista simple, sin sticky. */}
+      <div className="px-6 py-24 md:hidden">
+        <div className="mx-auto flex max-w-5xl flex-col gap-32">
+          <div className="relative aspect-square w-full max-w-sm">
+            <Image
+              src={imagen}
+              alt="Café de Origen Veragua"
+              fill
+              className="object-contain drop-shadow-[0_35px_40px_rgba(0,0,0,0.55)]"
+              sizes="400px"
+            />
+          </div>
+
+          {PASOS.map((numero) => (
+            <Reveal key={numero}>
+              <p className="text-xs font-medium uppercase tracking-[0.3em] text-tierra-500">
+                {t(`${numero}.kicker`)}
+              </p>
+              <h3 className="mt-4 font-logo text-3xl font-medium italic text-beige-100 sm:text-4xl">
+                {t(`${numero}.titulo`)}
+              </h3>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-beige-300">
+                {t(`${numero}.texto`)}
+              </p>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
