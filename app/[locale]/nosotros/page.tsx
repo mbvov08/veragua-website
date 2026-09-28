@@ -58,27 +58,40 @@ export default async function NosotrosPage({ params }: PageProps<"/[locale]/noso
       </section>
 
       <section className="bg-beige-100 px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-2xl space-y-8">
+        <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:items-start">
           <Reveal>
-            <p className="text-sm font-medium uppercase tracking-[0.3em] text-tierra-600">
-              {t("historia.kicker")}
-            </p>
-          </Reveal>
-          {(t.raw("historia.parrafos") as string[]).map((parrafo, i) => (
-            <Reveal key={i} delay={i * 0.1}>
-              <p className="text-lg leading-relaxed text-verde-900">{parrafo}</p>
-            </Reveal>
-          ))}
-          <Reveal delay={0.2}>
-            <div className="relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-3xl">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl">
               <Image
-                src="/images/nosotros/huevos-hato-azul.jpg"
-                alt="Huevos de gallinas de pastoreo, el primer producto de Veragua"
+                src="/images/nosotros/manuela-gallinas.jpg"
+                alt="Manuela con las gallinas de pastoreo de Veragua"
                 fill
                 className="object-cover"
               />
             </div>
           </Reveal>
+
+          <div className="space-y-8">
+            <Reveal>
+              <p className="text-sm font-medium uppercase tracking-[0.3em] text-tierra-600">
+                {t("historia.kicker")}
+              </p>
+            </Reveal>
+            {(t.raw("historia.parrafos") as string[]).map((parrafo, i) => (
+              <Reveal key={i} delay={i * 0.1}>
+                <p className="text-lg leading-relaxed text-verde-900">{parrafo}</p>
+              </Reveal>
+            ))}
+            <Reveal delay={0.2}>
+              <div className="relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-3xl">
+                <Image
+                  src="/images/nosotros/huevos-hato-azul.jpg"
+                  alt="Huevos de gallinas de pastoreo, el primer producto de Veragua"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
