@@ -63,6 +63,35 @@ export async function enviarCorreoPedido(pedido: PedidoConfirmado) {
   });
 }
 
+// Avisa cuando un pedido que ya se había notificado como aprobado se anula o
+// reembolsa después (ej. contracargo, reembolso manual). Sin esto, quien
+// prepara los pedidos por WhatsApp no tiene forma de enterarse y podría
+// despachar algo que ya no hay que enviar.
+export async function enviarCorreoCancelacion(pedido: {
+  reference: string;
+  wompiTransactionId: string;
+}) {
+  const { GMAIL_USER, GMAIL_APP_PASSWORD, NOTIFICACIONES_PEDIDOS_EMAIL } = process.env;
+  if (!GMAIL_USER || !GMAIL_APP_PASSWORD || !NOTIFICACIONES_PEDIDOS_EMAIL) return;
+
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: { user: GMAIL_USER, pass: GMAIL_APP_PASSWORD },
+  });
+
+  await transporter.sendMail({
+    from: GMAIL_USER,
+    to: NOTIFICACIONES_PEDIDOS_EMAIL,
+    subject: `Pedido cancelado — ${pedido.reference}`,
+    text: [
+      `El pedido con referencia ${pedido.reference} fue anulado o reembolsado.`,
+      `Transacción Wompi: ${pedido.wompiTransactionId}`,
+      "",
+      "Si ya lo estabas preparando, no lo despaches.",
+    ].join("\n"),
+  });
+}
+
 // Agrega una fila al Google Sheet de pedidos. Igual que el correo: si faltan
 // las credenciales de la cuenta de servicio, no hace nada (el webhook sigue
 // respondiendo 200).

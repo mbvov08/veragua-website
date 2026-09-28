@@ -22,11 +22,15 @@ export function PurchaseTracker() {
       .then((json) => {
         const transaccion = json?.data;
         if (transaccion?.status === "APPROVED") {
-          trackMetaEvent("Purchase", {
-            value: transaccion.amount_in_cents / 100,
-            currency: transaccion.currency,
-            content_type: "product",
-          });
+          trackMetaEvent(
+            "Purchase",
+            {
+              value: transaccion.amount_in_cents / 100,
+              currency: transaccion.currency,
+              content_type: "product",
+            },
+            transaccion.id,
+          );
         }
       })
       .catch(() => {

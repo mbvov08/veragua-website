@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 import { createHash } from "node:crypto";
-import { enviarCorreoPedido, registrarPedidoEnSheet } from "@/lib/notificacionPedido";
+import {
+  enviarCorreoCancelacion,
+  enviarCorreoPedido,
+  registrarPedidoEnSheet,
+} from "@/lib/notificacionPedido";
+import { enviarCompraAMeta } from "@/lib/metaConversionsApi";
 
 // Lee un campo anidado del payload a partir de una ruta tipo "data.transaction.id".
 function leerCampo(objeto: unknown, ruta: string): unknown {
@@ -57,7 +62,24 @@ export async function POST(request: Request) {
       wompiTransactionId: transaccion.id as string,
     };
 
-    await Promise.allSettled([enviarCorreoPedido(pedido), registrarPedidoEnSheet(pedido)]);
+    await Promise.allSettled([
+      enviarCorreoPedido(pedido),
+      registrarPedidoEnSheet(pedido),
+      enviarCompraAMeta({
+        eventId: pedido.wompiTransactionId,
+        amountInCents: pedido.amountInCents,
+        currency: pedido.currency,
+        email: pedido.customerEmail,
+        telefono: pedido.shippingAddress?.phone_number ?? null,
+      }),
+    ]);
+  } else if (payload?.event === "transaction.updated" && transaccion?.status === "VOIDED") {
+    // Un pedido que ya se había aprobado (y notificado) se anuló o reembolsó
+    // después — avisamos para que no se despache.
+    await enviarCorreoCancelacion({
+      reference: transaccion.reference as string,
+      wompiTransactionId: transaccion.id as string,
+    });
   }
 
   return NextResponse.json({ ok: true });
