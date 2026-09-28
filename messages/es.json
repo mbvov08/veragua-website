@@ -3,6 +3,7 @@
     "inicio": "Inicio",
     "nosotros": "Nosotros",
     "catalogo": "Compra ahora",
+    "huevos": "Huevos",
     "suscripciones": "Suscripciones",
     "preguntas": "Preguntas",
     "contacto": "Contacto",
@@ -214,6 +215,47 @@
       "volverCatalogo": "Volver al catálogo",
       "escribirWhatsapp": "Escribir por WhatsApp",
       "mensajeWhatsApp": "¡Hola Veragua! Acabo de hacer un pedido de café en la página y quiero confirmar los detalles."
+    }
+  },
+  "huevos": {
+    "badge": "Huevos de pastoreo · Pídelos por WhatsApp",
+    "producto": {
+      "nombre": "Huevos de Gallinas de Pastoreo",
+      "descripcion": "Huevos frescos de gallinas que caminan libres y se alimentan naturalmente en el campo, en sistemas de pastoreo regenerativo."
+    },
+    "ficha": {
+      "sistema": "Sistema",
+      "sistemaValor": "Pastoreo regenerativo",
+      "colores": "Colores de cáscara",
+      "coloresValor": "Marrones, azules y mixtos",
+      "presentaciones": "Presentaciones",
+      "presentacionesValor": "Cubetas x 15 y x 30"
+    },
+    "precios": {
+      "kicker": "Presentaciones",
+      "marrones30": "Marrones x 30",
+      "marrones15": "Marrones x 15",
+      "azules30": "Azules x 30",
+      "azules15": "Azules x 15",
+      "mixtos30": "Mixtos x 30"
+    },
+    "cta": "Pedir por WhatsApp",
+    "pastoreo": {
+      "kicker": "Cómo viven nuestras gallinas",
+      "titulo": "Pastoreo regenerativo, de verdad",
+      "texto": "Nuestras gallinas no viven encerradas: caminan libres por el pastizal, escarban, se asolean y se alimentan naturalmente. Ese bienestar se nota en la yema y en el sabor de cada huevo."
+    },
+    "quienLasCuida": {
+      "kicker": "Quién las cuida",
+      "titulo": "El primer emprendimiento de Veragua nació aquí",
+      "texto": "Con gallinas en sistemas de pastoreo regenerativo, vendiendo huevos, nació mi primer proyecto formal. De ahí viene todo lo que hoy es Veragua — el cuidado por los animales y por cómo se produce cada alimento sigue siendo el mismo."
+    },
+    "negocio": {
+      "kicker": "¿Tienes un negocio?",
+      "titulo": "Huevos de pastoreo para tu restaurante o tienda",
+      "texto": "Si compras huevos con regularidad para tu negocio, escríbenos por WhatsApp y te contamos sobre precios y entregas frecuentes.",
+      "cta": "Escríbenos por WhatsApp",
+      "mensajeWhatsApp": "¡Hola Veragua! Tengo un negocio y quiero comprar huevos de pastoreo con regularidad. ¿Me cuentan cómo funciona?"
     }
   },
   "faq": {

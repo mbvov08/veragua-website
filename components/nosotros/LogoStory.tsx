@@ -8,6 +8,7 @@ type ElementoHistoria = {
   id: string;
   nombre: string;
   texto: string;
+  foto?: string;
 };
 
 // Zonas táctiles ubicadas a ojo sobre /public/logo/veragua-icon.png
@@ -91,9 +92,17 @@ export function LogoStory({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.3 }}
+              className={seleccionado.foto ? "grid gap-6 text-left sm:grid-cols-[8rem_1fr] sm:items-center" : undefined}
             >
-              <h3 className="font-logo italic text-xl text-verde-950">{seleccionado.nombre}</h3>
-              <p className="mt-3 text-base leading-relaxed text-verde-800">{seleccionado.texto}</p>
+              {seleccionado.foto && (
+                <div className="relative mx-auto h-32 w-32 shrink-0 overflow-hidden rounded-2xl sm:mx-0">
+                  <Image src={seleccionado.foto} alt={seleccionado.nombre} fill className="object-cover" />
+                </div>
+              )}
+              <div>
+                <h3 className="font-logo italic text-xl text-verde-950">{seleccionado.nombre}</h3>
+                <p className="mt-3 text-base leading-relaxed text-verde-800">{seleccionado.texto}</p>
+              </div>
             </motion.div>
           ) : (
             <motion.p

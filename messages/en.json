@@ -3,6 +3,7 @@
     "inicio": "Home",
     "nosotros": "About",
     "catalogo": "Shop Now",
+    "huevos": "Eggs",
     "suscripciones": "Subscriptions",
     "preguntas": "FAQ",
     "contacto": "Contact",
@@ -214,6 +215,47 @@
       "volverCatalogo": "Back to catalog",
       "escribirWhatsapp": "Message us on WhatsApp",
       "mensajeWhatsApp": "Hello Veragua! I just placed a coffee order on the website and I'd like to confirm the details."
+    }
+  },
+  "huevos": {
+    "badge": "Pastured-hen eggs · Order via WhatsApp",
+    "producto": {
+      "nombre": "Pastured-Hen Eggs",
+      "descripcion": "Fresh eggs from hens that roam free and feed naturally in the field, raised on regenerative grazing systems."
+    },
+    "ficha": {
+      "sistema": "System",
+      "sistemaValor": "Regenerative grazing",
+      "colores": "Shell colors",
+      "coloresValor": "Brown, blue, and mixed",
+      "presentaciones": "Sizes",
+      "presentacionesValor": "Cartons of 15 and 30"
+    },
+    "precios": {
+      "kicker": "Sizes",
+      "marrones30": "Brown x 30",
+      "marrones15": "Brown x 15",
+      "azules30": "Blue x 30",
+      "azules15": "Blue x 15",
+      "mixtos30": "Mixed x 30"
+    },
+    "cta": "Order via WhatsApp",
+    "pastoreo": {
+      "kicker": "How our hens live",
+      "titulo": "Real regenerative grazing",
+      "texto": "Our hens aren't cooped up: they roam free across the pasture, scratch, sunbathe, and feed naturally. That well-being shows in the yolk and the taste of every egg."
+    },
+    "quienLasCuida": {
+      "kicker": "Who takes care of them",
+      "titulo": "Veragua's very first venture started here",
+      "texto": "My first formal venture was born with hens raised on regenerative grazing systems, selling eggs. Everything that Veragua is today grew from there — the same care for the animals and for how each food is produced."
+    },
+    "negocio": {
+      "kicker": "Do you run a business?",
+      "titulo": "Pastured eggs for your restaurant or store",
+      "texto": "If you buy eggs regularly for your business, message us on WhatsApp and we'll tell you about pricing and recurring deliveries.",
+      "cta": "Message us on WhatsApp",
+      "mensajeWhatsApp": "Hello Veragua! I run a business and I'd like to buy pastured eggs regularly. Can you tell me how it works?"
     }
   },
   "faq": {

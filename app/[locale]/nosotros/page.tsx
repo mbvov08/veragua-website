@@ -21,23 +21,28 @@ export default async function NosotrosPage({ params }: PageProps<"/[locale]/noso
 
   const principios = t.raw("principios") as { titulo: string; descripcion: string }[];
   const valoresLista = t.raw("valores.lista") as { titulo: string; descripcion: string }[];
+  const FOTOS: Partial<Record<(typeof ORDEN_ELEMENTOS)[number], string>> = {
+    gallina: "/images/nosotros/gallina.jpg",
+  };
   const elementos = ORDEN_ELEMENTOS.map((id) => ({
     id,
     nombre: t(`historiaLogo.elementos.${id}.nombre`),
     texto: t(`historiaLogo.elementos.${id}.texto`),
+    foto: FOTOS[id],
   }));
 
   return (
     <>
-      <section className="relative overflow-hidden bg-verde-950 px-6 pb-20 pt-40 text-beige-100 md:pt-48">
+      <section className="relative overflow-hidden px-6 pb-20 pt-40 text-beige-100 md:pt-48">
         <Image
-          src="/logo/veragua-icon.png"
+          src="/images/nosotros/gallinas-pastoreo.jpg"
           alt=""
-          width={587}
-          height={450}
+          fill
+          priority
           aria-hidden
-          className="pointer-events-none absolute -right-24 -top-16 w-[28rem] max-w-none opacity-[0.08] sm:w-[36rem]"
+          className="object-cover"
         />
+        <div className="absolute inset-0 bg-verde-950/55" aria-hidden />
         <div className="relative mx-auto max-w-3xl text-center">
           <Reveal>
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-tierra-300">
@@ -64,6 +69,16 @@ export default async function NosotrosPage({ params }: PageProps<"/[locale]/noso
               <p className="text-lg leading-relaxed text-verde-900">{parrafo}</p>
             </Reveal>
           ))}
+          <Reveal delay={0.2}>
+            <div className="relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-3xl">
+              <Image
+                src="/images/nosotros/huevos-hato-azul.jpg"
+                alt="Huevos de gallinas de pastoreo, el primer producto de Veragua"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 

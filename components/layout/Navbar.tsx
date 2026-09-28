@@ -19,6 +19,7 @@ export function Navbar() {
     { href: "/", label: t("inicio") },
     { href: "/nosotros", label: t("nosotros") },
     { href: "/catalogo/cafe", label: t("catalogo") },
+    { href: "/catalogo/huevos", label: t("huevos") },
     { href: "/suscripciones", label: t("suscripciones") },
     { href: "/preguntas-frecuentes", label: t("preguntas") },
     { href: "/contacto", label: t("contacto") },

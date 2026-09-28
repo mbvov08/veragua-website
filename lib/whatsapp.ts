@@ -42,3 +42,11 @@ export function buildCafeQuestionLink(locale: Locale = "es"): string {
       : "¡Hola Veragua! Tengo una pregunta sobre el café."
   );
 }
+
+export function buildHuevosOrderLink(locale: Locale = "es"): string {
+  return buildWhatsAppLink(
+    locale === "en"
+      ? "Hello Veragua! I'd like to order pastured-hen eggs. Can you tell me how to proceed?"
+      : "¡Hola Veragua! Quiero pedir huevos de gallinas de pastoreo. ¿Me cuentan cómo continuar?"
+  );
+}

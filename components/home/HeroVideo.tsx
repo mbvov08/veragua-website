@@ -5,7 +5,18 @@ import { LogoIcon, LogoWordmark } from "@/components/ui/Logo";
 
 export function HeroVideo() {
   return (
-    <section className="relative flex h-screen min-h-[640px] w-full items-center justify-center overflow-hidden bg-beige-100">
+    <section className="relative flex h-screen min-h-[640px] w-full items-center justify-center overflow-hidden bg-verde-950">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src="/videos/gallinas-criollas.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-verde-950/50" aria-hidden />
+
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -13,8 +24,8 @@ export function HeroVideo() {
           transition={{ duration: 0.7 }}
           className="flex flex-col items-center"
         >
-          <LogoIcon variant="dark" className="h-28 w-auto sm:h-32 md:h-36" />
-          <LogoWordmark variant="dark" className="mt-5 h-20 w-auto sm:h-24 md:h-28" />
+          <LogoIcon variant="light" className="h-28 w-auto sm:h-32 md:h-36" />
+          <LogoWordmark variant="light" className="mt-5 h-20 w-auto sm:h-24 md:h-28" />
         </motion.div>
       </div>
 
@@ -23,8 +34,8 @@ export function HeroVideo() {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
       >
-        <div className="h-10 w-6 rounded-full border-2 border-verde-950/40">
-          <div className="mx-auto mt-2 h-2 w-1 rounded-full bg-verde-950/40" />
+        <div className="h-10 w-6 rounded-full border-2 border-beige-100/60">
+          <div className="mx-auto mt-2 h-2 w-1 rounded-full bg-beige-100/60" />
         </div>
       </motion.div>
     </section>
