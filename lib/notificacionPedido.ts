@@ -70,6 +70,8 @@ export async function enviarCorreoPedido(pedido: PedidoConfirmado) {
 export async function enviarCorreoCancelacion(pedido: {
   reference: string;
   wompiTransactionId: string;
+  nombreCliente?: string | null;
+  customerEmail?: string | null;
 }) {
   const { GMAIL_USER, GMAIL_APP_PASSWORD, NOTIFICACIONES_PEDIDOS_EMAIL } = process.env;
   if (!GMAIL_USER || !GMAIL_APP_PASSWORD || !NOTIFICACIONES_PEDIDOS_EMAIL) return;
@@ -85,6 +87,8 @@ export async function enviarCorreoCancelacion(pedido: {
     subject: `Pedido cancelado — ${pedido.reference}`,
     text: [
       `El pedido con referencia ${pedido.reference} fue anulado o reembolsado.`,
+      `Cliente: ${pedido.nombreCliente ?? "-"}`,
+      `Correo del cliente: ${pedido.customerEmail ?? "-"}`,
       `Transacción Wompi: ${pedido.wompiTransactionId}`,
       "",
       "Si ya lo estabas preparando, no lo despaches.",

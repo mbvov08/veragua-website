@@ -79,6 +79,8 @@ export async function POST(request: Request) {
     await enviarCorreoCancelacion({
       reference: transaccion.reference as string,
       wompiTransactionId: transaccion.id as string,
+      nombreCliente: transaccion.shipping_address?.name ?? null,
+      customerEmail: transaccion.customer_email ?? null,
     });
   }
 
