@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import type { Product } from "@/lib/products";
 import { formatCOP } from "@/lib/exchangeRate";
 import { useCart } from "@/components/cart/CartContext";
+import { trackMetaEvent } from "@/lib/metaPixel";
 
 // Esta tarjeta solo elige presentación/cantidad y agrega al carrito — los
 // datos de envío y el pago viven en el carrito (CartDrawer), que se abre
@@ -22,6 +23,15 @@ export function CafePurchase({ product }: { product: Product }) {
 
   function agregarAlCarrito() {
     agregar(varianteId, cantidad);
+    const variante = variantesActivas.find((v) => v.id === varianteId);
+    if (variante) {
+      trackMetaEvent("AddToCart", {
+        content_name: variante.nombre,
+        content_type: "product",
+        value: variante.precioCOP * cantidad,
+        currency: "COP",
+      });
+    }
     setCantidad(1);
     setAgregado(true);
   }

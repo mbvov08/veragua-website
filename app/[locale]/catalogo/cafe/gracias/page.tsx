@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/ui/Reveal";
+import { PurchaseTracker } from "@/components/catalogo/PurchaseTracker";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
@@ -18,6 +20,9 @@ export default async function GraciasCafePage({
 
   return (
     <section className="bg-beige-100 px-6 py-40 md:py-48">
+      <Suspense fallback={null}>
+        <PurchaseTracker />
+      </Suspense>
       <div className="mx-auto max-w-xl text-center">
         <Reveal>
           <span className="inline-block rounded-full bg-tierra-500 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-verde-950">
