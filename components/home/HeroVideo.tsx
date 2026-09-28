@@ -1,21 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { LogoIcon, LogoWordmark } from "@/components/ui/Logo";
 
-// El fondo del hero alterna entre varios videos cortos de la finca: cuando
-// termina uno, pasa al siguiente y vuelve a empezar. La `key` con la fuente
-// fuerza a React a remontar el <video> al cambiar, para que autoplay dispare
-// la reproducción del siguiente clip.
+// El fondo del hero alterna entre varios videos cortos de la finca. Cada uno
+// se corta a los 3.5 s (no se espera a que termine, para que la rotación se
+// sienta ágil) y también avanza antes si el clip es más corto que eso. La
+// `key` con la fuente fuerza a React a remontar el <video> al cambiar, para
+// que autoplay dispare la reproducción del siguiente clip.
 const VIDEOS_HERO = [
   "/videos/gallinas-criollas.mp4",
   "/videos/ganado-pastoreo.mp4",
   "/videos/gallina-hierba.mp4",
 ];
+const DURACION_MS = 3500;
 
 export function HeroVideo() {
   const [indice, setIndice] = useState(0);
+
+  useEffect(() => {
+    const siguiente = () => setIndice((i) => (i + 1) % VIDEOS_HERO.length);
+    const timer = setTimeout(siguiente, DURACION_MS);
+    return () => clearTimeout(timer);
+  }, [indice]);
 
   return (
     <section className="relative flex h-screen min-h-[640px] w-full items-center justify-center overflow-hidden bg-verde-950">
