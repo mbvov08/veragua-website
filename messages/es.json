@@ -17,7 +17,7 @@
     "preguntasFrecuentes": "Preguntas Frecuentes",
     "whatsapp": "WhatsApp",
     "instagram": "Instagram",
-    "direccion": "Carrera 14 # 27 Norte - 80, Armenia",
+    "direccion": "Carrera 14 # 27 Norte - 80, Local 109, Armenia",
     "derechos": "Todos los derechos reservados.",
     "legal": "Legal",
     "politicaPrivacidad": "Política de privacidad",
@@ -332,15 +332,15 @@
       "elementos": {
         "vaca": {
           "nombre": "La vaca",
-          "texto": "Vengo de una familia ganadera. Crecí soñando con seguir ese legado, construir un futuro en el campo y sentirme orgullosa de lo que hacía mi familia. Ese amor por las vacas fue la base de todo lo que vino después."
+          "texto": "Vengo de una familia ganadera. Crecí soñando con seguir ese legado, construir un futuro en el campo y sentirme orgullosa de lo que hacía mi familia. Ese amor por las vacas y por el campo es la raíz de todo lo que hoy es Veragua."
         },
         "gallina": {
           "nombre": "La gallina",
-          "texto": "Las gallinas son el corazón y el impulso de Veragua. El ganado ha sido nuestro sustento: gracias a la finca familiar tuve dónde criarlas. Mi primer emprendimiento formal nació así, con gallinas en sistemas de pastoreo regenerativo, vendiendo huevos. De ahí viene todo lo que hoy es Veragua."
+          "texto": "Las gallinas son el corazón y el impulso de Veragua. El ganado de mi familia fue siempre nuestro sustento, y gracias a esa finca tuve dónde criarlas. Así nació mi primer emprendimiento formal: gallinas en sistemas de pastoreo regenerativo, vendiendo huevos. Ese primer paso, con el tiempo, se convirtió en lo que hoy es Veragua."
         },
         "guayacan": {
           "nombre": "El guayacán",
-          "texto": "Este árbol me recuerda a mi abuelo. Un día me propuso sembrar guayacanes juntos, en la finca de la montaña que se veía desde el balcón de la casa. Quería que cada vez que me sentara ahí y los viera, recordara todo lo que me enseñó sobre la pasión por el campo y lo que construimos juntos en familia."
+          "texto": "Este árbol me recuerda a mi abuelo. Un día me propuso sembrar guayacanes juntos, en una finca de montaña que se veía desde el balcón de su casa. Él quería que, cada vez que me sentara ahí a mirarlos, recordara todo lo que me enseñó sobre la pasión por el campo y lo que construimos juntos en familia."
         }
       }
     },
@@ -586,7 +586,7 @@
     },
     "ubicacion": {
       "titulo": "Ubicación",
-      "direccion": "Carrera 14 # 27 Norte - 80, Armenia, Quindío",
+      "direccion": "Carrera 14 # 27 Norte - 80, Local 109, Armenia, Quindío",
       "entregas": "Entregas bajo pedido en Armenia, Pereira y Manizales."
     }
   }

@@ -111,7 +111,7 @@ export default async function ContactoPage({ params }: PageProps<"/[locale]/cont
           <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-beige-400">
             <iframe
               title="Ubicación de Veragua en Armenia, Quindío"
-              src="https://www.google.com/maps?q=Carrera+14+%2327+Norte+-+80%2C+Armenia%2C+Quind%C3%ADo&output=embed"
+              src="https://www.google.com/maps?q=Carrera+14+%2327+Norte+-+80+Local+109%2C+Armenia%2C+Quind%C3%ADo&output=embed"
               className="h-96 w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

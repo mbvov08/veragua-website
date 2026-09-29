@@ -51,7 +51,7 @@ export default async function CambiosYDevolucionesPage({
                 <br />
                 NIT: 1092851991-0
                 <br />
-                Dirección: Carrera 14 # 27 Norte - 80, Armenia, Quindío, Colombia
+                Dirección: Carrera 14 # 27 Norte - 80, Local 109, Armenia, Quindío, Colombia
                 <br />
                 Correo de contacto: compras@veraguaalimentos.com
               </p>

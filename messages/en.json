@@ -17,7 +17,7 @@
     "preguntasFrecuentes": "FAQ",
     "whatsapp": "WhatsApp",
     "instagram": "Instagram",
-    "direccion": "Carrera 14 # 27 Norte - 80, Armenia, Colombia",
+    "direccion": "Carrera 14 # 27 Norte - 80, Local 109, Armenia, Colombia",
     "derechos": "All rights reserved.",
     "legal": "Legal",
     "politicaPrivacidad": "Privacy policy",
@@ -332,15 +332,15 @@
       "elementos": {
         "vaca": {
           "nombre": "The cow",
-          "texto": "I come from a cattle-ranching family. I grew up dreaming of continuing that legacy, building a future in the countryside and feeling proud of what my family did. That love for the cattle was the foundation of everything that came after."
+          "texto": "I come from a cattle-ranching family. I grew up dreaming of continuing that legacy, building a future in the countryside, and feeling proud of what my family did. That love for cattle and for the land is the root of everything Veragua is today."
         },
         "gallina": {
           "nombre": "The hen",
-          "texto": "Hens are the heart and drive of Veragua. Our cattle have been our support all along: thanks to the family farm, I had somewhere to raise them. My first formal venture was born there, with hens in regenerative grazing systems, selling eggs. That's where everything Veragua is today comes from."
+          "texto": "Hens are the heart and drive of Veragua. My family's cattle had always been our livelihood, and thanks to that farm I had somewhere to raise my first hens. That's how my first formal venture was born: hens on regenerative grazing systems, selling eggs. That first step is what, over time, grew into Veragua."
         },
         "guayacan": {
           "nombre": "The guayacán tree",
-          "texto": "This tree reminds me of my grandfather. One day he asked me to plant guayacán trees together, on the mountain farm visible from the house's balcony. He wanted every time I sat there and saw them, I'd remember everything he taught me about a passion for the land and what we built together as a family."
+          "texto": "This tree reminds me of my grandfather. One day he asked me to plant guayacán trees together, on a mountain farm visible from his balcony. He wanted me to remember, every time I sat there looking at them, everything he taught me about a passion for the land and what we built together as a family."
         }
       }
     },
@@ -586,7 +586,7 @@
     },
     "ubicacion": {
       "titulo": "Location",
-      "direccion": "Carrera 14 # 27 Norte - 80, Armenia, Quindío, Colombia",
+      "direccion": "Carrera 14 # 27 Norte - 80, Local 109, Armenia, Quindío, Colombia",
       "entregas": "Deliveries by order in Armenia, Pereira and Manizales."
     }
   }
