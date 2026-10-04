@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { StepShell } from "@/components/configurador/StepShell";
 import { ChoiceGroup } from "@/components/configurador/ChoiceGroup";
+import { NumberField } from "@/components/configurador/NumberField";
 import { librasCafePorMes } from "@/lib/configurador/calculoCafe";
 
 type CafeStepProps = {
@@ -31,12 +32,11 @@ export function CafeStep({ incluyeCafe, tazasPorDia, onChangeIncluye, onChangeTa
           <label className="block text-xs font-medium uppercase tracking-wide text-verde-700">
             {t("tazasPorDia")}
           </label>
-          <input
-            type="number"
+          <NumberField
+            value={tazasPorDia}
             min={1}
             max={10}
-            value={tazasPorDia}
-            onChange={(e) => onChangeTazas(Number(e.target.value) || 1)}
+            onChange={onChangeTazas}
             className="mt-2 w-24 rounded-full border border-beige-400 bg-beige-100 px-4 py-2 text-sm text-verde-950"
           />
           <p className="mt-2 text-xs text-verde-700">

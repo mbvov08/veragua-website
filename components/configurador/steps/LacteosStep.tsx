@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { StepShell } from "@/components/configurador/StepShell";
 import { ChoiceGroup } from "@/components/configurador/ChoiceGroup";
+import { NumberField } from "@/components/configurador/NumberField";
 import type { LacteoSeleccionado, TipoLacteo } from "@/lib/configurador/types";
 
 type LacteosStepProps = {
@@ -89,12 +90,11 @@ export function LacteosStep({
                     <label className="text-xs font-medium uppercase tracking-wide text-verde-700">
                       {t("cantidadPorSemana")}
                     </label>
-                    <input
-                      type="number"
+                    <NumberField
+                      value={activo.cantidadPorSemana}
                       min={1}
                       max={20}
-                      value={activo.cantidadPorSemana}
-                      onChange={(e) => actualizarCantidad(tipo, Number(e.target.value) || 1)}
+                      onChange={(cantidad) => actualizarCantidad(tipo, cantidad)}
                       className="w-20 rounded-full border border-beige-400 bg-beige-100 px-4 py-2 text-sm text-verde-950"
                     />
                   </div>

@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { StepShell } from "@/components/configurador/StepShell";
 import { ChoiceGroup } from "@/components/configurador/ChoiceGroup";
+import { NumberField } from "@/components/configurador/NumberField";
 
 type ArepasStepProps = {
   incluyeArepas: boolean;
@@ -42,12 +43,11 @@ export function ArepasStep({
           <label className="block text-xs font-medium uppercase tracking-wide text-verde-700">
             {t("paquetesPorSemana")}
           </label>
-          <input
-            type="number"
+          <NumberField
+            value={paquetesPorSemana}
             min={1}
             max={10}
-            value={paquetesPorSemana}
-            onChange={(e) => onChangePaquetes(Number(e.target.value) || 1)}
+            onChange={onChangePaquetes}
             className="mt-2 w-24 rounded-full border border-beige-400 bg-beige-100 px-4 py-2 text-sm text-verde-950"
           />
           <p className="mt-2 text-xs text-verde-700">

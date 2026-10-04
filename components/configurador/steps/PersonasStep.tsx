@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { StepShell } from "@/components/configurador/StepShell";
 import { ChoiceGroup } from "@/components/configurador/ChoiceGroup";
+import { NumberField } from "@/components/configurador/NumberField";
 import type { NivelActividad, Persona } from "@/lib/configurador/types";
 
 type PersonasStepProps = {
@@ -74,12 +75,11 @@ export function PersonasStep({ personas, onChange }: PersonasStepProps) {
             <label className="mt-4 block text-xs font-medium uppercase tracking-wide text-verde-700">
               {t("peso")}
             </label>
-            <input
-              type="number"
+            <NumberField
+              value={persona.pesoKg}
               min={20}
               max={200}
-              value={persona.pesoKg}
-              onChange={(e) => actualizarPersona(i, { pesoKg: Number(e.target.value) || 0 })}
+              onChange={(pesoKg) => actualizarPersona(i, { pesoKg })}
               className="mt-2 w-32 rounded-full border border-beige-400 bg-beige-100 px-4 py-2 text-sm text-verde-950"
             />
 
