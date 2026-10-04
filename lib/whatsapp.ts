@@ -1,6 +1,9 @@
-// Enlace corto de WhatsApp Business de Veragua.
-// Si en el futuro se prefiere usar un número directo, cambiar a `https://wa.me/57XXXXXXXXXX`.
-const WHATSAPP_BASE_URL = "https://wa.me/message/PJTGOIKISFOYM1";
+// El enlace corto de WhatsApp Business (wa.me/message/<id>) no soporta un
+// mensaje personalizado por URL de forma confiable — el "?text=" que le
+// agregábamos no siempre llegaba, lo que dejaba a clientes sin poder enviar
+// los detalles de su pedido/plan. El formato directo con el número sí
+// soporta "?text=" de forma estándar.
+const WHATSAPP_BASE_URL = "https://wa.me/573124809415";
 
 type Locale = "es" | "en";
 

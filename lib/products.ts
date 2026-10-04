@@ -94,7 +94,7 @@ export const products: Product[] = [
     imagen: "/images/productos/huevos.svg",
     comprableEnLinea: false,
     variantes: [
-      { id: "marrones-x30", nombre: "Marrones x 30", precioCOP: 27000, unidad: "cubeta x 30 unidades" },
+      { id: "marrones-x30", nombre: "Marrones x 30", precioCOP: 25000, unidad: "cubeta x 30 unidades" },
       { id: "marrones-x15", nombre: "Marrones x 15", precioCOP: 14000, unidad: "cubeta x 15 unidades" },
       { id: "azules-x30", nombre: "Azules x 30", precioCOP: 29000, unidad: "cubeta x 30 unidades" },
       { id: "azules-x15", nombre: "Azules x 15", precioCOP: 15000, unidad: "cubeta x 15 unidades" },

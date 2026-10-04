@@ -30,14 +30,14 @@ export const subscriptionPlans: SubscriptionPlan[] = [
   {
     slug: "plan-huevos",
     entregasPorMes: 4,
-    componentes: [{ key: "huevos", cantidadPorMes: 8, precioUnitarioCOP: 27000 }],
+    componentes: [{ key: "huevos", cantidadPorMes: 8, precioUnitarioCOP: 25000 }],
   },
   {
     slug: "plan-huevos-lacteos-sorpresa",
     entregasPorMes: 4,
     destacado: true,
     componentes: [
-      { key: "huevos", cantidadPorMes: 8, precioUnitarioCOP: 27000 },
+      { key: "huevos", cantidadPorMes: 8, precioUnitarioCOP: 25000 },
       { key: "leche", cantidadPorMes: 1, precioUnitarioCOP: 15000 },
       { key: "yogur", cantidadPorMes: 1, precioUnitarioCOP: 31000 },
       { key: "queso", cantidadPorMes: 1, precioUnitarioCOP: 17000 },
@@ -49,7 +49,7 @@ export const subscriptionPlans: SubscriptionPlan[] = [
     entregasPorMes: 4,
     componentes: [
       { key: "cafe", cantidadPorMes: 2, precioUnitarioCOP: 38000 },
-      { key: "huevos", cantidadPorMes: 8, precioUnitarioCOP: 27000 },
+      { key: "huevos", cantidadPorMes: 8, precioUnitarioCOP: 25000 },
       { key: "lacteo", cantidadPorMes: 4, precioUnitarioCOP: 21000 },
       { key: "arepas", cantidadPorMes: 4, precioUnitarioCOP: 6000 },
     ],

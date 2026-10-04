@@ -3,6 +3,5 @@
 // donde se usan cada uno).
 export const socialLinks = {
   instagram: "https://www.instagram.com/veragua_col/",
-  // Pendiente: agregar enlace de TikTok cuando esté disponible.
-  tiktok: "",
+  tiktok: "https://www.tiktok.com/@veragua_col",
 };
