@@ -403,7 +403,7 @@
     "hero": {
       "kicker": "Plan Personalizado",
       "titulo": "Tu suscripción, calculada a tu medida.",
-      "texto": "Responde unas preguntas sobre tu hogar y armamos un plan con las cantidades justas que necesitas, con el mismo 5% de descuento y sin tarjeta guardada."
+      "texto": "Responde unas preguntas sobre tu hogar y armamos un plan con las cantidades justas que necesitas, con el mismo 10% de descuento y sin tarjeta guardada."
     },
     "restaurado": "Recuperamos tu última configuración.",
     "reiniciar": "Empezar de nuevo",
@@ -507,7 +507,7 @@
     "personalizadoCta": {
       "kicker": "¿Ninguno se ajusta del todo?",
       "titulo": "Arma tu Plan Personalizado.",
-      "texto": "Responde unas preguntas sobre tu hogar y calculamos las cantidades exactas que necesitas, con el mismo 5% de descuento. Entregas en Armenia y Pereira.",
+      "texto": "Responde unas preguntas sobre tu hogar y calculamos las cantidades exactas que necesitas, con el mismo 10% de descuento. Entregas en Armenia y Pereira.",
       "cta": "Armar mi plan"
     },
     "masElegido": "Más elegido",

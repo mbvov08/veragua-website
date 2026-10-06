@@ -403,7 +403,7 @@
     "hero": {
       "kicker": "Custom Plan",
       "titulo": "Your subscription, calculated just for you.",
-      "texto": "Answer a few questions about your household and we'll put together a plan with the exact quantities you need, with the same 5% discount and no card on file."
+      "texto": "Answer a few questions about your household and we'll put together a plan with the exact quantities you need, with the same 10% discount and no card on file."
     },
     "restaurado": "We restored your last configuration.",
     "reiniciar": "Start over",
@@ -507,7 +507,7 @@
     "personalizadoCta": {
       "kicker": "None quite fit?",
       "titulo": "Build your Custom Plan.",
-      "texto": "Answer a few questions about your household and we'll calculate the exact quantities you need, with the same 5% discount. Deliveries in Armenia and Pereira.",
+      "texto": "Answer a few questions about your household and we'll calculate the exact quantities you need, with the same 10% discount. Deliveries in Armenia and Pereira.",
       "cta": "Build my plan"
     },
     "masElegido": "Most chosen",

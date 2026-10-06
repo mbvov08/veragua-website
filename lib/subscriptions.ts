@@ -24,7 +24,7 @@ export type SubscriptionPlan = {
   destacado?: boolean;
 };
 
-export const DESCUENTO_SUSCRIPCION = 0.05;
+export const DESCUENTO_SUSCRIPCION = 0.1;
 
 export const subscriptionPlans: SubscriptionPlan[] = [
   {
