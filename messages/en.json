@@ -410,6 +410,8 @@
     "atras": "Back",
     "siguiente": "Next",
     "paso": "Step {actual} of {total}",
+    "restarCantidad": "Decrease quantity",
+    "sumarCantidad": "Increase quantity",
     "personas": {
       "kicker": "Your household",
       "titulo": "How many people in your household eat eggs?",

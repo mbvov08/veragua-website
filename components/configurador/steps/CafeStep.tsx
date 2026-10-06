@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { StepShell } from "@/components/configurador/StepShell";
 import { ChoiceGroup } from "@/components/configurador/ChoiceGroup";
-import { NumberField } from "@/components/configurador/NumberField";
+import { QuantityStepper } from "@/components/configurador/QuantityStepper";
 import { librasCafePorMes } from "@/lib/configurador/calculoCafe";
 
 type CafeStepProps = {
@@ -15,6 +15,7 @@ type CafeStepProps = {
 
 export function CafeStep({ incluyeCafe, tazasPorDia, onChangeIncluye, onChangeTazas }: CafeStepProps) {
   const t = useTranslations("configurador.cafe");
+  const tGeneral = useTranslations("configurador");
 
   return (
     <StepShell kicker={t("kicker")} titulo={t("titulo")} subtitulo={t("subtitulo")}>
@@ -29,15 +30,14 @@ export function CafeStep({ incluyeCafe, tazasPorDia, onChangeIncluye, onChangeTa
 
       {incluyeCafe && (
         <div className="mt-6 rounded-3xl border border-beige-400 bg-beige-100 p-6">
-          <label className="block text-xs font-medium uppercase tracking-wide text-verde-700">
-            {t("tazasPorDia")}
-          </label>
-          <NumberField
+          <QuantityStepper
+            label={t("tazasPorDia")}
             value={tazasPorDia}
             min={1}
             max={10}
             onChange={onChangeTazas}
-            className="mt-2 w-24 rounded-full border border-beige-400 bg-beige-100 px-4 py-2 text-sm text-verde-950"
+            restarLabel={tGeneral("restarCantidad")}
+            sumarLabel={tGeneral("sumarCantidad")}
           />
           <p className="mt-2 text-xs text-verde-700">
             {t("librasAlMes", { libras: librasCafePorMes(tazasPorDia).toFixed(1) })}

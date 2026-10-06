@@ -410,6 +410,8 @@
     "atras": "Atrás",
     "siguiente": "Siguiente",
     "paso": "Paso {actual} de {total}",
+    "restarCantidad": "Restar cantidad",
+    "sumarCantidad": "Sumar cantidad",
     "personas": {
       "kicker": "Tu hogar",
       "titulo": "¿Cuántas personas en tu hogar comen huevo?",

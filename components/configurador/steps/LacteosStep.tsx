@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { StepShell } from "@/components/configurador/StepShell";
 import { ChoiceGroup } from "@/components/configurador/ChoiceGroup";
-import { NumberField } from "@/components/configurador/NumberField";
+import { QuantityStepper } from "@/components/configurador/QuantityStepper";
 import type { LacteoSeleccionado, TipoLacteo } from "@/lib/configurador/types";
 
 type LacteosStepProps = {
@@ -26,6 +26,7 @@ export function LacteosStep({
   onChangeLacteos,
 }: LacteosStepProps) {
   const t = useTranslations("configurador.lacteos");
+  const tGeneral = useTranslations("configurador");
 
   function seleccionado(tipo: TipoLacteo) {
     return lacteos.find((l) => l.tipo === tipo);
@@ -86,16 +87,15 @@ export function LacteosStep({
                 </div>
 
                 {activo && (
-                  <div className="mt-4 flex items-center gap-3">
-                    <label className="text-xs font-medium uppercase tracking-wide text-verde-700">
-                      {t("cantidadPorSemana")}
-                    </label>
-                    <NumberField
+                  <div className="mt-4">
+                    <QuantityStepper
+                      label={t("cantidadPorSemana")}
                       value={activo.cantidadPorSemana}
                       min={1}
                       max={20}
                       onChange={(cantidad) => actualizarCantidad(tipo, cantidad)}
-                      className="w-20 rounded-full border border-beige-400 bg-beige-100 px-4 py-2 text-sm text-verde-950"
+                      restarLabel={tGeneral("restarCantidad")}
+                      sumarLabel={tGeneral("sumarCantidad")}
                     />
                   </div>
                 )}

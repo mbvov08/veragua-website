@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { StepShell } from "@/components/configurador/StepShell";
 import { ChoiceGroup } from "@/components/configurador/ChoiceGroup";
-import { NumberField } from "@/components/configurador/NumberField";
+import { QuantityStepper } from "@/components/configurador/QuantityStepper";
 
 type ArepasStepProps = {
   incluyeArepas: boolean;
@@ -25,6 +25,7 @@ export function ArepasStep({
   onChangePaquetes,
 }: ArepasStepProps) {
   const t = useTranslations("configurador.arepas");
+  const tGeneral = useTranslations("configurador");
   const sugerido = sugerenciaPaquetesArepas(numeroPersonas);
 
   return (
@@ -40,15 +41,14 @@ export function ArepasStep({
 
       {incluyeArepas && (
         <div className="mt-6 rounded-3xl border border-beige-400 bg-beige-100 p-6">
-          <label className="block text-xs font-medium uppercase tracking-wide text-verde-700">
-            {t("paquetesPorSemana")}
-          </label>
-          <NumberField
+          <QuantityStepper
+            label={t("paquetesPorSemana")}
             value={paquetesPorSemana}
             min={1}
             max={10}
             onChange={onChangePaquetes}
-            className="mt-2 w-24 rounded-full border border-beige-400 bg-beige-100 px-4 py-2 text-sm text-verde-950"
+            restarLabel={tGeneral("restarCantidad")}
+            sumarLabel={tGeneral("sumarCantidad")}
           />
           <p className="mt-2 text-xs text-verde-700">
             {t("sugerencia", {
