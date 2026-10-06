@@ -489,7 +489,7 @@
       "titulo": "Your Custom Plan",
       "subtitulo": "Here's what we calculated for your household.",
       "porMes": "/mo",
-      "ahorras": "You save {ahorro} ({porcentaje}% off) every month",
+      "ahorras": "You save {ahorro} every month",
       "ciudadEntrega": "Delivery city: {ciudad}",
       "diaEntrega": "Delivery day: {dia}",
       "confirmarPagar": "Confirm and pay for the first month on WhatsApp",

@@ -489,7 +489,7 @@
       "titulo": "Tu Plan Personalizado",
       "subtitulo": "Esto es lo que calculamos para tu hogar.",
       "porMes": "/mes",
-      "ahorras": "Ahorras {ahorro} ({porcentaje}% de descuento) cada mes",
+      "ahorras": "Ahorras {ahorro} cada mes",
       "ciudadEntrega": "Ciudad de entrega: {ciudad}",
       "diaEntrega": "Día de entrega: {dia}",
       "confirmarPagar": "Confirmar y pagar el primer mes por WhatsApp",
