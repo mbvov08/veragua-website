@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import type { SubscriptionPlan } from "@/lib/subscriptions";
-import { calcularPlan } from "@/lib/subscriptions";
-import { formatCOP } from "@/lib/exchangeRate";
 import { buildSubscriptionOrderLink } from "@/lib/whatsapp";
 
 export function PlanCard({ plan }: { plan: SubscriptionPlan }) {
@@ -12,8 +10,6 @@ export function PlanCard({ plan }: { plan: SubscriptionPlan }) {
   const locale = useLocale() as "es" | "en";
   const dias = t.raw("dias") as string[];
   const [dia, setDia] = useState<string>(dias[5]);
-  const { precioIndividualCOP, precioConDescuentoCOP, ahorroCOP, descuentoPorcentaje } =
-    calcularPlan(plan);
 
   const nombre = t(`planes.${plan.slug}.nombre`);
 
@@ -55,17 +51,7 @@ export function PlanCard({ plan }: { plan: SubscriptionPlan }) {
         ))}
       </ul>
 
-      <div className={`mt-8 border-t pt-6 ${plan.destacado ? "border-beige-300/30" : "border-beige-400"}`}>
-        <p className={`text-sm line-through ${plan.destacado ? "text-beige-300/70" : "text-verde-700/70"}`}>
-          {formatCOP(precioIndividualCOP)}
-        </p>
-        <p className="font-heading text-2xl">{formatCOP(precioConDescuentoCOP)}</p>
-        <p className={`mt-1 text-sm font-semibold ${plan.destacado ? "text-tierra-300" : "text-tierra-600"}`}>
-          {t("ahorras", { ahorro: formatCOP(ahorroCOP), porcentaje: descuentoPorcentaje })}
-        </p>
-      </div>
-
-      <div className="mt-8">
+      <div className={`mt-8 border-t pt-8 ${plan.destacado ? "border-beige-300/30" : "border-beige-400"}`}>
         <label
           htmlFor={`dia-${plan.slug}`}
           className={`block text-xs font-medium uppercase tracking-wide ${
