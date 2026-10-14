@@ -1,5 +1,4 @@
 import { buildWhatsAppLink } from "@/lib/whatsapp";
-import { formatCOP } from "@/lib/exchangeRate";
 import { diaLabelEs, type RespuestasEncuesta } from "@/lib/configurador/types";
 import { calcularPlanPersonalizado } from "@/lib/configurador/calculoPlan";
 
@@ -7,8 +6,7 @@ import { calcularPlanPersonalizado } from "@/lib/configurador/calculoPlan";
 // calculado: como el sitio no tiene base de datos propia, esta conversación es
 // el registro que el equipo de Veragua usa para dar seguimiento y ajustar el plan.
 export function buildPlanPersonalizadoLink(respuestas: RespuestasEncuesta): string {
-  const { componentes, precioIndividualCOP, precioConDescuentoCOP, ahorroCOP, detalle } =
-    calcularPlanPersonalizado(respuestas);
+  const { componentes, detalle } = calcularPlanPersonalizado(respuestas);
 
   const lineasPersonas = respuestas.personas
     .map((p, i) => `  ${i + 1}. ${p.pesoKg} kg — ${p.actividad === "activo" ? "hace ejercicio con frecuencia" : "sedentario"}`)
@@ -28,10 +26,6 @@ Huevos calculados: ${detalle.huevosPorSemana}/semana (${detalle.cubetasPorSemana
 ${respuestas.incluyeCafe ? `Café: ${respuestas.tazasCafePorDia} tazas/día (≈ ${detalle.librasCafePorMes.toFixed(1)} libras/mes)\n` : ""}
 Mi plan:
 ${lineasProductos}
-
-Precio sin descuento: ${formatCOP(precioIndividualCOP)}
-Precio con 5% de descuento: ${formatCOP(precioConDescuentoCOP)}
-Ahorro: ${formatCOP(ahorroCOP)}
 
 Ciudad de entrega: ${respuestas.ciudadEntrega}
 Día de entrega preferido: ${diaLabelEs[respuestas.diaEntrega]}
